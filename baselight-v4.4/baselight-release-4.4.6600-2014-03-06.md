@@ -1,0 +1,56 @@
+# Baselight Release 4.4.6600 (2014-03-06)
+
+
+
+## New Features Since Baselight 4.4.6570
+
+* Added the "ACES RRT 0.7" display rendering transform \[bug 26841]
+* ARRIRAW files now support crop rectangles, this is useful for ALEXA Open Gate files \[bug 26738]
+* The 'transfer characteristic' is read from DPX metadata and used where appropriate to set ADX Log as the 'From Metadata' colour space in the sequence operator \[bug 26816]
+* Added the parameter operators for DNG, Indiecam, Sony RAW, CineForm and RAW to the Insert menu, and to the optional operators for all layers \[bug 26900]
+* Added support for reading Fuji RAF file format. The decode of these files is currently very slow \[bug 25733]
+* ARRIRAW decode now gives a smoother histogram in the shadows instead of a sharp cut-off for the sub-blacks, which is a closer match to the ARRI render. The old decode is preserved for existing scenes \[bug 26641]
+* Added the Baselight 4.4 User Guide and Reference Manuals.
+
+## Bug Fixes Since Baselight 4.4.6570
+
+* Fix false remote root access diag warnings \[bug 25354, 27005]
+* Fix the 'autofs' diagnostic on FLOS 6.4 \[bug 26804]
+* Fixed problem with the cursor not moving when switching from a stereo scene to a mono scene while still in a stereo viewing mode \[bug 26825]
+* Fixed bug which would cause keyframe bar to incorrectly switch the 'Blending' mode when some layer operators were selected \[bug 25999]
+* Removed unwanted debugging print outs \[bug 26856]
+* Fixed the FromLinear function in the ADX Log colour space definition which had an offset error for (linear) values between 0.0013 and 0.0019 \[bug 26829]
+* Fixed metadata read from some QuickTime movies \[bug 26545]
+* Prevented a stereo stack combine when a split strip is present in either of the 2 stacks \[bug 26833]
+* Fixed loading of OFX plugins with missing dependencies, such as Twixtor \[bug 23389]
+* Fixed reporting of relink errors from Modify AAF/XML commandline renders \[bug 25437]
+* Fixed spurious "xinput-stub" debug messages on FLOS 2.1 \[bug 26875]
+* Fixed detection of RED Rocket card in FLOS 6.4 \[bug 26418]
+* Fixed render to muxed problem where only 1 eye would be rendered \[bug 26877]
+* Fixed crash when separating stereo stacks with a single operator strip \[bug 26877]
+* Fixed an issue where some RAW files would fail to decode with a message about unexpected size \[bug 14509]
+* Fixed incorrect duration shown for BLG files in Sequence Browser \[bug 26917]
+* Fixed bug which could cause Baselight to crash with an incomplete stack containing a temporal effect \[bug 26933]
+* Fixed overlapping strips problem with dragging and dropping to a protected stack \[bug 26905]
+* Fixed potential crash when popping up layer number selector \[bug 26930]
+* Optimize pfs2 access to 12-bit filled dpx images \[bug 25697]
+* Fix for quantization problems with stereo display modes \[bug 26894]
+* Fixed missing metadata information from burnins applied to masked renders \[bug 26944]
+* Fix for crash when using "Delete Keyframes" Chalk action when no current scene is open \[bug 25575]
+* Fix bug that caused conform to compare tapenames and filenames with case sensitivity \[bug 26956]
+* Fix for Undo desk button being disabled after adding an new Area Shape Track \[bug 26675]
+* Fix for crash that could occur using certain parameters when reading EXR files \[bug 26402]
+* Both links to a dual 10ge kompressor are now tested in the 'netperf' diagnostic test. Kompressors are tested from within the zone that they belong to \[bug 26908]
+* Fix bug that caused some Arri RAW files to generate a 'Truncated file' error message when read \[bug 26993]
+* Blackness level changes in Stereo Grade now obey group grading \[bug 26992]
+* Entries on "This Deliverable" and "Deliverable Set" menus are now sorted alphabetically \[bug 27001]
+* Fix a UI stall when a vtre client's hostname is slow to resolve over DNS \[bug 27034]
+* Fixed bug which could result in layer matte overlays being drawn in the wrong place if a stack contained a downstream transform \[bug 27042]
+* Corrected the "sRGB Legal" colour space which had a minor error in one direction of the transfer function (affecting the blacks in conversions to sRGB Legal) \[bug 26425]
+* Fixed Sequence Browser preview of files with backslashes in their filename \[bug 27039]
+* Phantom Cine files which have colour metadata now use the Rec.709 Linear colour space when From Metadata is selected \[bug 24345]
+* Fixed problem that prevent bl-benchmark from running on Baselight ONE hardware running FLOS 6.4 \[bug 26922]
+* Added support for Quadro K600 UI cards \[bug 26406]
+* Fixed a problem that would cause conform to fail when using XML based conform with events that have no filename \[bug 27060]
+* Fixed unwanted boxes being drawn at the end of Text and Burnin entries \[bug 27097]
+* Fix GPU upload speed & texture text diagnostics \[bug 26879]
