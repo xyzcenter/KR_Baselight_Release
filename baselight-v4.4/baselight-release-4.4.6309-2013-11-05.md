@@ -1,0 +1,70 @@
+# Baselight Release 4.4.6309 (2013-11-05)
+
+
+
+## New Features Since Baselight 4.4.6262
+
+* Added Swap For Blank button to reference strip \[bug 25481]
+* Added Do Not Read Cache option to Render View, and restored the -nocacheread option to the bl-render command line \[bug 25422]
+* Added support for a length number with % substitutions in Shots View when editing Tape, Clip or Name fields. For example %8W gives the first 8 characters of the input filename template, and %6N the first 5 characters of the tape name \[bug 21263]
+* Added Cache All Cursors command (on Cursors menu). This waits until every cursor is fully cached, and can be used to prepare a number of scenes for playback.
+* Added Clamp Negative Values option to Image Transform Settings operator (and correspondingly to Scene Settings and Setups). This option can be used to correct artefacts caused when transforming images containing negative pixel values \[bug 25897]
+* Sequence Browser now allows viewing the alpha channel of ProRes 4444 movies \[bug 25494]
+* The Scene Settings Input Colour Space option now allows selection of "No Conversion" to better support old-style workflows \[bug 25326]
+* The Scene Settings Input Colour Space: Automatic/From Metadata (where applicable) option now sets sequences to Input Colour Space: No Conversion when the colour space cannot be determined automatically, and the default colour space of the sequence's Input Format is a historic (Baselight 4.3) colour space \[bug 25838]
+* Additional DRT .fltransform files and their cubes should now be located in /usr/fl/etc/colourspaces \[bug 24355]
+* Added diagnostic for Slate desks to check if high speed USB 2 connection is available \[bug 25850]
+* Added Delete All Keyframes action to Chalk for use on Blackboard 2 desks \[bug 25747]
+* Added Fixup Tape command to Shots View, to update the Tape metadata for selected shots \[bug 22966]
+* Multi-Paste of Layer 0 now pastes the Orientation (flip/flop) into Sequences \[bug 25892]
+* ARRIRAW Parameters is now available on the Insert menu and can be added as an operator to layers.
+* Render To Cache (or bl-render -tocache) and Prepare for Review now both perform the same operation as background caching in Baselight: they quickly check the cached files, and cache every explicitly- cached strip plus the bottom of the stack. In order to do this correctly you must now specify whether the cache is for a progressive or interlaced display \[bug 25849]
+* Waveforms now have an "Auto" Legal Overlay option, that sets the overlay to full or legal depending on the viewing colour space \[bug 25476]
+
+## Bug Fixes Since Baselight 4.4.6262
+
+* DPM tests hang on a deskside ONE \[bug 25780]
+* Fixed Reset button on Blackboard on operators including Soften \[bug 25744]
+* Added support for Generation V Baselight ONE systems configured with both SSD and HDD RAIDs \[bug 25740]
+* Optimize pfs2 access to 12-bit filled DPX images \[bug 25697]
+* Fixed over-sharp ARRIRAW images at proxy and thumbnail resolutions \[bug 25795]
+* Improved error messages when DRT cube files are missing \[bug 24355]
+* Fixed bug which would produce a black and white image when bypassing an input strip containing an ARRIRAW sequence \[bug 25794]
+* The Resolution Filter in flux is no longer persistent; it is now turned off each time flux starts \[bug 14710]
+* Fixed expansion of many substitutions such as %{ISODate} in render directory/filename templates \[RT 42971]
+* Cached images from explicitly-cached strips are now read when rendering to all deliverable types, including movies and 16-bit image sequences \[bug 25422]
+* Deliverable presets cannot now be deleted by mistake \[RT 42977]
+* Fixed "Unknown hardware" splash screen message on some Generation II systems \[bug 25829]
+* Fixed full-range video warning messages for ProRes rendering.
+* Fixed bug where HueShift rear screens on Blackboard desks would still be displayed after selection moved to another strip \[bug 25790]
+* Added support for Soften and Add Grain strips to Slate desks \[bugs 25767, 25803]
+* Fixed unpredictable behaviour of decimal places on Blackboard 2 and Slate readout screens when switching between tabs on Videograde and Filmgrade \[bug 25805]
+* Increased sensitivity of Slate trackball rings \[bug 25804]
+* Prepare for Review now takes account of the disk space required for caching explicitly-cached strips.
+* Speed of Blackboard 2 ONE USB connection is now reported accurately during diagnostics if it is insufficient to handle bandwidth required \[bug 21575]
+* Fixed Strip Name counter \[bug 25854]
+* Prevent console output log from filling with repeated warning lines \[bug 25388]
+* Fixed occasional hang during rendering \[bug 25878]
+* Fixed bug that could cause a crash when encoding high resolution ProRes QuickTime movies on Linux \[bug 25825]
+* EDL Import now uses the Scene Setting for Default Input Colour Space \[bug 25881]
+* Film Grade's numeric keypad and Blackboard bumps now work on key down rather than key up \[bug 25407]
+* Fixed crash in sequences when using %W \[bug 25879]
+* Fixed Grouped Grading of several decode parameters operators including ARRIRAW Parameters and Sony RAW Parameters \[bug 25891]
+* Fixed hang when exiting with a MCS Spectrum panel enabled in prefs \[bug 25861]
+* Fixed crash in large gallery view \[bug 25894]
+* Addressed histogram errors when image frame is empty. Reduced differences between different histogram resolutions. Histogram resolution options now match those in the scope views (Stopped, Playing, Grading) \[bug 25246]
+* Movie codec is no longer reset when changing from Movies Video Only to Movies Video+Audio \[bug 25902]
+* Corrected issue in header of rendered 16-bit RGB DPX files to prevent rejection by ARRILASER 2 \[bug 25901]
+* Fixed error reporting from bl-render commandline \[bug 25906]
+* Addressed issue with red/blue noise in very dark/underexposed high-speed Phantom material \[bug 22110]
+* Fixed output of frames where there are no strips to use the black level of the viewing colour space \[bug 25927]
+* Preserved red "illegal" overlay when coloured mode is disabled in Luma/RGB/YCbCr scopes \[bug 25915]
+* Strip caching is now taken into account to speed up the Area Tracker \[bug 22637]
+* Fixed issue which was slowing down the area tracker when the material format and the scene format were different \[bug 25916]
+* Fixed an issue which caused 444 Cineform QuickTime movies to decode incorrectly on Mac \[bug 25875]
+* Fixed occasional hang in RED Rocket reading \[bug 25943]
+* Fixed crash selecting the matte tool with a slate that's disconnected \[bug 22844]
+* Fixed some slightly inaccurate colour values of the SMPTE charts supplied by the Bars operator. Note that since the chart is generated to 10-bit accuracy, the +I, -I and +Q patches are (still) not represented exactly \[bug 25495]
+* Fixed the position of the white-point histogram marker with the "Rec. 709 Video Legal" colour space \[bug 25929]
+* Fixed an issue that could cause failure when reading some OpenEXR files, with messages about truncated files or internal inconsistencies \[bug 25111]
+* Fixed performance issues while prerendering and rendering large scenes, due to database issues \[bug 25968]
