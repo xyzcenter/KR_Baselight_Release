@@ -1,91 +1,82 @@
-# 베이스라이트  5.3+
+# 베이스라이트 5.3+
 
 ## 중요 사항 Important Notes
 
 베이스라이트 5.3은 아래의 더이상 예전의 하드웨어와 OS 플랫폼을 지원하지 않습니다. :
 
-* 베이스라이트 4/ 8 시스템&#x20;
-* 해당 기능을 수행하는 DVI-to-SDI 컨버터 또는 컴바이너&#x20;
-* RME Hammerfall 오디오 카드&#x20;
-* 베이스라이트의  테이프 데크 컨트롤  (독립적인 VTRE 어플리케이션은 사용가능)
+* 베이스라이트 4/ 8 시스템
+* 해당 기능을 수행하는 DVI-to-SDI 컨버터 또는 컴바이너
+* RME Hammerfall 오디오 카드
+* 베이스라이트의 테이프 데크 컨트롤 (독립적인 VTRE 어플리케이션은 사용가능)
 * Spirit 텔레시네 컨트롤
 * Nvidia 쿼드로 450 GPU (유저디스플레이용 카드)
-* &#x20;MacOS 10.12&#x20;
+* MacOS 10.12
 
-베이스라이트 5.2는 DVI-to-SDI 컨버터나 컴바이너를 사용할 수 있는 마지막 버전입니다. 베이스라이트 5.3 버전 5세대 시스템은 AJA kona4 하드웨어가 포함된 베이스라이트 UHD옵션으로 업그레이드를 하거나 GPU DVI  출력을 사용해야 합니다. 이전세대 시스템의 경우 GPU  DVI만 사용할 수 있습니다.&#x20;
+베이스라이트 5.2는 DVI-to-SDI 컨버터나 컴바이너를 사용할 수 있는 마지막 버전입니다. 베이스라이트 5.3 버전 5세대 시스템은 AJA kona4 하드웨어가 포함된 베이스라이트 UHD옵션으로 업그레이드를 하거나 GPU DVI 출력을 사용해야 합니다. 이전세대 시스템의 경우 GPU DVI만 사용할 수 있습니다.
 
 NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 받으세요.
 
 ## 최신 기능 (Baselight 5.2.13415이후)
 
-### 컨펌 개선 Conform Improvements   &#x20;
+### 컨펌 개선 Conform Improvements
 
 * The EDL Import View has been renamed Conform View to better reflect its function.\
-  EDL Import View(이디엘 임포트 뷰)는 기능을 더 잘 반영하기 위해 Conform View(컨펌 뷰)로 이름을 변경되었습니다.\
-
+  EDL Import View(이디엘 임포트 뷰)는 기능을 더 잘 반영하기 위해 Conform View(컨펌 뷰)로 이름을 변경되었습니다.\\
 * In the Conform View, it is now possible conform media against existing strips in the timeline, rather than always creating new strips representing a newly loaded EDL/AAF/XML file. This is useful in a number of situations:\
-  Conform View에서는 새롭게 불러와진 EDL/ AAF/ XML 파일의 새로운 스트립을 타임라인의 기존의 스트립트 미디어와 쉽게 구별하여 컨펌 작업을 할 수 있습니다. 아래와 같은 여러 상황에서 유용합니다.\
-
-  * Complex conforms: These are often achieved by doing a 2 or more separate conforms, with the conform settings changed each time. This can now be done as follows: \
+  Conform View에서는 새롭게 불러와진 EDL/ AAF/ XML 파일의 새로운 스트립을 타임라인의 기존의 스트립트 미디어와 쉽게 구별하여 컨펌 작업을 할 수 있습니다. 아래와 같은 여러 상황에서 유용합니다.\\
+  * Complex conforms: These are often achieved by doing a 2 or more separate conforms, with the conform settings changed each time. This can now be done as follows:\
     복잡한 컨펌 : 종종 2개 이상의 다른 컨펌작업을 각각의 컨펌설정을 변경하여 작업할 수 있습니다. 이제 아래와 같이 할 수 있습니다.\
     \
-    1\. The operator does the first conform from an EDL/AAF/XML etc. \
-    작업자는 EDL/AAF/XML 파일을 가지고 첫번째 컨펌 작업을 합니다. \
-    2\. Then, in the Shots View, they choose "Select Missing Material", which will result in shots which weren't successfully conformed being selected. \
-    그런 다음 Shot view에서 "Select Missing Material"을 선택하면 컨펌되지 않은 샷들만 선택됩니다. \
-    3\. In the Conform View, "Conform Selected Shots" is selected, which constructs an in-memory list from the metadata of the select shots. \
-    Conform View에서 "Conform Selected Shots"가 선택됩니다. 선택된 샷의 메타데이터로 부터 기억되어진 리스트로 구성되어졌습니다. \
-    4\. The operator conforms as normal, using different conform settings to the first conform, thus filling in more shots. \
-    작업자는 첫번째 컨펌과 다른 컨펌 설정을 사용하여 정상적으로 컨펌작업을 통하여 더 많은 샷들을 불러옵니다. \
+    1\. The operator does the first conform from an EDL/AAF/XML etc.\
+    작업자는 EDL/AAF/XML 파일을 가지고 첫번째 컨펌 작업을 합니다.\
+    2\. Then, in the Shots View, they choose "Select Missing Material", which will result in shots which weren't successfully conformed being selected.\
+    그런 다음 Shot view에서 "Select Missing Material"을 선택하면 컨펌되지 않은 샷들만 선택됩니다.\
+    3\. In the Conform View, "Conform Selected Shots" is selected, which constructs an in-memory list from the metadata of the select shots.\
+    Conform View에서 "Conform Selected Shots"가 선택됩니다. 선택된 샷의 메타데이터로 부터 기억되어진 리스트로 구성되어졌습니다.\
+    4\. The operator conforms as normal, using different conform settings to the first conform, thus filling in more shots.\
+    작업자는 첫번째 컨펌과 다른 컨펌 설정을 사용하여 정상적으로 컨펌작업을 통하여 더 많은 샷들을 불러옵니다.\
     5\. Repeat steps 2-4 as often as necessary.\
-    &#x20;   필요시 2\~4 단계를 반복합니다.\
-
+    필요시 2\~4 단계를 반복합니다.\\
   * Dropping in VFX shots: If Sequence Versioning can't be used because there is no consistent file naming pattern, it is much easier to drop in VFX shots by conforming a small number of existing shots in timeline than manually browsing for media.\
-    만일 일관된 파일 이름 지정 패턴일 없어서 시퀀스 버저닝을 할 수 없을 경우, 수동으로 검색하여 불러오는 것보다 타임라인의 기존 샷의 일부를 컨펌하여 VFX 샷을 넣는게 더욱 쉽습니다.\
-
+    만일 일관된 파일 이름 지정 패턴일 없어서 시퀀스 버저닝을 할 수 없을 경우, 수동으로 검색하여 불러오는 것보다 타임라인의 기존 샷의 일부를 컨펌하여 VFX 샷을 넣는게 더욱 쉽습니다.\\
   * Relinking media: If the media for some or all shots has been moved to a new location and it isn't possible to simply change the scene's container, shots can be re-linked by conforming the problem shots by matching against filename and frame number \[bug 18747]\
-    Relinking Media(미디어 다시연결) : 일부 또는 모든 샷의 미디어가 새로운 위치로 이동되어 단순히 씬 컨테이너를 변경할 수 없는 경우 파일이름 및 프레임넘버를 일치하여 문제의 샷을 일치시켜 샷을 다시 연결할 수 있습니다.\
-
+    Relinking Media(미디어 다시연결) : 일부 또는 모든 샷의 미디어가 새로운 위치로 이동되어 단순히 씬 컨테이너를 변경할 수 없는 경우 파일이름 및 프레임넘버를 일치하여 문제의 샷을 일치시켜 샷을 다시 연결할 수 있습니다.\\
 * For convenience, it's also possible to initiate a conform of selected shots from the cog menu of the Shots View. If "Conform Selected Shots" is selected, the Conform View will be popped up, if it isn't already present.\
-  편의를 위해서, Shots View의 톱니바퀴 메뉴에서 선택한 샷의 컨펌도 가능하게 했습니다. "Conform Selected Shots"을 선택하면, Conform View 창이 나오게 됩니다.&#x20;
+  편의를 위해서, Shots View의 톱니바퀴 메뉴에서 선택한 샷의 컨펌도 가능하게 했습니다. "Conform Selected Shots"을 선택하면, Conform View 창이 나오게 됩니다.
 
-### 개선된 룩스 오퍼레이터 Improved Looks Operator&#x20;
+### 개선된 룩스 오퍼레이터 Improved Looks Operator
 
-*   The 'Scene Looks' group has been replaced two new look groups: \
-    &#x20; ‘씬 룩스’ 그룹이 2개의 새로운 룩 그룹으로 대체되었습니다.&#x20;
+*   The 'Scene Looks' group has been replaced two new look groups:\
+    ‘씬 룩스’ 그룹이 2개의 새로운 룩 그룹으로 대체되었습니다.
 
-    * Core Looks 코어 룩스&#x20;
-    * Modifier Looks 수정 룩스 \
-
+    * Core Looks 코어 룩스
+    * Modifier Looks 수정 룩스 \\
 
     These groups contain improved versions of the looks previously found in 'Scene Looks', as well as some new looks. These looks are ideal for modern, scene referred and HDR workflows.\
-    이 그룹에는 새로운 룩 뿐만 아니라, '씬 룩스'에 이전에 있던 룩의 개선된 버전이 포함되어 있습니다. 이 룩스들은 최신, 씬 참조, HDR 워크플로우에 이상적입니다.\
+    이 그룹에는 새로운 룩 뿐만 아니라, '씬 룩스'에 이전에 있던 룩의 개선된 버전이 포함되어 있습니다. 이 룩스들은 최신, 씬 참조, HDR 워크플로우에 이상적입니다.\\
+* The category "Scene Looks" has been divided into two categories:\
+  Scene Looks(씬룩스) 카테코리는 2개의 카테고리로 나누어집니다.
+  * Core Looks 코어 룩스
+  * Modifier Looks 수정 룩스\
 
-* The category "Scene Looks" has been divided into two categories: \
-  Scene Looks(씬룩스) 카테코리는 2개의 카테고리로 나누어집니다.&#x20;
-  * Core Looks 코어 룩스&#x20;
-  * Modifier Looks 수정 룩스 \
-    &#x20;
-*   Core Looks contain signature looks which mimic a distinct vintage or modern colour process. \
-    코어룩스는 독특한 빈티지나 최신 컬러프로세싱을 모방한 시그니쳐 룩이 포함되어 있습니다.\
+*   Core Looks contain signature looks which mimic a distinct vintage or modern colour process.\
+    코어룩스는 독특한 빈티지나 최신 컬러프로세싱을 모방한 시그니쳐 룩이 포함되어 있습니다.\\
 
-
-    Core Looks starting with C-1\* are based on empirical data: \
+    Core Looks starting with C-1\* are based on empirical data:\
     C-100시리즈로 시작되는 코어룩스는 경험적인 데이터를 기반으로 합니다.
 
     * C-101 Generic: a very generalised film process 매우 일반적 필름 프로세싱
     * C-102 Japanese: a film process produced in Japan 후지스타일
     * C-103 Earthy: an American print film process applied to digital images 어메리칸 프린트 룩
     * C-104 Bipack: two-strip process from \~1920-1950 20세기 초의 2스트립 프로세싱
-    * C-105 Vision: spectral simulation of an American film camera printed onto an American positive&#x20;
+    * C-105 Vision: spectral simulation of an American film camera printed onto an American positive
 
-    Core Looks starting with C-2\* are based on analytical models: \
+    Core Looks starting with C-2\* are based on analytical models:\
     C-200시리지는 분석적인 모델을 기반으로 합니다.
 
     * C-201 Light: a very subtle look 매우 미묘한 변화된 모습
     * C-202 Vivid: adds intense colour to surface colours without making them artificial 인위적이지 왜관에 강렬한 색상 추가
-    * C-203 Complement: a split-tone process which makes the shadows bluish/cyan and the highlights yellow/orange 블루/청록계열의 암부와 옐로우/오렌지의 하이라이트로 나누어진 톤\
-
+    * C-203 Complement: a split-tone process which makes the shadows bluish/cyan and the highlights yellow/orange 블루/청록계열의 암부와 옐로우/오렌지의 하이라이트로 나누어진 톤\\
 
     Core Looks starting with C-3\* mimic other existing modern colour workflows. The match is produced for a 100 nits dim surround viewing condition:\
     C300시리즈로 시작되는 코어룩스는 다른 기존의 최신 컬러 워크플로우의 모방했습니다. 100nit 시청환경과 일치되는 결과 입니다.
@@ -95,24 +86,21 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
     * C-303 Academy-2010: matches the ACES 0.1.1 DRT
     * C-304 Academy-2019: matches the ACES 1.1 DRT
     * C-305 RED-2019: matches the RED IPP2 DRT
-    * C-306 Sony-2019: matches the Sony Venice S709 process\
-
+    * C-306 Sony-2019: matches the Sony Venice S709 process\\
 *   Modifier Looks are all sorts of additional looks that can be added in addition to a Core Look.\
-    수정룩스는 코어룩에 추가할 수 있는 모든 종류의 추가적인 룩스입니다.\
-
+    수정룩스는 코어룩에 추가할 수 있는 모든 종류의 추가적인 룩스입니다.\\
 
     Modifier Looks starting with M-1\* are based on empirical data:\
     M100시리즈 수정룩스는 경험적인 데이터를 기반으로 합니다.
 
-    * M-101 ENR: an Italian-style bleach bypass lab process 이탈리안 스타일의 블리치 바이 패스 현상\
-
+    * M-101 ENR: an Italian-style bleach bypass lab process 이탈리안 스타일의 블리치 바이 패스 현상\\
 
     Modifier Looks starting with M-2\* are formula-based looks to simulate colour vision deficiencies:\
     M200시리즈 수정룩스는 시각체계 결함을 시뮬레이션한 공식기반의 룩스입니다.
 
     * M-201 Colour Blind L: simulates the vision of people without red-sensitive cells in their retinas (protanopia) 적색맹 시뮬레이션
     * M-202 Colour Blind M: simulates the vision of people without green-sensitive cells in their retinas (deuteranopia) 녹색맹 시뮬레이션
-    * M-203 Colour Blind S: simulates the vision of people without blue-sensitive cells in their retinas (tritanopia) 청색맹 시뮬레이션&#x20;
+    * M-203 Colour Blind S: simulates the vision of people without blue-sensitive cells in their retinas (tritanopia) 청색맹 시뮬레이션
 
     \
     Modifier Looks starting with M-3\* are spectral simulations of light sources:\
@@ -127,17 +115,15 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
     * M-401 ACES LMT Blue Light Artifact Fix: the Academy recommendation to address out of gamut problems in ACES 1.1 colour pipelines \[bug 50800]
 
-### 렌즈 수정 Lens Correction&#x20;
+### 렌즈 수정 Lens Correction
 
 *   The Lens Correction operator can be used to both correct and apply radial lens distortion. The A, B and C parameters, found in the "Distortion Parameters" section, define the deformation applied to the image according to the distortion equation\
     \
-    Lens Correction 오퍼레이터는 방사형 렌즈 왜곡을 수정하거나 적용할 수 있습니다. Distortion Parameter(왜곡 변수) 섹션에 있는 ABC변수는 왜곡방정식에 따라 이미지의 적용되는 변형을 정의합니다.\
+    Lens Correction 오퍼레이터는 방사형 렌즈 왜곡을 수정하거나 적용할 수 있습니다. Distortion Parameter(왜곡 변수) 섹션에 있는 ABC변수는 왜곡방정식에 따라 이미지의 적용되는 변형을 정의합니다.\\
 
+    r\_d = A \* \_r\_u^4 + B \* \_r\_u^3 + C \* \_r\_u^2 + (1-A-B-C) \* \_r\_u,\\
 
-    r\_d = A \* _r\_u^4 + B \* _r\_u^3 + C \* _r\_u^2 + (1-A-B-C) \* _r\_u,\
-
-
-    where r\_u is the undistorted/original radius from the centre of the image and r\_d is the distorted radius. \
+    where r\_u is the undistorted/original radius from the centre of the image and r\_d is the distorted radius.\
     여기서 r\_u는 이미지 중심으로부터의 왜곡되지 않은 / 원래 반경이고 r\_d는 왜곡 된 반경입니다.
 
     \
@@ -147,12 +133,10 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
     2\) Presets 프리셋
 
-    3\) Open the "Distortion Parameters" section and manually adjust the sliders for Parameters A, B and C  "왜곡 매개변수” 섹션을 열고 파라미터 A, B, C의 슬라이더를 수동으로 조정합니다.\
+    3\) Open the "Distortion Parameters" section and manually adjust the sliders for Parameters A, B and C "왜곡 매개변수” 섹션을 열고 파라미터 A, B, C의 슬라이더를 수동으로 조정합니다.\\
 
-
-    There are also three important controls at the bottom of the operator that can be used with any of the above three methods: \
-    오퍼레이터 하단에는 위의 세 가지 방법 중 하나와 함께 사용할 수 있는 세 가지 중요한 컨트롤도 있습니다.\
-
+    There are also three important controls at the bottom of the operator that can be used with any of the above three methods:\
+    오퍼레이터 하단에는 위의 세 가지 방법 중 하나와 함께 사용할 수 있는 세 가지 중요한 컨트롤도 있습니다.\\
 
     *   "Remove Distortion/Add Distortion/Auto"
 
@@ -161,44 +145,33 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
         이 드롭 다운 목록은 A, B, C 매개변수로 수행 할 작업을 결정합니다.
 
-        "왜곡 제거"를 설정하면 오퍼레이터는 매개변수에 의해서 정의된 왜곡의 반대를 적용합니다.&#x20;
+        "왜곡 제거"를 설정하면 오퍼레이터는 매개변수에 의해서 정의된 왜곡의 반대를 적용합니다.
 
-        “왜곡 추가”를 설정하면 현재 매개변수의 왜곡 방정식에 따라서 이미지가 왜곡됩니다. \
-
+        “왜곡 추가”를 설정하면 현재 매개변수의 왜곡 방정식에 따라서 이미지가 왜곡됩니다. \\
 
     Since "Remove Distortion" and "Add Distortion" are inverses of each other, you can also correct an image and then reapply the distortion afterwards - this is what the "Auto" mode is for. The "Auto" mode will apply the inverse of an upstream Lens Correction strip and the option therefore becomes available once you have more than one Lens Correction strip in a stack, or via inserting "Smart Lens Correction" in the "Insert" menu.\
     \
-    “왜곡제거” 와 “왜곡 추가”는 서로의 반대이므로 이미지를 수정한 다음 나중에 왜곡을 다시 적용할 수 있습니다. - 이것이 “Auto” 모드의 용도입니다.\
+    “왜곡제거” 와 “왜곡 추가”는 서로의 반대이므로 이미지를 수정한 다음 나중에 왜곡을 다시 적용할 수 있습니다. - 이것이 “Auto” 모드의 용도입니다.\\
 
-
-    * "Show Input Image" This button displays the image with no distortion from the Lens Correction operator i.e. how it would look if the parameters A, B and C were set to zero. This can be useful to toggle between the input image and the corrected/distorted image to check the changes you have made.\
-
-    * "Distortion Amount" This slider allows you to scale the distortion parameters, where 100.0 corresponds to full distortion for the current parameters and 0.0 to no distortion. You can also scale the distortion to be greater than 100%. This can be helpful for making finer adjustments.\
-
+    * "Show Input Image" This button displays the image with no distortion from the Lens Correction operator i.e. how it would look if the parameters A, B and C were set to zero. This can be useful to toggle between the input image and the corrected/distorted image to check the changes you have made.\\
+    * "Distortion Amount" This slider allows you to scale the distortion parameters, where 100.0 corresponds to full distortion for the current parameters and 0.0 to no distortion. You can also scale the distortion to be greater than 100%. This can be helpful for making finer adjustments.\\
 
     **라인 기반의 보정 Line Based Correction**
 
-    The line based correction is based on the principle that straight lines in the scene should be straight lines in the image. You can trace over lines in the image which should be straight, but have been distorted. Upon analysing the lines, the A, B and C parameter sliders will be updated with values that correct the distortion and "Remove Distortion" will be set.\
+    The line based correction is based on the principle that straight lines in the scene should be straight lines in the image. You can trace over lines in the image which should be straight, but have been distorted. Upon analysing the lines, the A, B and C parameter sliders will be updated with values that correct the distortion and "Remove Distortion" will be set.\\
 
-
-    * Adding lines Select the "Add Lines" button to enable the Line Correction overlay. Left-click on a point in the image where you want to create a point on the line. Continue adding points to a line (there must be at least 3 points in a line). When you have finished adding the line, Right-click will finish the line and analyse all current lines to correct the image.If you just want to finish the line without analysing the lines, use Ctrl + Right-click.\
-
+    * Adding lines Select the "Add Lines" button to enable the Line Correction overlay. Left-click on a point in the image where you want to create a point on the line. Continue adding points to a line (there must be at least 3 points in a line). When you have finished adding the line, Right-click will finish the line and analyse all current lines to correct the image.If you just want to finish the line without analysing the lines, use Ctrl + Right-click.\\
     * Editing Lines 라인 편집\
-      Once a line has been finished, you can click and drag points on the line to edit it.\
-
-    * Deleting Points/Lines  포인트/ 라인 삭\
-      To delete a point on a line, hold down Shift and Left-click on the point that you wish to delete. Similarly, to delete a line, hold down Shift and Left-click on the line. If you delete a point in a line with only 3 points, the whole line will be deleted.\
-
+      Once a line has been finished, you can click and drag points on the line to edit it.\\
+    * Deleting Points/Lines 포인트/ 라인 삭\
+      To delete a point on a line, hold down Shift and Left-click on the point that you wish to delete. Similarly, to delete a line, hold down Shift and Left-click on the line. If you delete a point in a line with only 3 points, the whole line will be deleted.\\
     * Analysing Lines 라인 분\
-      The "Analyse" button will analyse the set of lines and update the parameters. If the analysis is unable to find suitable parameters for the given lens, an error message will appear. You can also analyse at any time by right-clicking on the image.\
-
-    * Tips for Line Based Correction 라인기반 수정 팁&#x20;
+      The "Analyse" button will analyse the set of lines and update the parameters. If the analysis is unable to find suitable parameters for the given lens, an error message will appear. You can also analyse at any time by right-clicking on the image.\\
+    * Tips for Line Based Correction 라인기반 수정 팁
       * Only trace over lines which you are sure are straight in the scene.
-      * Try to find lines in the image that span from close to the centre to close to the edge - these lines provide the most information for the analysis.\
+      * Try to find lines in the image that span from close to the centre to close to the edge - these lines provide the most information for the analysis.\\
 
-
-    Note that the Lens Correction overlay displays the lines in yellow when the distortion parameters (A, B, C) are all set to zero and you are drawing on the input image. When you are drawing on an image that has already been altered by the operator, the lines are displayed in blue.\
-
+    Note that the Lens Correction overlay displays the lines in yellow when the distortion parameters (A, B, C) are all set to zero and you are drawing on the input image. When you are drawing on an image that has already been altered by the operator, the lines are displayed in blue.\\
 
     **프리셋 Presets**
 
@@ -212,17 +185,14 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
 ### 입력 영역 마스킹 Input Area Masking
 
-*   Cursor View and Render View now allow the Mask to be set to "Input Area". This masks each shot to match the topmost Sequence's area, mapped to the Working Format and then to the Viewing/Render Format.\
-
+*   Cursor View and Render View now allow the Mask to be set to "Input Area". This masks each shot to match the topmost Sequence's area, mapped to the Working Format and then to the Viewing/Render Format.\\
 
     In a scene using media with a mixture of aspect ratios, a render with Input Area masking will ensure that the changing letterbox/pillarbox areas are cleanly masked.
 
-    In a Dolby Vision scene using media with a mixture of aspect ratios, and the cursor is set to Input Area masking:\
-
+    In a Dolby Vision scene using media with a mixture of aspect ratios, and the cursor is set to Input Area masking:\\
 
     * Dolby Vision Analysis is constrained to each shot's input area when "Restrict Analysis To Cursor Mask/Guide Area" is selected
-    * Dolby Vision EDR XML files are exported containing per-shot mask information, which prevents Dolby Vision from being applied to the blanking areas.\
-
+    * Dolby Vision EDR XML files are exported containing per-shot mask information, which prevents Dolby Vision from being applied to the blanking areas.\\
 
     A scene rendered with Input Area masking using a Render Format which adds letter/pillarboxing around the Working Format will cleanly mask the letter/pillarbox area without having to create and choose an appropriate mask in the Render Format.
 
@@ -230,8 +200,7 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
 ### 트래커 개선 Tracker Improvements
 
-*   The tracker has been reworked to simplify and declutter the user interface, add filtering and make planes reusable and accessible inside the tracker strip.\
-
+*   The tracker has been reworked to simplify and declutter the user interface, add filtering and make planes reusable and accessible inside the tracker strip.\\
 
     **트래커 스트립 Tracker Strip**
 
@@ -245,8 +214,7 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
     The elements not being in use, can be deleted easily the "Delete unused elements" in the customise menu.
 
-    Planes and trackers can be duplicated, for example in the case an operator needs to apply a different filtering, but use the same raw tracking data.\
-
+    Planes and trackers can be duplicated, for example in the case an operator needs to apply a different filtering, but use the same raw tracking data.\\
 
     **필터링 Filtering**
 
@@ -262,14 +230,14 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
     * Motion: filtering amount of low frequencies
     * Filtering: cut-off threshold between low and high frequencies
 
-    ****\
+    \*\*\*\*\
     **트래커 위젯 Tracker Widget**
 
     The tracker widget inside Shape, Transform, Paint, Gridwarp, Perspective and Text operators has been updated, and the filtering controls have been added as well.
 
     In the shape operator, planes can be created or linked first, before starting to draw shapes.
 
-    ****\
+    \*\*\*\*\
     **기타 Other**
 
     * The "New Seq Pick" button has been renamed to "Define Plane"
@@ -283,8 +251,7 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
 *   Added a new version of Truelight CAM DRT family, called "Truelight CAM v2". It makes the first version of Truelight CAM obsolete.
 
-    Changes since TCAM v1:\
-
+    Changes since TCAM v1:\\
 
     * better shadows details
     * shadows and pale skin tones appear more saturated
@@ -292,11 +259,9 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
     * strong saturated colours have a slightly more natural roll-off
     * highlight Bleach is less intense; highlights between SDR and HDR look more similar
     * improved shadow tracking between SDR and HDR
-    * Better tracking of viewing conditions (Dark, Dim and Bright Surround) \[bug 49479]&#x20;
-
-
+    * Better tracking of viewing conditions (Dark, Dim and Bright Surround) \[bug 49479]
 * Added shader-based ACES 1.1\* DRT family. It increases precision of the DRT especially for HDR viewing conditions \[bug 48239]
-* Changed "Rec.2020: ST 2084 PQ / Rec.2020 / _" colour spaces to "Rec.2100: ST 2084 PQ / Rec.2020/ _", to add the most relevant standards of the colour space to the naming scheme \[bug 50428]
+* Changed "Rec.2020: ST 2084 PQ / Rec.2020 / \_" colour spaces to "Rec.2100: ST 2084 PQ / Rec.2020/ \_", to add the most relevant standards of the colour space to the naming scheme \[bug 50428]
 * Rationalised film scan colour spaces. There are now two colour spaces for camera negative film scans. "FilmLight: Cineon PD Log / Generic Negative" should be used if the scanner is set up for the Cineon film standard. "FilmLight: Academy PD Log / \~ADX" should be used if the scanner is set up for the Academy ADX standard \[bug 43313]
 * Several improvements in the application of Mastering Colour Space both on input and output:
   * increased precision of chromatic adaptation transform
@@ -309,7 +274,7 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 * A new option in Scene Settings, Format & Colour tab, controls the way format transforms are applied:
   *   "Process In Viewing/Render Format" is the traditional way Baselight has worked.
 
-      The transforms from Input Format to Working Format and then from Working Format to  Viewing/Render Format are concatenated and applied as one transform at the start of processing.
+      The transforms from Input Format to Working Format and then from Working Format to Viewing/Render Format are concatenated and applied as one transform at the start of processing.
 
       This means the image is only resampled once, but that spatial operations in the grade are applied in the Viewing/Render Format and therefore may have different effects when rendered to Render Formats of differing sizes.
   *   "Process In Working Format" is a new option.
@@ -320,7 +285,7 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
       Note that if the Working Format is a smaller resolution than the Viewing/Render Format, this will reduce image quality due to upscaling; conversely if the Working Format is much higher resolution than the Viewing/Render Format, this can result in increased render times \[bug 49186]
 
-### 미디어에서의 LUT 오퍼레이퍼와 LUTs/CDLs    LUT Operator and LUTs/CDLs in Media
+### 미디어에서의 LUT 오퍼레이퍼와 LUTs/CDLs LUT Operator and LUTs/CDLs in Media
 
 *   A new LUT operator is now available to apply a cube or other look-up table either from a file on disk or from a LUT embedded in the input media.
 
@@ -330,10 +295,10 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
     Media Import Rules now identifies media that contains grade information and allows LUT and/or CDL Grade operators to automatically be inserted, with correct colour space settings. Supported media types are currently:
 
-    * RED .r3d     (sidecar LUT, CDL)
+    * RED .r3d (sidecar LUT, CDL)
     * ARRIRAW .ari (embedded LUT, CDL)
     * ARRIRAW .mxf (embedded LUT, CDL)
-    * ARRI .mov    (embedded LUT, CDL)
+    * ARRI .mov (embedded LUT, CDL)
 
     The R3D Params operator no longer offers CDL controls.
 
@@ -349,7 +314,7 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 
     In previous versions of Baselight, sequence versioning would not have been possible for these two sequences, as the date directory in both paths would have prevented the generation of a consistent template which worked for both of them.
 
-    Now, however, a %_ substitution can be placed at the position occupied by the date in both filenames, allowing them to both match a single template, thus allowing sequence versioning to work: /vol/images/my\_show/vfx/%_/shot\_001\_v%V/shot\_001\_v%V.%.7F.exr
+    Now, however, a %\_ substitution can be placed at the position occupied by the date in both filenames, allowing them to both match a single template, thus allowing sequence versioning to work: /vol/images/my\_show/vfx/%\_/shot\_001\_v%V/shot\_001\_v%V.%.7F.exr
 *   In the Scene Settings view, the "Image Container" tab has been renamed "Container & Versioning", to allow a "Sequence Versioning" section to lie on the same page. This section contains the following settings: Detect Version Numbers (e.g. v3): When inserting image sequences or movie files from FLUX Manage, whether or not to look for version numbers and replace them with %V, thus switching on sequence versioning for that shot.
 
     Detect Dates and Replace With %_: When switched on, anything which looks like a date between the 1st of January 1900 (19000101) and the 31st of December 2099 (20991231) will be replaced with %_, thus preventing the presence of dates from breaking sequence versioning. It will match dates in the following styles: 20200519 2020-05-19 2020\_05\_19 2020.05.19
@@ -365,24 +330,23 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
     the ISO8601 standard (YYYYMMDD).
     ```
 
-    Strings to be Replaced by %\*: It is not only dates that cause the filenames of different versions of the same shot to differ. In some VFX file naming conventions, special strings are added to encode information regarding the version's status. For example, "I_", "O_", "OSC\_" prefixes on a directory name could encode "input", "output" and "slap comp" respectively.\
+    Strings to be Replaced by %\*: It is not only dates that cause the filenames of different versions of the same shot to differ. In some VFX file naming conventions, special strings are added to encode information regarding the version's status. For example, "I\_", "O\_", "OSC\_" prefixes on a directory name could encode "input", "output" and "slap comp" respectively.\
     The simplest use of this setting allows the user to specify a comma-separated list of strings to detect and replace with the %\* wildcard. In the case of our example, one would enter:\
-    &#x20; I\_,O\_,OSC\_\
+    I\_,O\_,OSC\_\
     \
     ..in the edit field. This would allow the following filenames:\
-    &#x20; /vol/images/my\_show/vfx/I\_sh001\_v1/sh001\_v1.%.7F.exr\
-    &#x20; /vol/images/my\_show/vfx/OSC\_sh001\_v2/sh001\_v2.%.7F.exr\
-    &#x20; /vol/images/my\_show/vfx/O\_sh001\_v3/sh001\_v3.%.7F.exr\
+    /vol/images/my\_show/vfx/I\_sh001\_v1/sh001\_v1.%.7F.exr\
+    /vol/images/my\_show/vfx/OSC\_sh001\_v2/sh001\_v2.%.7F.exr\
+    /vol/images/my\_show/vfx/O\_sh001\_v3/sh001\_v3.%.7F.exr\
     \
     ..to be represented by a single template:\
-    &#x20; /vol/images/my\_show/vfx/%\*sh001\_v%V/sh001\_v%V.%.7F.exr\
+    /vol/images/my\_show/vfx/%\*sh001\_v%V/sh001\_v%V.%.7F.exr\
     \
     This would typically work well, but since the strings are short, it is possible that this could match unusual filenames in an unexpected way. For example:\
-    &#x20; /vol/images/my\_show/vfx/NELLI\_COMP\_v1/NELLI\_COMP\_v1.%.7F.exr\
+    /vol/images/my\_show/vfx/NELLI\_COMP\_v1/NELLI\_COMP\_v1.%.7F.exr\
     \
     ..would result in the following template:\
-    &#x20; /vol/images/my\_show/vfx/NELL%\*COMP\_v1/NELL%\*\_COMP\_v1.%.7F.exr\
-
+    /vol/images/my\_show/vfx/NELL%\*COMP\_v1/NELL%\*\_COMP\_v1.%.7F.exr\\
 
     ```
     ..which is probably not intended.
@@ -404,7 +368,7 @@ NVS450 업그레이드가 필요한 경우 베이스라이트 기술지원을 �
 * In the Conform view, when the "Sequence Versioning" is set to "Detect Versions", a new "Wildcard Substitution" drop-down menu appears to the right of of it. It contains the same %\* wildcard- related controls that appear in the Scene Settings view, allowing them to be experimented with during conform. The values within the dropdown are initialised from the scene settings and the values from chosen conform tab will be written back to the scene settings at the end of the conform.
 *   It is perfectly acceptable to manually fix sequence versioning issues by replacing problematic elements of a filename template with %\* directly in the "File Name" edit field of the Sequence operator. Once the change is committed, a new scan for versions matching the modified template will be done.
 
-    Be aware, however, that the %_ wildcard is _only\* available when a filename template also contains at least one %V substitution. If one is not present, the modification will be rejected and the filename will be reverted to its previous value.
+    Be aware, however, that the %\_ wildcard is \_only\* available when a filename template also contains at least one %V substitution. If one is not present, the modification will be rejected and the filename will be reverted to its previous value.
 
 ### 바 오퍼레이터 Bars Operator
 
