@@ -16,7 +16,8 @@ Generation V systems using DVI-to-SDI Convertors or Combiners need to either be 
 
 Please contact Baselight support to discuss upgrading from a NVS 450 if required.
 
-FilmLightOS 8 is now released and supported by Baselight. The minimum software requirement is that your system must be running Baselight 5.3.15167 or later \[bug 60310]
+FilmLightOS 8 is now released and supported by Baselight. The minimum software requirement is that your system must be running Baselight 5.3.15167 or later \[bug 60310]\
+필름라이트 운영체제 8버전이 출시되어 베이스라이트에서 사용가능합니다.&#x20;
 
 FilmLightOS 8 or later is required to use GPU JPEG 2000 acceleration with NVIDIA Ampere GPUs
 
