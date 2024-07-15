@@ -1,28 +1,28 @@
 # Baselight Release 6.0.19915 (2024-03-27)
 
-##
-
-### Important Notes
-
-Baselight 6.0 no longer supports **FilmLightOS 6**. Please contact [FilmLight Support](mailto:baselight-support@filmlight.ltd.uk) to discuss upgrading to FilmLightOS 8. Bug 60176
-
-**RED Rocket** hardware is no longer supported. Bug 65725
-
-Using a **Grade Result Colour Space** is deprecated and this functionality may be removed in a future release. [Please watch this video](https://filmlight.ltd.uk/graderesult) for information about recommended workflows for telecine-style grading. Bug 64729
-
-**Dolby Vision external CMU devices** are no longer supported. Bug 62581
-
-The **vtre** application is no longer included. Bug 66448
-
 ### New Features Since Baselight 6.0.19881
 
 * Updated to R3D SDK 8.5.1. This fixes several bugs, and adds support for V-RAPTOR \[X] media. Note that Extended Highlights is beta functionality and is not yet available. Bug 67193
+
+### Baselight 6.0.19881 이후 새로운 기능
+
+**• R3D SDK 8.5.1 업데이트**
+
+• 여러 버그가 수정되었고 V-RAPTOR \[X] 미디어 지원이 추가되었습니다. 단, Extended Highlights는 베타 기능으로 아직 사용할 수 없습니다. (버그 67193)
 
 ### Bug Fixes Since Baselight 6.0.19881
 
 * Fixed memory leak in Timeline drawing, which could occur if a shot overlapped other shots' horizontal extents (a common example would be an offline located above the grading strips). Bug 67522
 * Fixed extremely slow reading of some BLG files, in particular those using the "ACES RRT 1.1+" DRT. Bug 33064
 * Fixed editing of mark note text via clicking on the note text bubble in the timeline. Bug 67684
+
+### Baselight 6.0.19881 이후 버그 수정 사항
+
+• 타임라인 그리기에서 샷이 다른 샷의 수평 범위와 겹칠 때 발생하던 메모리 누수를 수정했습니다. (예: 그레이딩 스트립 위에 있는 오프라인 샷). (버그 67522)
+
+• 특히 “ACES RRT 1.1+” DRT를 사용하는 일부 BLG 파일의 읽기 속도가 매우 느린 문제를 수정했습니다. (버그 33064)
+
+• 타임라인에서 노트 텍스트 버블을 클릭하여 마크 노트 텍스트를 편집할 수 없던 문제를 수정했습니다. (버그 67684)
 
 ### Known Issues
 
