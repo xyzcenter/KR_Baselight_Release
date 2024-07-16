@@ -9,6 +9,14 @@
     You can interact with X Grade using both the mouse and panels. The primary user interface is a scope-like canvas which shows the current image as a point cloud on the canvas, but it is also quick and easy to modify colours directly from the image display.
 
     The scope can be panned and zoomed just as with an image.
+
+**버전 5 이후 새로운 기능**
+
+**X Grade 연산자**
+
+* X Grade는 부동 소수점 선형 광원에서 작동하는 새로운 기본 색상 그레이딩 도구입니다. 모든 새로 개발된 도구와 마찬가지로 색상 공간을 인식하며 스택 색상 공간에서 내부 선형 광원 색상 공간으로 변환하고, 자연스러운 색상 그레이딩을 위해 새로 개발된 상보 색상 공간에서 색상 변경을 처리합니다. \
+  X Grade는 마우스와 패널을 모두 사용하여 상호작용할 수 있습니다. 주요 사용자 인터페이스는 현재 이미지를 캔버스에 포인트 클라우드로 표시하는 스코프와 같은 캔버스이며, 이미지 디스플레이에서 직접 색상을 빠르고 쉽게 수정할 수 있습니다.\
+  스코프는 이미지와 마찬가지로 팬 및 줌할 수 있습니다.
 *   **Strokes**
 
     Strokes are the fundamental element used to manipulate colours in X Grade. Creating them is very easy:
@@ -17,41 +25,86 @@
 
     The colour at the base of the stroke will be pulled in the direction of the arrow - the pull strength fades with distance from the array. The scope will show the boundaries of the change caused by the currently selected stroke.
 
-    Multiple strokes can be created on the layer by clicking and dragging, or to edit an existing stroke, click on either the base or the head of the stroke's arrow. To delete an existing stroke, hold down `Shift` while clicking on it.
+    Multiple strokes can be created on the layer by clicking and dragging, or to edit an existing stroke, click on either the base or the head of the stroke's arrow. To delete an existing stroke, hold down `Shift` while clicking on it.\
+    \
+    **\* 스트로크**
+
+    \
+
+
+    스트로크는 X Grade에서 색상을 조정하는 데 사용되는 기본 요소입니다. 스트로크를 만드는 것은 매우 쉽습니다:
+
+
+
+    • **스코프에서**: 마우스를 사용하여 조정할 색상을 선택한 다음, 선택한 색상을 밀고 싶은 방향으로 클릭하고 드래그합니다. 이 동작은 시작점과 끝점이 있는 화살표 형태의 스트로크를 만듭니다.
+
+    스트로크의 시작점에 있는 색상은 화살표 방향으로 당겨지며, 당겨지는 강도는 화살표에서 멀어질수록 약해집니다. 스코프는 현재 선택된 스트로크로 인해 발생하는 변경의 경계를 보여줍니다.
+
+    여러 스트로크를 레이어에 만들려면 클릭하고 드래그하거나, 기존 스트로크를 편집하려면 스트로크 화살표의 시작점이나 끝점을 클릭합니다. 기존 스트로크를 삭제하려면 Shift 키를 누른 상태에서 스트로크를 클릭합니다.\
+
 
     * **On the Image**: you can also create strokes directly from the image, and this is usually the most efficient way of working. When on the image, the scope will show a circular cursor representing the position corresponding to the colour under the mouse pointer. Clicking with the mouse acts as if you were clicking at the point shown by the circular cursor, and the subsequent drag will drag the colour as if you were dragging on the scope. In practical terms, you rarely need to look at the scope - just click on the colour you want to adjust, and drag the mouse until it's how you want it. Note: while working directly on the image, it's useful to know whether clicking will adjust an existing stroke or create a new one. The image cursor shows a small + in the top-right corner when clicking would create a new stroke. Note that to avoid creating a large number of strokes that would be hard to manage, the tool errs on the side of editing an existing stroke if there's one reasonably close-by, but you can force the creation of a new stroke with the `Alt` modifier (`Option` on Mac).
+    * **이미지에서** : 이미지에서 직접 스트로크를 만들 수도 있으며, 이는 보통 가장 효율적인 작업 방법입니다. 이미지에서 작업할 때, 스코프는 마우스 포인터 아래의 색상에 해당하는 위치를 나타내는 원형 커서를 표시합니다. 마우스로 클릭하면 원형 커서가 표시된 지점을 클릭하는 것처럼 작동하며, 이후 드래그하면 스코프에서 드래그하는 것처럼 색상을 이동시킵니다. 실질적으로 스코프를 볼 필요는 거의 없으며, 조정하고 싶은 색상을 클릭하고 마우스를 원하는 대로 드래그하면 됩니다. 참고: 이미지를 직접 작업할 때 클릭이 기존 스트로크를 조정할지 새로운 스트로크를 만들지 여부를 아는 것이 유용합니다. 이미지를 클릭하면 새로운 스트로크를 만들 때 이미지 커서의 오른쪽 상단에 작은 + 기호가 표시됩니다. 관리하기 어려울 정도로 많은 스트로크를 만드는 것을 피하기 위해, 도구는 가까이에 기존 스트로크가 있을 경우 이를 편집하는 쪽으로 작동합니다. 그러나 Alt 키(맥에서는 Option 키)를 사용하면 새로운 스트로크를 강제로 생성할 수 있습니다.
 
     For fine tuning, as well as the start and end points, each stroke has two additional parameters you can adjust:
 
     * **Exposure**: this allows a stroke to modify brightness as well as hue and saturation. It is visualised as a contour plot around the stroke, similar to contour plots in topographical maps. As well as modifying the slider, it can be directly edited while dragging a colour by using the `Win` modifier (`Ctrl` on Mac).
     * **Width**: this extends the influence of the stroke. It can be directly edited with the mouse with the modifier `Alt+Win` (`Option+Ctrl` on Mac).
+
+&#x20;       세부 조정, 시작점과 끝점 외에도, 각 스트로크에는 조정할 수 있는 두 가지 추가 매개변수가 있습니다:\
+&#x20;       • **노출(Exposure)**: 이 매개변수는 스트로크가 밝기뿐만 아니라 색조와 채도를 수정할 수 있게 합니다. 이는 등고선 지도와 유사하게 스트로크 주위에 윤곽선으로 시각화됩니다. 슬라이더를 수정하는 것 외에도, Win 키(맥에서는 Ctrl 키)를 사용하여 색상을 드래그하는 동안 직접 수정할 수 있습니다.
+
+&#x20;       • **너비(Width)**: 이는 스트로크의 영향을 확장합니다. Alt+Win 키(맥에서는 Option+Ctrl 키)와 함께 마우스를 사용하여 직접 수정할 수 있습니다.
+
 *   **Pins**
 
     Pins allow you to pin certain colours so they will not be affected by strokes. You can think of them as constraining the influence of strokes so that they cannot propagate past the pin. They are indicated as crosses (X) on the UI, and you can also see their influence on the outline for the selected stroke.
 
     By default, each layer is created with a pin on the neutral axis as this is usually a colour you will want to avoid changing. (You can turn this off in the Customise menu).
 
-    You can create pins by pressing `Ctrl` (`Cmd` on Mac) while clicking with the mouse, move existing pins by clicking and dragging them, or delete them by pressing `Shift` and clicking.
+    You can create pins by pressing `Ctrl` (`Cmd` on Mac) while clicking with the mouse, move existing pins by clicking and dragging them, or delete them by pressing `Shift` and clicking.\
+
+*   **핀(Pins)**
+
+
+
+    핀을 사용하면 특정 색상을 고정하여 스트로크의 영향을 받지 않도록 할 수 있습니다. 핀은 스트로크의 영향을 제한하여 핀을 넘어 전파되지 않도록 합니다. UI에서는 X자로 표시되며, 선택된 스트로크의 윤곽선에서도 그 영향을 확인할 수 있습니다.
+
+    기본적으로 각 레이어는 중립 축에 핀이 하나 생성되는데, 이는 일반적으로 변경을 피하고 싶은 색상이기 때문입니다. (맞춤 설정 메뉴에서 이를 끌 수 있습니다.)
+
+    핀을 만들려면 Ctrl 키(맥에서는 Cmd 키)를 누른 상태에서 마우스를 클릭합니다, 기존 핀을 이동하려면 클릭하고 드래그합니다,  핀을 삭제하려면 Shift 키를 누른 상태에서 클릭합니다.
 *   **Layers**
 
     X Grade supports multiple layers (where each layer has its own set of strokes and pins). Layers are managed in the Layer Section in the top right corner of the X Grade user interface.
 
     Each layer can be assigned a Zone, using the same Ansel Adams Zone System as used by Base Grade. A layer can have one of three zone types:
+* **레이어(Layers)**
 
-    | Type   | Description                                                  |
-    | ------ | ------------------------------------------------------------ |
-    | Master | The layer will affect the whole exposure range               |
-    | Dim    | The layer will affect the exposure range below a pivot point |
-    | Light  | The layer will affect the exposure range above a pivot point |
+&#x20;      X Grade는 여러 레이어를 지원하며, 각 레이어는 고유한 스트로크와 핀 세트를 가집니다. 레이어는 X Grade 사용자 인터페이스의 오른쪽 상단에 있는 레이어 섹션에서 관리됩니다.
 
-    In addition, layers can be completely bypassed, have their opacity adjusted (to reduce the effect of a layer), and renamed (by double clicking on the layer name).
+각 레이어는 Base Grade에서 사용되는 Ansel Adams Zone System과 동일한 시스템을 사용하여 하나의 존(Zone)을 할당받을 수 있습니다. 레이어는 다음 세 가지 존 타입 중 하나를 가질 수 있습니다:
 
-    If the selected layer is set to either Dim or Light zone mode, additional sliders for the pivot and falloff will appear in the layer section.
+<table><thead><tr><th width="125">Type</th><th>Description</th></tr></thead><tbody><tr><td>Master</td><td>The layer will affect the whole exposure range<br>레이어는 전체 노출 범위에 영향을 미칩니다.</td></tr><tr><td>Dim</td><td>The layer will affect the exposure range below a pivot point<br>레이어는 피벗 포인트 아래의 노출 범위에 영향을 미칩니다.</td></tr><tr><td>Light</td><td>The layer will affect the exposure range above a pivot point<br>레이어는 피벗 포인트 이상의 노출 범위에 영향을 미칩니다.</td></tr></tbody></table>
 
-    When not using the Master zone, the effect of a stroke will be attenuated for pixels whose exposure falls outside the selected zone. When working directly on the image, this can cause confusion (e.g. when using the Dim zone, picking a very bright colour and dragging it will have very little effect on that colour). To help with this, the cursor colour will change from white through orange and finally red as the pixels under the cursor fall further out of the exposure range for the layer.
+In addition, layers can be completely bypassed, have their opacity adjusted (to reduce the effect of a layer), and renamed (by double clicking on the layer name).
+
+If the selected layer is set to either Dim or Light zone mode, additional sliders for the pivot and falloff will appear in the layer section.
+
+When not using the Master zone, the effect of a stroke will be attenuated for pixels whose exposure falls outside the selected zone. When working directly on the image, this can cause confusion (e.g. when using the Dim zone, picking a very bright colour and dragging it will have very little effect on that colour). To help with this, the cursor colour will change from white through orange and finally red as the pixels under the cursor fall further out of the exposure range for the layer.
+
+레이어는 완전히 우회될 수 있으며, 불투명도를 조정하여 레이어의 효과를 줄일 수 있고, 레이어 이름을 더블 클릭하여 이름을 변경할 수 있습니다.
+
+선택된 레이어가 Dim 또는 Light 존 모드로 설정된 경우, 레이어 섹션에 피벗 및 폴오프(pivot and falloff)를 위한 추가 슬라이더가 나타납니다.
+
+마스터 존을 사용하지 않을 때, 선택된 존의 노출 범위를 벗어나는 픽셀에 대해서는 스트로크의 효과가 약해집니다. 이미지에서 직접 작업할 때, 이는 혼란을 초래할 수 있습니다 (예: Dim 존을 사용할 때 매우 밝은 색상을 선택하여 드래그하면 해당 색상에 거의 영향을 미치지 않음). 이를 돕기 위해, 커서 아래의 픽셀이 레이어의 노출 범위를 더 많이 벗어날수록 커서 색상이 흰색에서 주황색, 최종적으로 빨간색으로 변합니다.
+
 *   **Scope**
 
-    The scope uses an opponent colour space where the x-axis corresponds to the green-red axis and the y-axis to the yellow-blue axis. The coloured background reflects the spectral locus. A small cross marks the white point. A line from light blue to orange represents the thermal or Planckian Black Body Locus. The gamut hulls of the mastering and viewing colour space are also shown as a reference. These overlays can be turned on and off in the X Grade customise menu.
+    The scope uses an opponent colour space where the x-axis corresponds to the green-red axis and the y-axis to the yellow-blue axis. The coloured background reflects the spectral locus. A small cross marks the white point. A line from light blue to orange represents the thermal or Planckian Black Body Locus. The gamut hulls of the mastering and viewing colour space are also shown as a reference. These overlays can be turned on and off in the X Grade customise menu.\
+
+*   **스코프(Scope)**
+
+    스코프는 반대 색 공간을 사용하며, x축은 녹색-빨간색 축에 해당하고 y축은 노란색-파란색 축에 해당합니다. 색상 배경은 스펙트럼 위치를 반영합니다. 작은 십자가는 백색점을 나타냅니다. 연한 파란색에서 주황색으로 이어지는 선은 열 또는 플랑크 흑체 궤적을 나타냅니다. 마스터링 및 뷰잉 색 공간의 색역 헐도 참조로 표시됩니다. 이러한 오버레이는 X Grade 맞춤 설정 메뉴에서 켜고 끌 수 있습니다.
 *   **Desk Mapping**
 
     X Grade is designed as a primary grading tool, which means all functions can be accessed via a Blackboard or Slate control surface.
@@ -59,15 +112,34 @@
     One trackball is used for positioning the mouse pointer - by default this is the left hand trackball but can be swapped to the right from the Customise menu. We will refer to the ball controlling the mouse pointer as the **Mouse** trackball and the opposite ball as the **Far** trackball. The Middle and Far balls are used to move the start and end points of the current stroke. If there is no current stroke a stroke will be created - this happens immediately when the pointer is on the Image screen, but a click is required when interacting with the UI scope to protect against accidentally creating strokes while working.
 
     The Zone parameters for the Layer and the Exposure and Width settings for the selected stroke can also be directly modified from the panel encoders, and the Exposure and Layer Opacity parameters are also mapped to the Middle and Far rings of the panel.
+*   **데스크 매핑(Desk Mapping)**
+
+    X Grade는 기본 그레이딩 도구로 설계되어, 모든 기능을 Blackboard 또는 Slate 컨트롤 표면을 통해 접근할 수 있습니다.
+
+    한 개의 트랙볼은 마우스 포인터의 위치를 지정하는 데 사용되며, 기본적으로 왼쪽 트랙볼이지만 맞춤 설정 메뉴에서 오른쪽으로 변경할 수 있습니다. 마우스 포인터를 제어하는 트랙볼을 ‘마우스 트랙볼’로, 반대쪽 트랙볼을 ‘원거리 트랙볼’로 지칭합니다. 가운데와 원거리 트랙볼은 현재 스트로크의 시작점과 끝점을 이동하는 데 사용됩니다. 현재 스트로크가 없는 경우, 스트로크가 생성됩니다. 이미지 화면에서 포인터가 있는 경우 즉시 생성되지만, UI 스코프와 상호작용할 때는 작업 중 실수로 스트로크가 생성되지 않도록 클릭이 필요합니다.
+
+
+
+    레이어의 존 파라미터와 선택된 스트로크의 노출 및 너비 설정도 패널 인코더에서 직접 수정할 수 있으며, 노출과 레이어 불투명도 파라미터는 패널의 가운데 및 원거리 링에도 매핑되어 있습니다.
 *   **Technical Notes**
 
     It is essential to understand that the effect of the strokes is additive, and they are applied in the order created. The additive nature of the strokes is more suited to intuitive grading (you can generally just drag what you want to change without worrying about previous strokes) and generates a more robust result because folds can be avoided even if strokes cross each other. But it does have the drawback that the strokes do not represent the net result of the change for a given point but the history of strokes you added. Bug 49114
+*   **기술 참고 사항(Technical Notes)**
 
-#### Chromogen
+    스트로크의 효과는 더해지며, 생성된 순서대로 적용된다는 점을 이해하는 것이 중요합니다. 스트로크의 더해지는 특성은 직관적인 그레이딩에 더 적합합니다 (일반적으로 이전 스트로크에 대해 걱정하지 않고 변경하고 싶은 대로 드래그할 수 있음) 또한 스트로크가 서로 교차하더라도 접힘을 피할 수 있기 때문에 더 견고한 결과를 생성합니다. 그러나 이러한 특성은 주어진 지점에서 변화의 순수한 결과가 아니라 추가한 스트로크의 이력을 나타낸다는 단점이 있습니다. \[버그 49114]
 
-*   Chromogen is a ground-breaking framework for look development based on human perception. Look development is usually performed before principal photography. Together with the Director of Photography, the colourist can use Chromogen to create a unique look for a specific project. Chromogen is designed to work in a scene-referred colour management workflow. It is both Working Colour Space and DRT agnostic. However, if the DRT already incorporates a prominent look component, it will be harder to produce novel looks or to escape the look of the DRT. Chromogen is colour space aware and operates in its own perceptual colour space called Eab. **E** stands for Exposure and **a/b** are the colour opponent axes, where **a** encodes the green/red axis and **b** encodes the blue/yellow axis.
+## Chromogen
 
-    To build a look, **stages** are stacked on top of each other. There are ten different types of stage a user can choose from. Each stage type is a simple tool providing look development functionality. Complex looks are produced by adding many simple stages together. All stages are performed at once on the GPU in floating-point precision. This ensures the highest image quality and best performance. Looks created with Chromogen can be exported as LUTs for preview purposes (for On Set visualisation), but it is recommended to apply the look via the Chromogen operator for the final grade to ensure the highest image quality and flexibility.
+* Chromogen is a ground-breaking framework for look development based on human perception. Look development is usually performed before principal photography. Together with the Director of Photography, the colourist can use Chromogen to create a unique look for a specific project. Chromogen is designed to work in a scene-referred colour management workflow. It is both Working Colour Space and DRT agnostic. However, if the DRT already incorporates a prominent look component, it will be harder to produce novel looks or to escape the look of the DRT. Chromogen is colour space aware and operates in its own perceptual colour space called Eab. **E** stands for Exposure and **a/b** are the colour opponent axes, where **a** encodes the green/red axis and **b** encodes the blue/yellow axis.\
+  \
+  To build a look, **stages** are stacked on top of each other. There are ten different types of stage a user can choose from. Each stage type is a simple tool providing look development functionality. Complex looks are produced by adding many simple stages together. All stages are performed at once on the GPU in floating-point precision. This ensures the highest image quality and best performance. Looks created with Chromogen can be exported as LUTs for preview purposes (for On Set visualisation), but it is recommended to apply the look via the Chromogen operator for the final grade to ensure the highest image quality and flexibility.\
+
+
+## 크로모젠(Chromogen)
+
+* 크로모젠은 인간의 인식을 기반으로 한 획기적인 룩 개발 프레임워크입니다. 룩 개발은 일반적으로 본 촬영 전에 수행됩니다. 촬영 감독과 함께 컬러리스트는 크로모젠을 사용하여 특정 프로젝트에 고유한 룩을 만들 수 있습니다. 크로모젠은 씬 참조 색상 관리 워크플로우에서 작동하도록 설계되었습니다. 이는 작업 색상 공간 및 DRT에 구애받지 않습니다. 그러나 DRT가 이미 두드러진 룩 구성 요소를 포함하고 있다면, 새로운 룩을 생성하거나 DRT의 룩에서 벗어나는 것이 어려워집니다. 크로모젠은 색상 공간을 인식하고, **Eab**라는 자체 인지 색상 공간에서 작동합니다. E는 노출을, **a/b**는 색상 반대 축을 나타내며, **a**는 녹색/빨간색 축을, **b**는 파란색/노란색 축을 인코딩합니다.\
+  \
+  룩을 구축하기 위해 **스테이지**가 서로 위에 쌓입니다. 사용자는 열 가지 다른 유형의 스테이지 중에서 선택할 수 있습니다. 각 스테이지 유형은 룩 개발 기능을 제공하는 간단한 도구입니다. 복잡한 룩은 여러 간단한 스테이지를 함께 추가하여 생성됩니다. 모든 스테이지는 GPU에서 부동 소수점 정밀도로 한 번에 수행됩니다. 이는 최고 품질의 이미지와 최고의 성능을 보장합니다. 크로모젠으로 생성된 룩은 미리보기 목적으로 LUT로 내보낼 수 있지만(현장 시각화를 위해), 최종 그레이드에서는 크로모젠 연산자를 통해 룩을 적용하는 것이 최고 품질의 이미지와 유연성을 보장하기 위해 권장됩니다.
 *   **Presets**
 
     It is best to start a look development session from one of the presets shipped with Chromogen. However, completely new looks can be created from scratch, too.
@@ -86,10 +158,47 @@
 
     When adding a new Chromogen operator you are taken directly to the operator's Presets page, to allow you to choose a preset to start from.
 
-    Selecting a Chromogen preset activates the **Append** button in the Presets page. When you use **Append**, instead of the current Operator being replaced by the Preset, the stages in the Preset contents are appended to the current Chromogen operator.
+    Selecting a Chromogen preset activates the **Append** button in the Presets page. When you use **Append**, instead of the current Operator being replaced by the Preset, the stages in the Preset contents are appended to the current Chromogen operator.\
+
+*   **프리셋(Presets)**
+
+    룩 개발 세션을 시작할 때는 Chromogen에 내장된 프리셋 중 하나를 사용하는 것이 좋습니다. 그러나 완전히 새로운 룩도 처음부터 만들 수 있습니다.
+
+    Chromogen은 다음 프리셋과 함께 제공됩니다 (아래 “Operator Presets” 섹션 참조):
+
+
+
+    • Alternia: 그림자에 미묘한 채도 증가와 두드러진 피부톤 표백이 있는 기본 룩
+
+    • Optera: C-105 Vision 룩에 영향을 받은 룩
+
+    • Kulthea: C-102 Japanese 룩에 영향을 받은 룩
+
+    • Viena: C-104 Bipack 룩에 영향을 받은 룩
+
+    • Eternia: 청록색과 주황색 룩의 새로운 버전
+
+    • Motavia: 현대적인 세피아 룩 접근법
+
+    • Botany: 강한 디스토피아 룩
+
+    • Ireta: 독특한 색상 스타일링이 있는 강렬한 룩
+
+    • Lithia: 강한 색상 왜곡이 있는 룩
+
+
+
+    새로운 Chromogen 연산자를 추가하면, 연산자의 프리셋 페이지로 바로 이동하여 시작할 프리셋을 선택할 수 있습니다.
+
+    Chromogen 프리셋을 선택하면 프리셋 페이지에서 **Append** 버튼이 활성화됩니다. **Append**를 사용하면 현재 연산자가 프리셋으로 교체되는 대신, 프리셋 내용의 스테이지가 현재 Chromogen 연산자에 추가됩니다.
 *   **Stages**
 
-    The different stages are managed using the **Stages** area on the right side of the UI. Adding new stages, duplicating and deleting them are accessed by a context menu (brought up by right-clicking in the stages area). There are ten different stage types; each type can be added more than once. The stages are divided into three main categories: fundamental, advanced and sector stages:
+    The different stages are managed using the **Stages** area on the right side of the UI. Adding new stages, duplicating and deleting them are accessed by a context menu (brought up by right-clicking in the stages area). There are ten different stage types; each type can be added more than once. The stages are divided into three main categories: fundamental, advanced and sector stages:\
+
+*   **스테이지(Stages)**
+
+    다양한 스테이지는 UI의 오른쪽에 있는 **스테이지** 영역에서 관리됩니다. 새로운 스테이지를 추가하거나 복제 및 삭제하는 기능은 컨텍스트 메뉴(스테이지 영역에서 오른쪽 클릭으로 불러올 수 있음)를 통해 접근할 수 있습니다. 총 열 가지의 서로 다른 스테이지 유형이 있으며, 각 유형은 여러 번 추가할 수 있습니다. 스테이지는 크게 세 가지 주요 카테고리로 나뉩니다: 기본 스테이지, 고급 스테이지, 섹터 스테이지:\
+
 
     **Fundamental Stages** are stages used in almost every look. They build the foundation of the look process.
 
@@ -98,10 +207,32 @@
     * **Highlight Bleach**: This tool is for desaturating or bleaching highlights. Most looks desaturate the highlights to give a non-uniform saturation tracking. The four different sides of the colour space can be bleached individually.
     * **Contrast Boost**: This tool allows adding contrast around mid grey, but slightly reduces the brightness of very bright colours. This gives a unique contrast boost found in many popular looks.
 
+    \
+    **기본 스테이지(Fundamental Stages)**
+
+    기본 스테이지는 거의 모든 룩에서 사용되며, 룩 프로세스의 기초를 형성합니다.
+
+    • **색상 채도(Colour Saturation)**: 이 도구는 두 색상 반대 신호의 채도를 독립적으로 수정할 수 있게 합니다. 색상 대비 적응 이론에 영향을 받았습니다.
+
+    • **색상 크로스토크(Colour Crosstalk)**: 이 도구는 두 색상 반대 신호 사이에 크로스토크를 도입합니다. 이 도구는 시각 피질에서의 크로스토크 효과, 예를 들어 측면 억제에 의해 동기 부여되었습니다.
+
+    • **하이라이트 표백(Highlight Bleach)**: 이 도구는 하이라이트의 채도를 낮추거나 표백하는 데 사용됩니다. 대부분의 룩은 불균일한 채도 추적을 제공하기 위해 하이라이트의 채도를 낮춥니다. 색상 공간의 네 가지 다른 면을 개별적으로 표백할 수 있습니다.
+
+    • **대비 증가(Contrast Boost)**: 이 도구는 중간 회색 주변에 대비를 추가하면서, 매우 밝은 색상의 밝기를 약간 줄입니다. 이는 많은 인기 있는 룩에서 발견되는 독특한 대비 증가를 제공합니다.
+
+    \
     **Advanced Stages** are used for very specific operations.
 
     * **Brilliance Reduction**: This tool allows a reduction of exposure of colours which are too bright for their saturations, according to reflected colours. See [this video](https://vimeo.com/333078338) for more information on this topic.
     * **Neutral Tint**: This tool allows you to tint the neutral axis. Many popular looks have a coloured neutral axis, such as blue in the shadows and orange in the highlights.
+
+    **고급 스테이지(Advanced Stages)** 는 매우 특정한 작업에 사용됩니다.
+
+    • **광택 감소(Brilliance Reduction)**: 이 도구는 반사된 색상에 따라 채도에 비해 너무 밝은 색상의 노출을 줄일 수 있습니다. 이 주제에 대한 자세한 내용은 이 비디오를 참조하십시오.
+
+    • **중립 틴트(Neutral Tint)**: 이 도구는 중립 축에 색조를 추가할 수 있습니다. 많은 인기 있는 룩은 중립 축에 색상이 포함되어 있으며, 예를 들어 그림자에는 파란색, 하이라이트에는 주황색이 있습니다.\
+    \
+
 
     **Sector stages** operate on half of the colour volume but focus on the sector's centre with a soft roll-off.
 
@@ -109,14 +240,36 @@
     * **Sector Saturation**: modifies the saturation of the selected sector.
     * **Sector Skew**: skews or distorts the colours of the selected sector.
     * **Sector Squash**: squashes or stretches the colours of the selected sector.
+
+
+
+**섹터 스테이지(Sector Stages)**는 색상 볼륨의 절반을 대상으로 하지만 섹터의 중심에 부드러운 롤오프를 적용하여 집중적으로 작동합니다.
+
+• **섹터 밝기(Sector Brightness)**: 선택된 섹터의 밝기를 수정합니다.
+
+• **섹터 채도(Sector Saturation)**: 선택된 섹터의 채도를 수정합니다.
+
+• **섹터 왜곡(Sector Skew)**: 선택된 섹터의 색상을 왜곡하거나 비틉니다.
+
+• **섹터 압축(Sector Squash)**: 선택된 섹터의 색상을 압축하거나 늘입니다.
+
+
+
 *   **Modulation**
 
     Most stages can be modulated to focus their effect on either darker or brighter colours using the **Zone** and **Pivot** controls in the **Modulation** section. Also, the effect can be focused on either saturated or pastel colours using the **Chroma** modulation control.
 
     All tools are, intentionally, very broad in terms of the colours they affect; even the sector tools still operate on half of the colour space. Broad edits will produce more robust, pleasing, and general looks, which work across many shots.
+* **변조(Modulation)**\
+  대부분의 스테이지는 **변조** 섹션의 **존(Zone)** 및 **피벗(Pivot)** 컨트롤을 사용하여 더 어두운 색상이나 더 밝은 색상에 효과를 집중하도록 조정할 수 있습니다. 또한 **크로마(Chroma)** 변조 컨트롤을 사용하여 효과를 채도 높은 색상이나 파스텔 색상에 집중시킬 수 있습니다.\
+  모든 도구는 영향을 미치는 색상 범위가 매우 넓도록 의도적으로 설계되었습니다. 심지어 섹터 도구도 여전히 색상 공간의 절반을 다룹니다. 넓은 범위의 편집은 더 견고하고, 만족스러우며, 일반적인 룩을 만들어 여러 샷에 걸쳐 잘 작동합니다.\
+
 *   **Parameters**
 
     Once a stage is selected, its parameters are shown on the left side of the UI. The coloured slider backgrounds are designed to illustrate the function of each slider.
+* 파라미터(Parameters)\
+  스테이지가 선택되면 해당 파라미터가 UI의 왼쪽에 표시됩니다. 색상이 있는 슬라이더 배경은 각 슬라이더의 기능을 시각적으로 설명하기 위해 설계되었습니다.\
+
 *   **Graphical Visualisation**
 
     Below the sliders, there are two graphical representations. The left one is the **Point Cloud**, which indicates the combined modification of all stages. The right side UI element changes depending on the selected stage and provides specific feedback for that stage.
@@ -124,11 +277,22 @@
     The default **Point Cloud** representation, **Eab Radial** shows a radial view onto the Eab colour space. This is the recommended view, but the **Eab Cube** and **RGB Cube** representations may be useful for the final evaluation.
 
     You can pan, rotate, scale, and zoom the point cloud to examine your look from all sides using the mouse and modifier keys. The maximum gamut of the point cloud can also be modified between Eab, LMS, Rec.2020 and Rec.709. The most useful is the Eab gamut. To see specific colours from the image in context to the Point Cloud, it is possible to highlight a specific colour range. Enable the **Pick** button next to the View and pick in the image. This will make all points in the clouds smaller except the picked points.
+* **그래픽 시각화(Graphical Visualisation)**\
+  슬라이더 아래에는 두 가지 그래픽 표현이 있습니다. 왼쪽은 모든 스테이지의 결합된 수정 사항을 나타내는 포인트 클라우드(**Point Cloud**)입니다. 오른쪽 UI 요소는 선택된 스테이지에 따라 변경되며, 해당 스테이지에 대한 구체적인 피드백을 제공합니다.\
+  \
+  기본 **포인트 클라우드** 표현인 **Eab Radial**은 Eab 색상 공간에 대한 방사형 보기를 보여줍니다. 이 뷰가 권장되지만, 최종 평가를 위해 **Eab Cube** 및 **RGB Cube** 표현도 유용할 수 있습니다.\
+  \
+  마우스와 수정 키를 사용하여 포인트 클라우드를 팬, 회전, 확대/축소하여 모든 측면에서 룩을 검사할 수 있습니다. 포인트 클라우드의 최대 색역은 Eab, LMS, Rec.2020 및 Rec.709 사이에서 변경할 수 있습니다. 가장 유용한 것은 Eab 색역입니다. 포인트 클라우드에서 이미지의 특정 색상을 문맥에 맞게 보기 위해 특정 색상 범위를 강조 표시할 수 있습니다. View 옆의 Pick 버튼을 활성화하고 이미지를 클릭하면, 선택된 포인트를 제외한 모든 클라우드 포인트가 작아집니다.\
+
 *   **Desk Mapping**
 
     When a desk is connected, a secondary stage selection appears next to the primary one. With the two-stage selections, two stages are mapped simultaneously to the encoders of the control surface. The left and right trackballs can also modify essential parameters of the primary selected stage. The two leftmost buttons above the left trackball allow moving the primary stage selection up and down. The middle buttons above the left trackball allow moving stages up and down to rearrange the stage ordering. Buttons above the right trackball allow doing the same for the secondary selection. The middle trackball and ring, in combination with the buttons above and ring, allow you to pan, rotate, scale and zoom the Eab Point Cloud. Bug 53354
+* **데스크 매핑(Desk Mapping)**\
+  데스크가 연결되면 기본 스테이지 선택 옆에 보조 스테이지 선택이 나타납니다. 두 개의 스테이지 선택을 통해 두 개의 스테이지가 동시에 제어 표면의 인코더에 매핑됩니다. 왼쪽과 오른쪽 트랙볼은 기본 선택된 스테이지의 주요 매개변수를 수정할 수 있습니다. 왼쪽 트랙볼 위의 가장 왼쪽 두 버튼은 기본 스테이지 선택을 위아래로 이동할 수 있게 합니다. 왼쪽 트랙볼 위의 중간 버튼은 스테이지의 순서를 재배열하기 위해 스테이지를 위아래로 이동할 수 있게 합니다. 오른쪽 트랙볼 위의 버튼은 보조 선택에 대해 동일한 작업을 수행할 수 있게 합니다. 가운데 트랙볼과 링은 위의 버튼 및 링과 조합하여 Eab 포인트 클라우드를 팬, 회전, 확대/축소할 수 있게 합니다. \[버그 53354]
 
-#### User Interface
+
+
+### User Interface
 
 *   **Refreshed Appearance**
 
@@ -148,6 +312,26 @@
     * Radio buttons, toggle check buttons, and button roundness now scale better with different text sizes.
     * Splitter bars are now thicker and the splitters used to separate views now have rounded connectors.
     * Tile group boxes and buttons have had their borders removed and made slighly brighter.
+
+### 사용자 인터페이스(User Interface)
+
+* 새로워진 외관(Refreshed Appearance)\
+  Baselight 6.0은 덜 눈에 띄고 더 평평한 외관으로 새로워진 사용자 인터페이스를 제공합니다:
+  * 토글 및 라디오 버튼이 서로 시각적으로 구별되며, 활성화되면 하이라이트가 표시됩니다.
+  * 활성 탭은 명확한 파란색 밑줄로 표시됩니다.
+  * 애플리케이션 전반에 걸쳐 표준화된 색상 팔레트가 도입되었습니다.
+  * 맞춤 설정 메뉴 버튼이 세 개의 슬라이더가 있는 아이콘 버튼으로 교체되었습니다.
+  * 여러 아이콘이 업그레이드되었으며, 그중에는 재설정, 우회, 캐시 스트립, 슬라이더 갱 및 분할 스트립 아이콘이 포함됩니다.
+  * 목록 선택이 이제 파란색으로 표시됩니다.
+  * 키프레임 탐색 막대가 더 큰 키프레임 표시기로 재설계되었습니다.
+  * 모나리자 아이콘이 텍스트 Grade 및 Matte로 교체되었습니다.
+  * FLUX Manage에 브라우저 또는 필터 탭을 추가하는 기능이 단일 드롭다운 메뉴 버튼에 포함되었습니다.
+  * 토글 아이콘이 꺼졌을 때 더 어둡게 표시됩니다.
+  * 사용자 인터페이스 요소가 더 밀집하게 배치되었습니다.
+  * 라디오 버튼, 토글 체크 버튼 및 버튼의 둥근 모양이 다른 텍스트 크기에 더 잘 맞게 조정되었습니다.
+  * 스플리터 막대가 더 두꺼워졌으며, 보기를 분할하는 데 사용되는 스플리터가 이제 둥근 연결부를 가집니다.
+  * 타일 그룹 상자와 버튼의 테두리가 제거되고 약간 더 밝아졌습니다.\
+
 *   **Timeline Bar**
 
     A top row of controls has been added above the Timeline View. This contains play controls, playback filtering, paste/apply options, and timeline editing tools.
@@ -161,6 +345,19 @@
       * Four top-level toggle icons for **Protect Destination Mattes**, **Paste Only Primaries**, **Paste Keyframes**, and **Maintain Tracks**.
       * Paste / Apply options are now shared between Galleries and Cuts View.
     * This means that remaining Cuts View controls are now contained in a small floating panel and the option for thumbnail display has been moved to the right-click menu. Bug 64271
+*   **타임라인 바(Timeline Bar)**
+
+    타임라인 보기 위에 새로운 제어 행이 추가되었습니다. 여기에는 재생 제어, 재생 필터링, 붙여넣기/적용 옵션 및 타임라인 편집 도구가 포함됩니다.
+
+    * 재생 제어 보기(Play Controls View)가 모든 기본 작업 공간 및 타임라인 보기를 포함하는 사용자 지정 작업 공간에서 제거되었습니다.
+    * 재생 범위, 루프 모드 및 모든 프레임 재생 제어가 이제 메뉴에 포함되지 않고 타임라인 보기 도구 모음에 표시됩니다.
+    * 재생 속도는 이제 분수 대신 소수로 표시됩니다.
+    * 타임라인 편집 모드로 들어가고 나가는 새로운 토글 버튼이 포함되었습니다.
+    * 복사/붙여넣기/적용 옵션은 편집 모드가 아닐 때 타임라인 바의 제어에서 접근할 수 있습니다:
+      * 드롭다운 메뉴는 현재 붙여넣기/적용 옵션 상태를 표시합니다.
+      * **보호 대상 매트(Protect Destination Mattes), 기본 색상만 붙여넣기(Paste Only Primaries), 키프레임 붙여넣기(Paste Keyframes) 및 트랙 유지(Maintain Tracks)**를 위한 네 개의 상위 레벨 토글 아이콘
+      * 붙여넣기/적용 옵션은 이제 갤러리와 컷 보기 사이에서 공유됩니다.
+    * 따라서 남아 있는 컷 보기 제어는 이제 작은 떠 있는 패널에 포함되며, 썸네일 표시 옵션은 오른쪽 클릭 메뉴로 이동되었습니다. \[버그 64271]
 
 #### Face Tracker
 
@@ -178,6 +375,34 @@
     If the **Auto select face reference** option is on, the system will pick the most similar face in that frame based on the geometry. If the option is off and it detects multiple faces, the user will have the option to select the correct face.
 
     The Face Tracker can be used in two different contexts, Face Warp and Face Perspective.
+
+### 얼굴 추적기(Face Tracker)
+
+*   새로운 3D 머신 러닝 추적기가 추가되어 얼굴을 감지하고 추적하는 데 특화되었습니다. 이 추적기는 Tracker 스트립 내의 새로운 Face 탭에서 찾을 수 있습니다.
+
+    \
+    얼굴 추적기는 다른 추적기와 달리 추적 전에 얼굴 감지를 수행해야 합니다. 추적 영역을 지정할 필요 없이 이미지 내 모든 얼굴을 감지하려고 시도합니다. 이는 감지된 모든 얼굴에 대해 닫힌 3D 메쉬 기하학을 생성하며, 이 기하학은 다른 추적 유형처럼 추적 및 필터링할 수 있습니다.
+
+
+
+    얼굴 감지는 매우 어두운 이미지나 부분적으로 가려진 얼굴에 영향을 받을 수 있습니다. ‘Face’ 탭의 톱니바퀴 메뉴에서 다음 옵션을 통해 감지 및 추적 성능을 향상시킬 수 있습니다:
+
+
+
+    • **얼굴 감지 임계값(Face Detect Threshold)**: 값을 낮추면 이전에 감지되지 않은 얼굴을 감지하는 데 도움이 됩니다. 값이 너무 낮으면 얼굴이 없는 곳에서도 얼굴을 감지할 수 있습니다.
+
+    • **얼굴 추적 평활화 임계값(Face Tracking Smoothing Threshold)**: 추적 전에 값을 높이면 일부 문제 있는 자료의 흔들림을 줄이는 데 도움이 될 수 있습니다.
+
+
+
+    얼굴 추적 결과는 다른 추적기처럼 수정하거나 오프셋할 수는 없지만, Detect Reference 기능을 사용하여 가려짐을 처리할 수 있습니다.
+
+    **자동 얼굴 참조 선택(Auto select face reference)** 옵션이 켜져 있으면, 시스템은 기하학을 기반으로 해당 프레임에서 가장 유사한 얼굴을 선택합니다. 옵션이 꺼져 있고 여러 얼굴이 감지되면 사용자가 올바른 얼굴을 선택할 수 있습니다.
+
+
+
+    얼굴 추적기는 Face Warp와 Face Perspective라는 두 가지 다른 컨텍스트에서 사용할 수 있습니다.\
+
 *   **Face Warp**
 
     Face Warp is only available in Shapes and Matte Paint - it uses the 3D mesh generated during the face detection phase to warp mattes to fit the face. They will be constrained to the 3D Mesh. Edge shapes are not supported.
@@ -191,6 +416,20 @@
     The **Show UV** button will display a side by side view of the image and a 'flattened' view in UV space. This view can be useful to place shapes and paint strokes, because, as it is independent of the pose of the face, it remains roughly constant as the face moves.
 
     The **Face Zoom** button will zoom to the selected face, allowing for more precise edits.
+*   **얼굴 왜곡(Face Warp)**
+
+    얼굴 왜곡 기능은 Shapes 및 Matte Paint에서만 사용할 수 있으며, 얼굴 감지 단계에서 생성된 3D 메쉬를 사용하여 얼굴에 맞게 매트를 왜곡합니다. 이는 3D 메쉬에 제약을 받으며, 가장자리(shape) 형태는 지원되지 않습니다.
+
+    얼굴 감지는 Shape 또는 Paint 연산자에서 Face Warp 버튼을 클릭하거나 Tracker 스트립에서 Detect Faces 버튼을 클릭하여 수행됩니다. 이는 어떤 shape 또는 stroke를 추가하기 전에 수행해야 합니다. 감지 후, 감지된 얼굴을 추적기 목록에서 선택할 수 있습니다. 얼굴에는 3D 메쉬가 표시됩니다. 이제 얼굴에 링크된 shape 또는 paint stroke를 추가할 수 있습니다. Face Warp 전용 Quick Shapes는 Shape 연산자에서 사용할 수 있습니다.
+
+    Face Warp를 사용할 때 매트는 ‘UV’ 공간에서 정의되며, 이는 펼쳐진 얼굴을 나타내는 2D 공간으로 생각할 수 있습니다. 3D 메쉬는 매트를 얼굴의 3D 표현에 투사하는 데 사용됩니다. Shape 또는 paint stroke가 Face Warp Tracker에 연결된 후 다른 얼굴로 변경하면 shape 또는 paint stroke가 자동으로 새로 선택된 얼굴에 재배치됩니다.
+
+    얼굴 왜곡은 링크 해제되거나 삭제될 수 없습니다. 매트가 UV ‘얼굴’ 공간에서 정의되기 때문에 얼굴에 연결되지 않으면 의미가 없기 때문입니다. 유효한 작업은 다른 얼굴에 연결하는 것입니다.
+
+    Show UV 버튼은 이미지와 UV 공간에서 ‘펼쳐진’ 뷰를 나란히 표시합니다. 이 뷰는 얼굴의 자세와 독립적이기 때문에 얼굴이 움직일 때도 대체로 일정하게 유지되므로 shape와 paint stroke를 배치하는 데 유용할 수 있습니다.
+
+    Face Zoom 버튼은 선택된 얼굴을 확대하여 더 정확한 편집을 할 수 있도록 합니다.\
+
 *   **Face Perspective**
 
     Used to perform perspective transforms based on 3 points positioned on a a face's 3D mesh. These points are used to to derive a plane which is then used to generate perspective transformations. It can be used with all operators which support Perspective Trackers (i.e. Shapes, Paint, Text, Grid Warp and Perspective). The 3 points are displayed as a blue triangle on the image when the Tracker strip is selected and can be edited there.
@@ -198,16 +437,36 @@
     To use the Face Perspective Tracker, the desired Shape, Paint stroke, Text or Grid Warp is created first and then linked to the Perspective Tracker.
 
     After choosing a Face Perspective track, changing to a different face perspective track will reposition the controls onto the selected face. Unlike Face Warp tracks, Face Perspective tracks can be unlinked and deleted.
+*   **얼굴 관점(Face Perspective)**
+
+    얼굴 관점은 얼굴의 3D 메쉬에 위치한 3개의 점을 기반으로 원근 변환을 수행하는 데 사용됩니다. 이러한 점들은 평면을 도출하는 데 사용되며, 이를 통해 원근 변환을 생성합니다. 이는 Perspective Trackers를 지원하는 모든 연산자(예: Shapes, Paint, Text, Grid Warp 및 Perspective)와 함께 사용할 수 있습니다. 트래커 스트립이 선택되면 3개의 점이 이미지에 파란색 삼각형으로 표시되며, 이곳에서 편집할 수 있습니다.
+
+    얼굴 관점 트래커를 사용하려면 원하는 Shape, Paint stroke, Text 또는 Grid Warp를 먼저 생성한 후 Perspective Tracker에 링크합니다.
+
+    얼굴 관점 트랙을 선택한 후, 다른 얼굴 관점 트랙으로 변경하면 제어가 선택된 얼굴에 재배치됩니다. 얼굴 왜곡 트랙과 달리 얼굴 관점 트랙은 링크 해제 및 삭제할 수 있습니다.\
+
 *   **Copy and Paste**
 
     To enhance workflows, the Face Tracker works differently to the other tracker types when being applied to other shots. When a stack contains tracked faces, applying the stack will check the destination shot to see if any tracked faces are already present in a Tracker strip. If so, the grade will be relinked to one of the existing faces. If not, a face detection is performed, and the grade is linked to one of the newly detected faces.
 
     If the incorrect face was selected, one can go to the relevant operator and simply select the correct face from the tracker list. Any operators will be automatically remapped to the new selection.
+*   **복사 및 붙여넣기(Copy and Paste)**
+
+    워크플로우를 개선하기 위해 얼굴 추적기는 다른 추적기 유형과 다르게 작동하여 다른 샷에 적용됩니다. 스택에 추적된 얼굴이 포함된 경우, 스택을 적용하면 대상 샷의 Tracker 스트립에 이미 추적된 얼굴이 있는지 확인합니다. 이미 추적된 얼굴이 있으면 그레이드가 기존 얼굴 중 하나에 다시 연결됩니다. 그렇지 않으면 얼굴 감지가 수행되며, 그레이드가 새로 감지된 얼굴 중 하나에 연결됩니다.
+
+    잘못된 얼굴이 선택된 경우, 관련 연산자로 이동하여 추적기 목록에서 올바른 얼굴을 선택하기만 하면 됩니다. 모든 연산자는 자동으로 새로운 선택에 맞게 재매핑됩니다.\
+    \
+
 *   **Technical Details**
 
     The machine learning models used to implement the Face Tracker are part of a separate filmlight-flexi-effects installer, which is available in the support section of the FilmLight website.
 
     Face Tracker does not currently run on Intel macOS systems. Bug 51467
+*   **기술 세부 사항(Technical Details)**
+
+    얼굴 추적기를 구현하는 데 사용된 머신 러닝 모델은 별도의 filmlight-flexi-effects 설치 프로그램의 일부로, FilmLight 웹사이트의 지원 섹션에서 이용할 수 있습니다.
+
+    얼굴 추적기는 현재 Intel macOS 시스템에서는 실행되지 않습니다. \[버그 51467]
 
 #### Timeline
 
