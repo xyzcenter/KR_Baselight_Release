@@ -1,6 +1,4 @@
-# Baselight Release 6.0.20612 (2024-06-25)
-
-##
+# Baselight 릴리스 6.0.20612 (2024-06-25)
 
 ### Important Notes
 

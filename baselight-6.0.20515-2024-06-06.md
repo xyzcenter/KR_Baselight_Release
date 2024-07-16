@@ -1,6 +1,4 @@
-# Baselight Release 6.0.20515 (2024-06-06)
-
-##
+# Baselight 릴리즈 6.0.20515 (2024-06-06)
 
 ### New Features Since Baselight 6.0.20380
 

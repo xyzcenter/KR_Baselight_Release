@@ -30,6 +30,16 @@ When running Baselight CONFORM or Daylight on macOS with AJA devices, AJA Softwa
 * Added support for NVIDIA 550.76 driver \[bug 68044]
 * Added support for new FilmLight CONNECT traffic routing scheme \[bug 68056]
 
+**Baselight 5.3.19778 이후 새로운 기능**
+
+
+
+• R3D SDK 8.5.1로 업데이트되었습니다. 이 업데이트는 여러 버그를 수정하고 V-RAPTOR \[X] 미디어를 지원합니다. 참고로 Extended Highlights는 베타 기능으로 아직 사용 가능하지 않습니다 \[버그 67193].
+
+• NVIDIA 550.76 드라이버 지원이 추가되었습니다 \[버그 68044].
+
+• 새로운 FilmLight CONNECT 트래픽 라우팅 스킴 지원이 추가되었습니다 \[버그 68056].
+
 ## Bug Fixes Since Baselight 5.3.19778
 
 * Fixed crash in flapid when adding an image item to a FormatBurnin via FLAPI \[bug 67724]

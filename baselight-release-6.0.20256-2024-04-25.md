@@ -1,7 +1,5 @@
 # Baselight Release 6.0.20256 (2024-04-25)
 
-##
-
 ### New Features Since Baselight 6.0.19915
 
 #### Shape Control Point Transforms
@@ -16,31 +14,6 @@
     * Middle Trackball Ring : Rotate the selected control points.
     * Right Trackball : Translate the pivot/centre of rotation.
     * Right Trackball Ring : Scale the selected control points. Bug 67681
-
-#### DRT Black Offset Compensation
-
-*   Some DRTs map a negative linear light value to 0.0 in display-referred values. When a DRT defines this offset in its `BlackOffset` parameter, a new "Compensate For DRT Black Offset" control is shown below the DRT selection in Scene Settings View. When enabled, Baselight adds a compensatory flare before and after several modern grading operators. These operators are:
-
-    * Base Grade (compensation was already present in Baselight 5)
-    * Boost Detail
-    * Boost Shadow
-    * Chromogen
-    * Colour Crosstalk in "Calculate In Linear" mode
-    * Compress Gamut
-    * Curve Grade
-    * Hue Angle
-    * Look (with looks using formulae or triangles)
-    * X Grade
-
-    This change should improve the colour grading behaviour of all of these operators when used in combination with such DRTs. Bug 67883
-
-#### Miscellaneous
-
-* Added support for the NVIDIA 550.76 driver. Bug 68044
-* Added support for new FilmLight CONNECT traffic routing scheme. Bug 68056
-* QuickTime metadata with reverse-DNS naming (e.g. `com.apple.quicktime.model`) is now copied from QuickTime source media to QuickTime rendered output media. Bug 68112
-
-
 
 ### Baselight 6.0.19915 이후 새로운 기능
 
@@ -59,6 +32,23 @@
 • 오른쪽 트랙볼: 회전 중심을 이동.
 
 • 오른쪽 트랙볼 링: 선택한 컨트롤 포인트를 확대/축소. (버그 67681)
+
+#### DRT Black Offset Compensation
+
+*   Some DRTs map a negative linear light value to 0.0 in display-referred values. When a DRT defines this offset in its `BlackOffset` parameter, a new "Compensate For DRT Black Offset" control is shown below the DRT selection in Scene Settings View. When enabled, Baselight adds a compensatory flare before and after several modern grading operators. These operators are:
+
+    * Base Grade (compensation was already present in Baselight 5)
+    * Boost Detail
+    * Boost Shadow
+    * Chromogen
+    * Colour Crosstalk in "Calculate In Linear" mode
+    * Compress Gamut
+    * Curve Grade
+    * Hue Angle
+    * Look (with looks using formulae or triangles)
+    * X Grade
+
+    This change should improve the colour grading behaviour of all of these operators when used in combination with such DRTs. Bug 67883
 
 **DRT Black Offset Compensation**
 
@@ -85,6 +75,12 @@
 • X Grade
 
 • 이 변경 사항은 이러한 DRT와 함께 사용할 때 모든 연산자의 색상 그레이딩 동작을 개선할 것입니다. (버그 67883)
+
+#### Miscellaneous
+
+* Added support for the NVIDIA 550.76 driver. Bug 68044
+* Added support for new FilmLight CONNECT traffic routing scheme. Bug 68056
+* QuickTime metadata with reverse-DNS naming (e.g. `com.apple.quicktime.model`) is now copied from QuickTime source media to QuickTime rendered output media. Bug 68112
 
 **기타**
 
