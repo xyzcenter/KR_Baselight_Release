@@ -474,6 +474,16 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
   * **Modern Look**: The new timeline's cleaner, brighter look aims to make strips and their colours more distinct and easier to interpret.
   * **Context-aware strip roundness**: Strip roundness is now used to make it clear which strips contribute to a layer, by only the top-most and bottom-most strips of a layer being rounded.
   * **Node Graph**: To assist users in visualising the actual graph structure represented by a grading stack, a node graph is now superimposed over the shot, when space allows. In this node graph, blue nodes and lines represent RGBA image data flowing down through the graph, whilst white nodes and lines represent nodes that contribute to a single-channel matte input to a layer. Dotted lines represent references to image data further up the stack, outside of the normal implicit tree structure. When a layer/shot is folded, the layer's folded nodes are arranged horizontally beside the layer's node, their colouring allowing the user to see a layer's internal structure, even when folded.
+
+### 타임라인(Timeline)
+
+* **새로운 외관(New Appearance)**
+  * **모던 룩(Modern Look)**: 새 타임라인은 더 깨끗하고 밝은 외관을 제공하여 스트립과 그 색상을 더 명확하고 쉽게 해석할 수 있도록 설계되었습니다.
+  * **문맥 인식 스트립 둥글기(Context-aware strip roundness)**: 이제 레이어에 기여하는 스트립을 명확히 하기 위해 레이어의 가장 위와 가장 아래에 있는 스트립만 둥글게 표시됩니다.
+  * **노드 그래프(Node Graph)**: 사용자가 그레이딩 스택에 의해 나타나는 실제 그래프 구조를 시각화할 수 있도록, 공간이 허용되는 경우 샷 위에 노드 그래프가 중첩됩니다. 이 노드 그래프에서 파란색 노드와 선은 그래프를 통해 흐르는 RGBA 이미지 데이터를 나타내며, 흰색 노드와 선은 레이어에 단일 채널 매트 입력을 기여하는 노드를 나타냅니다. 점선은 정상적인 암시적 트리 구조 외부에서 스택 위쪽으로 더 올라간 이미지 데이터에 대한 참조를 나타냅니다. 레이어/샷이 접힌 경우, 레이어의 접힌 노드는 레이어의 노드 옆에 수평으로 배열되며, 색상을 통해 사용자가 접힌 상태에서도 레이어의 내부 구조를 볼 수 있습니다.
+
+
+
 * **Layer / Shot Folding**
   * **Layer Folding**: It is now possible to fold a layer's mattes down into a layer's grade strip, reducing the vertical space used by the layer. A layer's folding state can be toggled either by clicking the triangular folding icon on the right-hand side of the strip or by using the `\` shortcut with one or more layer strips selected. To toggle the folding state of all layers in a shot, select strips in one or more shots and press `Ctrl+\` (`Cmd+\` on Mac).
   * **Shot Folding**: It is also possible to fold all of a shot's grading strips up into the shot's top strip, providing a greatly simplified view of the timeline. A shot's folding state can be toggled by clicking the triangular folding icon on the right-hand side of the shot's top strip or by selecting a strip in one or more shots and pressing `Alt+\`.
