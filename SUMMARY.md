@@ -4,12 +4,12 @@
 * [Baselight 릴리스 6.0.20612 (2024-06-25)](baselight-6.0.20612-2024-06-25.md)
 * [Baselight 릴리즈 6.0.20515 (2024-06-06)](baselight-6.0.20515-2024-06-06.md)
 * [Baselight 릴리스 6.0.20380 (2024-05-09)](baselight-6.0.20380-2024-05-09.md)
-* [Baselight Release 6.0.20256 (2024-04-25)](baselight-release-6.0.20256-2024-04-25.md)
-* [Baselight Release 6.0.19915 (2024-03-27)](baselight-release-6.0.19915-2024-03-27.md)
+* [Baselight 릴리스 6.0.20256 (2024-04-25)](baselight-6.0.20256-2024-04-25.md)
+* [Baselight 릴리스 6.0.19915 (2024-03-27)](baselight-6.0.19915-2024-03-27.md)
 * [Baselight 릴리스 6.0.19881 (2024-03-20)](baselight-6.0.19881-2024-03-20.md)
-* [Baselight Release 6.0.19514 (2024-01-27)](baselight-release-6.0.19514-2024-01-27.md)
-* [Baselight Release 6.0.19425 (2024-01-16)](baselight-release-6.0.19425-2024-01-16.md)
-* [Baselight Release 6.0.19342 (2023-12-12)](baselight-release-6.0.19342-2023-12-12.md)
+* [Baselight 릴리스 6.0.19514 (2024-01-27)](baselight-6.0.19514-2024-01-27.md)
+* [Baselight 릴리스 6.0.19425 (2024-01-16)](baselight-6.0.19425-2024-01-16.md)
+* [Baselight 릴리스 6.0.19342 (2023-12-12)](baselight-6.0.19342-2023-12-12.md)
 
 ## 베이스라이트 5.3
 
