@@ -2,7 +2,7 @@
 
 * [베이스라이트 릴리스 노트](README.md)
 * [Baselight 릴리스 6.0.20612 (2024-06-25)](baselight-6.0.20612-2024-06-25.md)
-* [Baselight 릴리즈 6.0.20515 (2024-06-06)](baselight-6.0.20515-2024-06-06.md)
+* [Baselight 릴리스 6.0.20515 (2024-06-06)](baselight-6.0.20515-2024-06-06.md)
 * [Baselight 릴리스 6.0.20380 (2024-05-09)](baselight-6.0.20380-2024-05-09.md)
 * [Baselight 릴리스 6.0.20256 (2024-04-25)](baselight-6.0.20256-2024-04-25.md)
 * [Baselight 릴리스 6.0.19915 (2024-03-27)](baselight-6.0.19915-2024-03-27.md)
@@ -13,9 +13,9 @@
 
 ## 베이스라이트 5.3
 
-* [Baselight Release 5.3.20255 (2024-04-25)](5.3/baselight-release-5.3.20255-2024-04-25.md)
-* [Baselight Release 5.3.19778 (2024-03-04)](5.3/baselight-release-5.3.19778-2024-03-04.md)
-* [Baselight Release 5.3.19477 (2024-01-22)](5.3/baselight-release-5.3.19477-2024-01-22.md)
+* [Baselight 릴리스 5.3.20255 (2024-04-25)](5.3/baselight-5.3.20255-2024-04-25.md)
+* [Baselight 릴리스 5.3.19778 (2024-03-04)](5.3/baselight-5.3.19778-2024-03-04.md)
+* [Baselight 릴리스 5.3.19477 (2024-01-22)](5.3/baselight-5.3.19477-2024-01-22.md)
 * [Baselight Release 5.3.18523 (2023-09-04)](5.3/baselight-release-5.3.18523-2023-09-04.md)
 * [Baselight Release 5.3.18465 (2023-08-22)](5.3/baselight-release-5.3.18465-2023-08-22.md)
 * [Baselight Release 5.3.18123 (2023-06-13)](5.3/baselight-release-5.3.18123-2023-06-13.md)

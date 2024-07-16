@@ -1,4 +1,4 @@
-# Baselight Release 5.3.19477 (2024-01-22)
+# Baselight 릴리스 5.3.19477 (2024-01-22)
 
 
 
@@ -23,6 +23,47 @@
 * DRTs which are implemented using CLFs are now supported. Please contact baselight-support@filmlight.ltd.uk for more information \[bug 65098]
 * Added support for macOS 14 Sonoma; the minimum supported version is now macOS 12 Monterey \[bug 65665]
 * Updated to R3D SDK 8.4.0. This fixes several bugs, and improves IPP2 demosaic edge interpolation on strong colour transitions \[bug 67060]
+
+\
+
+
+**Baselight 5.3.18523 이후 새로운 기능**
+
+• CMX EDL에서 클립 이름을 사용하여 컨폼하는 기능이 추가되었습니다. EDL에는 이벤트 옵션을 활성화하기 위해 \* FROM CLIP NAME: 또는 \*FROM CLIP NAME: 항목이 포함되어야 합니다 \[버그 64579].
+
+• 장면 이름 드롭다운 메뉴에 장면의 작업 프레임 속도가 표시됩니다 \[버그 57284].
+
+• Apple ProRes 및 많은 다른 영화 파일이 이전 빌드보다 훨씬 빠르게 읽힙니다. 이를 통해 추가 미디어를 캐싱 없이 재생할 수 있습니다 \[버그 64439].
+
+• 타임라인에서 컨폼할 때 클립 이름이 있으면 Match Events By 목록에 “Clip Name In Path Or Filename”을 추가합니다.
+
+• bl-conform –Filter 옵션에 ClipName이 포함되었습니다 \[버그 57729].
+
+• PNG 이미지 파일에서 추가 메타데이터가 읽힙니다 \[버그 65131].
+
+• 입력 색 공간과 스택 색 공간 간의 변환 시 Sequence 연산자가 자동으로 수행하는 백색점 조정이 Colour Space Journey View에 표시됩니다 \[버그 64683].
+
+• FCP/XML과 이미지 변환을 컨폼할 때 ‘Apply Input Format Mapping’ 옵션이 추가되었습니다. 예로 설정하면 작업 포맷과 입력 포맷의 해상도와 픽셀 종횡비가 일치하지 않을 경우 변환이 차이를 보상하도록 조정됩니다 \[버그 64760].
+
+• Photon이 버전 4.9.4로 업데이트되었습니다. 이는 렌더링된 IMF 패키지에서 추가 문제를 감지할 수 있습니다 \[버그 65555].
+
+• QuickTime 및 MP4 파일에서 IPCM 오디오 읽기 지원이 추가되었습니다 \[버그 65581].
+
+• Blackboard Classic Wacom 태블릿을 매핑하기 위한 명령 줄 도구가 추가되었습니다 \[버그 57119].
+
+• Baselight 그레이드로 Avid AAF 업데이트를 수행할 때 그레이드가 내보내지 않으면 경고가 표시됩니다 \[버그 65686].
+
+• HDR IMF 패키지 및 Dolby Vision Mezzanine MXF 파일을 렌더링할 때 v5 돌비 비전 메타데이터를 내보내는 옵션이 추가되었습니다 \[버그 60060].
+
+• 렌더 파일 이름 템플릿 치환으로 %u 또는 %{ShotStartTimelineTimecode}가 추가되어 현재 샷의 시작 타임라인(녹화) 타임코드를 숫자로 표시합니다 \[버그 65762].
+
+• 새 포맷 매핑을 생성할 때 작업 포맷이 목록 상단에 표시됩니다 \[버그 65896].
+
+• CLF를 사용하여 구현된 DRT가 이제 지원됩니다. 자세한 내용은 baselight-support@filmlight.ltd.uk로 문의하십시오 \[버그 65098].
+
+• macOS 14 Sonoma 지원이 추가되었습니다. 지원되는 최소 버전은 이제 macOS 12 Monterey입니다 \[버그 65665].
+
+• R3D SDK 8.4.0으로 업데이트되었습니다. 여러 버그를 수정하고 IPP2 디모자이크 엣지 인터폴레이션을 개선했습니다 \[버그 67060].
 
 ## Bug Fixes Since Baselight 5.3.18523
 
