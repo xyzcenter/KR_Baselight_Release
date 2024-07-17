@@ -1,6 +1,8 @@
 # 🥳 Baselight 릴리스 6.0.19881 (2024-03-20)
 
-### New Features Since Baselight 6.0.19514
+## New Features Since Baselight 6.0.19514
+
+Baselight 6.0.19514 이후의 새로운 기능
 
 #### Sapphire for Baselight
 
@@ -11,8 +13,6 @@
     Sapphire for Baselight is not yet available for macOS systems; Baselight CONFORM and Daylight on macOS will continue to support Boris FX Sapphire until Sapphire for Baselight is released on macOS.
 
     If you have an existing Boris FX Sapphire licence, please contact your FilmLight sales representative. Bug 61703
-
-## Baselight 6.0.19514 이후의 새로운 기능
 
 ### Sapphire for Baselight
 
@@ -25,7 +25,7 @@ Sapphire for Baselight는 아직 macOS 시스템에서 사용할 수 없습니�
 
 * Updated the Sony SMDK Toolkit to version 4.24 and Sony RAW SDK to version 5.0.0. This adds support for media from the Sony BURANO camera. Bug 64882
 
-**SDK 업데이트**
+### **SDK 업데이트**
 
 Sony SMDK 툴킷을 버전 4.24로, Sony RAW SDK를 버전 5.0.0으로 업데이트했습니다. 이를 통해 Sony BURANO 카메라의 미디어 지원이 추가되었습니다. 버그 64882
 
