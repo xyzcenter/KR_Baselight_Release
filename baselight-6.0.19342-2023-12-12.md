@@ -1,8 +1,10 @@
-# Baselight 릴리스 6.0.19342 (2023-12-12)
+# 🤩 Baselight 릴리스 6.0.19342 (2023-12-12)
 
-### New Features Since Version 5
+## New Features Since Version 5
 
-#### X Grade Operator
+버전 5 이후 새로운 기능
+
+### X Grade Operator
 
 *   X Grade is a new primary colour grading tool which operates in floating-point linear light. As with all our newly developed tools, it is colour space aware and will convert from the stack colour space to its internal linear light colour space as well as processing the colour changes in a newly developed opponent colour space designed for natural colour grading.
 
@@ -10,9 +12,7 @@
 
     The scope can be panned and zoomed just as with an image.
 
-**버전 5 이후 새로운 기능**
-
-**X Grade 연산자**
+### **X Grade 연산자**
 
 * X Grade는 부동 소수점 선형 광원에서 작동하는 새로운 기본 색상 그레이딩 도구입니다. 모든 새로 개발된 도구와 마찬가지로 색상 공간을 인식하며 스택 색상 공간에서 내부 선형 광원 색상 공간으로 변환하고, 자연스러운 색상 그레이딩을 위해 새로 개발된 상보 색상 공간에서 색상 변경을 처리합니다. \
   X Grade는 마우스와 패널을 모두 사용하여 상호작용할 수 있습니다. 주요 사용자 인터페이스는 현재 이미지를 캔버스에 포인트 클라우드로 표시하는 스코프와 같은 캔버스이며, 이미지 디스플레이에서 직접 색상을 빠르고 쉽게 수정할 수 있습니다.\
@@ -128,14 +128,14 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
     스트로크의 효과는 더해지며, 생성된 순서대로 적용된다는 점을 이해하는 것이 중요합니다. 스트로크의 더해지는 특성은 직관적인 그레이딩에 더 적합합니다 (일반적으로 이전 스트로크에 대해 걱정하지 않고 변경하고 싶은 대로 드래그할 수 있음) 또한 스트로크가 서로 교차하더라도 접힘을 피할 수 있기 때문에 더 견고한 결과를 생성합니다. 그러나 이러한 특성은 주어진 지점에서 변화의 순수한 결과가 아니라 추가한 스트로크의 이력을 나타낸다는 단점이 있습니다. \[버그 49114]
 
-## Chromogen
+### Chromogen
 
 * Chromogen is a ground-breaking framework for look development based on human perception. Look development is usually performed before principal photography. Together with the Director of Photography, the colourist can use Chromogen to create a unique look for a specific project. Chromogen is designed to work in a scene-referred colour management workflow. It is both Working Colour Space and DRT agnostic. However, if the DRT already incorporates a prominent look component, it will be harder to produce novel looks or to escape the look of the DRT. Chromogen is colour space aware and operates in its own perceptual colour space called Eab. **E** stands for Exposure and **a/b** are the colour opponent axes, where **a** encodes the green/red axis and **b** encodes the blue/yellow axis.\
   \
   To build a look, **stages** are stacked on top of each other. There are ten different types of stage a user can choose from. Each stage type is a simple tool providing look development functionality. Complex looks are produced by adding many simple stages together. All stages are performed at once on the GPU in floating-point precision. This ensures the highest image quality and best performance. Looks created with Chromogen can be exported as LUTs for preview purposes (for On Set visualisation), but it is recommended to apply the look via the Chromogen operator for the final grade to ensure the highest image quality and flexibility.\
 
 
-## 크로모젠(Chromogen)
+### 크로모젠(Chromogen)
 
 * 크로모젠은 인간의 인식을 기반으로 한 획기적인 룩 개발 프레임워크입니다. 룩 개발은 일반적으로 본 촬영 전에 수행됩니다. 촬영 감독과 함께 컬러리스트는 크로모젠을 사용하여 특정 프로젝트에 고유한 룩을 만들 수 있습니다. 크로모젠은 씬 참조 색상 관리 워크플로우에서 작동하도록 설계되었습니다. 이는 작업 색상 공간 및 DRT에 구애받지 않습니다. 그러나 DRT가 이미 두드러진 룩 구성 요소를 포함하고 있다면, 새로운 룩을 생성하거나 DRT의 룩에서 벗어나는 것이 어려워집니다. 크로모젠은 색상 공간을 인식하고, **Eab**라는 자체 인지 색상 공간에서 작동합니다. E는 노출을, **a/b**는 색상 반대 축을 나타내며, **a**는 녹색/빨간색 축을, **b**는 파란색/노란색 축을 인코딩합니다.\
   \
@@ -359,7 +359,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
       * 붙여넣기/적용 옵션은 이제 갤러리와 컷 보기 사이에서 공유됩니다.
     * 따라서 남아 있는 컷 보기 제어는 이제 작은 떠 있는 패널에 포함되며, 썸네일 표시 옵션은 오른쪽 클릭 메뉴로 이동되었습니다. \[버그 64271]
 
-#### Face Tracker
+### Face Tracker
 
 *   Added a new 3D Machine Learning tracker, designed specifically for detecting and tracking faces. It can be found in the new **Face** tab inside the Tracker strip.
 
@@ -468,7 +468,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
     얼굴 추적기는 현재 Intel macOS 시스템에서는 실행되지 않습니다. \[버그 51467]
 
-#### Timeline
+### Timeline
 
 * **New Appearance**
   * **Modern Look**: The new timeline's cleaner, brighter look aims to make strips and their colours more distinct and easier to interpret.
@@ -662,7 +662,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
     Greatly improved performance when doing Trim Start/End (Ripple) edits in Edit mode, as well as when doing `Alt+arrow` (Bounce) edits with a large number of selected strips. Bug 53320
 
-#### Alpha (Opacity) Support
+### Alpha (Opacity) Support
 
 * Baselight 6.0 adds extensive support for compositing and working with images with opacity information, normally stored in the alpha channel of RGBA images. Bug 54001
 * The Sequence operator **Input RGBA** setting is enabled when the input media has an alpha channel, and allows control over whether to treat the RGB channels as premultiplied by alpha or not, and if premultiplied, whether the multiplication was done in linear or in the native colour space. Bug 62993
@@ -730,7 +730,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * The Grid Warp operator now has a **Transparent Outside** option. Bug 63026
 * The Lens Correction operator now has a **Transparent Outside** option. Bug 62014
 
-#### RIFE ML Retime
+### RIFE ML Retime
 
 *   An improved Retime sampling mode **RIFE ML Retime** is now available.
 
@@ -780,7 +780,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
     We are now deprecating the old operator preset mechanism. You will only be able to use the old mechanism to access existing legacy presets and we recommend you save them using the new mechanism and then remove the old presets.
 
-#### Flare
+### Flare
 
 *   Flare is a tool for adding lens flares to scenes by creating a list of stages that can be combined to produce convincing flare effects.
 
@@ -983,7 +983,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
 * The Text operator now has an **RGBA** option which produces an RGBA image which can be composited separately. The **Composite** option renders the text directly onto the input image. The **Matte** option produces a matte image which can be used for compositing. Bug 50774
 
-#### Updated Gallery View
+### Updated Gallery View
 
 * Some the Shots View functionality has now been integrated into Galleries, allowing them to be sorted, searched and filtered.
 * Additional metadata is now captured at grab time:
@@ -1013,7 +1013,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * Multi-Paste supports shots which span multiple timeline tracks. When multi-pasting, the new **Maintain Tracks** option determines whether the tracks of source shot strips are maintained in the destination or whether they are pasted into the destination top strip's track. Bug 53121
 * When multi-pasting from multiple scenes, Multi-Paste will now stop with a more informative error message if any of the source scenes can't be opened (previously it would simply skip over unopenable scenes). Bug 66110
 
-#### Colour Science
+### Colour Science
 
 *   **Truelight CAM v3**
 
@@ -1053,7 +1053,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
     Added "FilmLight: Linear / EGamut 2" and "FilmLight: TLog / EGamut 2" colour spaces. EGamut 2 is changed slightly to include modern camera colour spaces. There is no noticeable difference from a colour grading perspective. Bug 66101
 * Added "Apple: Apple Log / Rec.2020" colour space. Bug 65637
 
-#### Dolby Vision
+### Dolby Vision
 
 *   Dolby Vision Content Mapping v5.2 features are now supported in scenes using "Internal CMU (v4)" content mapping.
 
@@ -1074,7 +1074,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
 * Added a new mode for selecting an explicit, upstream strip in the stack to reference. Once enabled, the 'Pick Strip' button allows picking of a strip to use/reference directly from the timeline (strips unavailable to reference from the Reference strip will be greyed out). Bug 51119
 
-#### Loupe Tool
+### Loupe Tool
 
 * The Loupe Tool provides a convenient means of zooming in for fine control when doing precision operations such as editing shapes. Dragging with the loupe is 'geared' to make it easier to make precise adjustments. Bug 51930
 * The loupe is activated/deactivated with the keyboard shortcut `Win+Esc` (`Control+Esc` on Mac) while the mouse is the image window; certain tools have an "Auto Loupe" button to allow the loupe to turn on automatically for that tool.
@@ -1082,7 +1082,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * Loupe settings are accessible from the Display menu. **Centred** means that the loupe will be centred over your mouse, whereas **Offset** means the loupe will be offset so that it doesn't overlap with the mouse position.
 * The Loupe is currently only available with the 1x1 Layout; this limitation will be removed in a future release.
 
-#### SDK Updates
+### SDK Updates
 
 * Added support for reading Nikon RAW (.NEV) media. Bug 60943
 * Updated to Sony SMDK Toolkit version 4.23. Bug 64622
@@ -1096,7 +1096,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * The old v5 ARRIRAW decoding SDK is no longer available except for very old media and media inserted in older builds. Note that the v5 SDK remains unavailable on Apple Silicon systems. Bug 66334
 * Updated to DNx SDK 2.7.5. This fixes some internal behaviours. Bug 66465
 
-#### Volume Indexing
+### Volume Indexing
 
 *   In Baselight 6.0 and future releases, volume indexing is out of beta and is automatically enabled on Linux Baselight systems.
 
@@ -1175,7 +1175,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
     > sudo fl-service restart index
     ```
 
-#### Miscellaneous
+### Miscellaneous
 
 * Added support for macOS 14 Sonoma; the minimum supported version is now macOS 12 Monterey. Bug 65665
 * Operator image overlays now update/draw in sync with the images themselves when scrubbing through the timeline. Bug 61376
@@ -1229,7 +1229,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * The Working Format is now shown at the top of the list when creating a new format mapping. Bug 65896
 * DRTs which are implemented using CLFs are now supported. Please contact `baselight-support@filmlight.ltd.uk` for more information. Bug 65098
 
-### Bug Fixes Since Version 5
+## Bug Fixes Since Version 5
 
 * Newly-inserted Blend operators using Linearised Colour Treatment now correctly use the colour space of their input, not the Working Colour Space. Bug 55995
 * Fixed rare crash in Curve Grade where the working colourspace was indeterminate. Bug 56815
@@ -1385,10 +1385,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
 
 
-**버전 5 이후 버그 수정**
-
-\
-
+### **버전 5 이후 버그 수정** 
 
 • 선형화된 컬러 처리(Linearised Colour Treatment)를 사용하는 새로 삽입된 블렌드 연산자가 이제 작업 컬러 공간이 아닌 입력의 컬러 공간을 올바르게 사용합니다. \[버그 55995]
 
