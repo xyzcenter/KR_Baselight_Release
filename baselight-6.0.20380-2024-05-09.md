@@ -1,6 +1,4 @@
-# Baselight Release 6.0.20380 (2024-05-09)
-
-##
+# 😀 Baselight 릴리스 6.0.20380 (2024-05-09)
 
 ### New Features Since Baselight 6.0.20256
 
