@@ -1,10 +1,8 @@
 # Baselight Release 5.3.18123 (2023-06-13)
 
-
-
 ## New Features Since Baselight 5.3.17711
 
-### Disney IMF Presets
+### [Disney IMF Presets](baselight-release-5.3.18123-2023-06-13.md#disney-imf)
 
 *   Added IMF presets for HDR and SDR variants of Disney Mastering and Distribution packages. These are based on Disney specifications v1.13.2 as available from mediatechspecs.disney.com.
 
@@ -25,7 +23,30 @@
 
     The package type selector has been divided into type and subtype for easier overview. It is now also possible to select Netflix and Disney presets for supplemental IMF packages \[bug 61119]
 
-### Frame.io Integration
+## Baselight 5.3.17711 이후의 새로운 기능
+
+### Disney IMF 프리셋
+
+* Disney 마스터링 및 배포 패키지의 HDR 및 SDR 변형을 위한 IMF 프리셋이 추가되었습니다. 이 프리셋은 mediatechspecs.disney.com에서 제공되는 Disney 사양 v1.13.2를 기반으로 합니다.\
+  Disney IMF 프리셋이 선택되면 다음 제약 조건이 적용됩니다:
+  * JPEG 2000 비트 깊이, 메인 레벨 및 서브 레벨이 선택된 프리셋에서 지정한 값으로 설정됩니다.
+  * 타임코드는 00:00:00:00에서 시작합니다.
+  * 보충 패키지의 오디오는 기본적으로 유지되며 업데이트할 수 없습니다. 즉, ‘오디오 삽입’이 없습니다.
+  * 돌비 애트모스 트랙은 사용할 수 없습니다.
+  * MaxFALL 및 MaxCLL은 패키지에 포함되지 않습니다.
+  * 최소 휘도는 각각 1000니트 및 4000니트 마스터링 디스플레이에 대해 0.0001 또는 0.005로 설정됩니다.
+
+비디오, 오디오, OPL 및 PKL 이름은 Disney 요구 사항을 준수하기 위해 기본 값으로 유지해야 합니다.
+
+무손실 UHD 비디오 릴이 80분을 초과하면 경고가 표시됩니다. 비디오는 Render View에서 부분으로 나눌 수 있습니다.
+
+현재 제공물의 설정이 선택된 프리셋의 전달 사양을 준수하지 않는 경우 Render View에 경고가 표시됩니다.
+
+패키지 유형 선택기가 유형과 하위 유형으로 나누어져 있어 더 쉽게 개요를 볼 수 있습니다. 이제 보충 IMF 패키지에 대해 Netflix 및 Disney 프리셋을 선택할 수 있습니다 \[버그 61119].
+
+
+
+### [Frame.io Integration](baselight-release-5.3.18123-2023-06-13.md#frame.io)
 
 *   A new version of the Frame.io Integration is available.
 
@@ -35,11 +56,27 @@
 * When uploading to Frame.io, dialogs now restore, when possible, last selections for account, team, project, folder, and render deliverable. Install the latest integration package to use this feature \[bug 63575]
 * Frame.io app and server scripts now log errors when attempting to connect to the API server or FilmLight authentication server. This should make it easier to troubleshoot configuration issues. Install the latest integration package to use this feature \[bug 63723]
 
-### Cache Input Format Area
+### <mark style="background-color:green;">Frame.io</mark> 통합
+
+* 새로운 버전의 Frame.io 통합이 제공됩니다.\
+  업데이트를 설치하려면 Scripts View를 열고 ‘Packages’ 탭을 선택한 다음 ‘filmlight-frameio’ 패키지를 선택하고 Upgrade Package를 클릭하세요.\
+  주의: 현재 활성 Frame.io 자산이 있는 장면이 있는 경우 업그레이드하지 마세요 \[버그 63660].
+* Frame.io에 업로드할 때 계정, 팀, 프로젝트, 폴더 및 렌더 제공물에 대한 마지막 선택 항목을 가능한 경우 복원하는 대화상자가 추가되었습니다. 이 기능을 사용하려면 최신 통합 패키지를 설치하세요 \[버그 63575].
+* Frame.io 앱 및 서버 스크립트는 이제 API 서버 또는 FilmLight 인증 서버에 연결을 시도할 때 오류를 기록합니다. 이를 통해 구성 문제를 더 쉽게 해결할 수 있습니다. 이 기능을 사용하려면 최신 통합 패키지를 설치하세요 \[버그 63723].
+
+###
+
+### [Cache Input Format Area](baselight-release-5.3.18123-2023-06-13.md#undefined-1)
 
 * The Strip Caching setting on Scene Settings View now has a "Cache Input Format Area" option. Choosing this option makes the cached area the whole of the Sequence's Input Format area (when mapped into the Working Format), including any parts which are mapped outside the Working Format. This allows later Transform operators to reveal the image in these areas, instead of black \[bug 35947]
 
-### Miscellaneous
+### 입력 형식 영역 캐시
+
+* Scene Settings View의 스트립 캐싱 설정에 이제 “<mark style="background-color:green;">Cache Input Format Area” 옵션이 추가</mark>되었습니다. 이 옵션을 선택하면 캐시된 영역이 작업 형식으로 매핑될 때 시퀀스의 입력 형식 영역 전체가 됩니다. 여기에는 작업 형식 외부로 매핑되는 부분도 포함됩니다. 이를 통해 나중에 변환 연산자가 이 영역의 이미지를 검정 대신 표시할 수 있습니다 \[버그 35947].
+
+###
+
+### [Miscellaneous](baselight-release-5.3.18123-2023-06-13.md#undefined-3)
 
 *   On Linux platforms (except FilmLightOS 6), image sequence file I/O is now implemented with direct I/O (DIO), when the files reside on a NFS server. This has a performance benefit.
 
@@ -95,6 +132,85 @@
 * Improved support for TTC fonts allowing selection of any alternative styles embedded in the font files \[bug 62291]
 * Added support for quad link UHD at 120Hz when using a Blackmagic Decklink 8k Pro \[bug 61738]
 * Added an option to write closed GOP XDCAM in Sony MXF deliverables. This behaviour can be enabled using Codec Params in Render View \[bug 64402]
+
+
+
+### 기타
+
+* Linux 플랫폼(영화LightOS 6 제외)에서 <mark style="background-color:green;">이미지 시퀀스 파일 I/O가 이제 NFS 서버에 파일이 있을 때 직접 I/O(DIO)로 구현</mark>되었습니다. 이는 성능 향상에 도움이 됩니다.\
+  모든 플랫폼에서, DIO는 이제 volume.cfg의 새로운 “directio” 플래그를 사용하여 볼륨 단위로 활성화하거나 비활성화할 수 있습니다. 예를 들어:\
+  zone bl0999 dir images /mnt/disk1/images1 limit images <mark style="background-color:orange;">directio=write</mark>\
+  <mark style="background-color:green;">플래그가 “off”로 설정되면 해당 볼륨에 대해 DIO가 사용되지 않습니다. “on”으로 설정되면 읽기 및 쓰기에 대해 DIO가 사용됩니다. “read”로 설정되면 읽기만 DIO가 사용됩니다. “write”로 설정되면 쓰기만 DIO가 사용됩니다.</mark>이 설정은 일반적으로 DIO를 지원하지 않을 수 있는 NAS 및 SAN 볼륨에 대해 고려해야 하거나 성능 이유로 필요합니다.\
+  “nodirect” 플래그는 “directio=off”와 동일하며 이제 더 이상 사용되지 않습니다 \[버그 61840].
+*   Linux 플랫폼(영화LightOS 6 제외)에서 이제 /vol 하위의 NFS 파일 시스템에 대해 기본 마운트 옵션을 지정하기 위해 /etc/nfsmount.conf 파일을 사용할 수 있습니다. 이는 UI 호스트가 Baselight TWO/X의 메인 노드와 다른 마운트 옵션을 필요로 하거나 클라우드의 다른 시스템이 단일, 공유된 volume.cfg 파일을 사용하는 경우 유용할 수 있습니다.
+
+    nfsmount.conf에서 마운트 옵션을 지정하려면 권장 방법은 “MountPoint” 항목을 사용하는 것입니다. 예를 들어:\
+    \[ MountPoint "/vol/bl0999-images" ] <mark style="background-color:green;">proto=rdma</mark>\
+    또한 해당 호스트의 모든 마운트에 적용할 “Server” 항목을 사용할 수 있습니다. auto.vol은 IP 주소로 마운트하기 때문에 서버의 호스트 이름이 아닌 IP 주소를 사용해야 합니다. 예를 들어:\
+    \[ Server "10.81.183.30" ] proto=tcp nconnect=8\
+    /etc/auto.vol 스크립트는 nfsmount.conf에서 일치하는 섹션을 찾으면 기본 옵션을 추가하지 않습니다. volume.cfg의 옵션이 있는 경우 해당 옵션을 추가합니다.\
+    옵션을 테스트하려면 /vol 하위 경로에 액세스하고 /proc/mounts 파일을 확인하십시오. 사용 중인 마운트 옵션과 함께 마운트된 파일 시스템이 나열됩니다 \[버그 62532].
+* “Marks” 메뉴에 “선택된 스트립에서 삭제”라는 새 하위 메뉴가 추가되었습니다. 여기에 4가지 옵션이 포함됩니다:
+  * “Scene Detect Marks”는 Scene Detect 보기에서 암시적으로 생성된 선택된 스트립의 모든 마크를 제거합니다.
+  * “Categorised Marks”는 애플리케이션에서 명시적으로 추가된 선택된 스트립의 모든 마크를 제거합니다.
+  * “Client Frame Marks/Notes”는 선택된 스트립에서 모든 클라이언트 추가 프레임 마크/노트를 제거합니다.
+  * “Client Shot Notes”는 선택된 스트립에서 모든 샷 별 클라이언트 노트를 제거합니다.\
+    주의: 마지막 두 옵션은 실행 취소할 수 없습니다 \[버그 61927].
+  *
+  *
+    *
+  *
+  *
+  * \
+    \
+
+  *   ARRI MXF SDK 버전 4.1.1로 업데이트되었습니다. 이를 통해 일부 최신 ARRIRAW 미디어 트리밍 문제를 해결할 수 있습니다 \[버그 63603].
+
+      • Conform View의 이미지 검색 디렉토리 선택 대화 상자에 현재 장면의 컨테이너로 이동하기 위한 “%C” 버튼이 추가되었습니다 \[버그 62677].
+
+      • Blackboard 2를 사용할 때 도움말 메뉴에 “Blackboard 2 버튼 참조”가 포함됩니다 \[버그 63781].
+
+      • 컬러 공간 여정 보기에서 텍스트 버전의 컬러 공간 여정을 클립보드에 복사할 수 있는 버튼이 추가되었습니다 \[버그 28851].
+
+      • FilmLight 웹사이트에 “ARRI REVEAL DRT” 패밀리가 추가되었습니다 \[버그 62698].
+
+      • FLUX Manage View에서 시퀀스를 드래그할 때, 이제 Timeline View가 FLUX Manage View와 동일한 종류의 드롭 영역을 표시합니다 \[버그 62310].
+
+      • Dolby Metafier를 사용하여 Dolby Vision을 사용한 IMF 패키지의 렌더링을 검증할 수 있습니다. Render View에서 ‘IMF’ 선택기에서 ‘Metafier Validation’ 항목을 선택하여 이 기능을 활성화할 수 있습니다. Metafier의 오류나 경고는 작업 로그에 경고를 생성합니다. Dolby Vision Professional Tools의 일부인 Dolby Metafier가 설치되어 있어야 하며, Metafier 검증을 작동하려면 Preferences->Advanced->IMF Validation에서 위치를 설정해야 합니다 \[버그 54964].
+
+      • Baselight CONFORM은 이제 Render View에서 제출 목록의 맨 위에 FLUX Store 및 Baselight RENDER 시스템을 나열합니다 \[버그 62837].
+
+      • Netflix 모범 사례 폴더 구조를 사용하여 저장된 보충 IMF 패키지를 읽을 수 있습니다 \[버그 63231].
+
+      • 레이어의 매트 선택 제어에 ‘OFX 필터’ 옵션이 추가되었습니다 \[버그 63528].
+
+      • 새로운 “Marks and Client Events” 및 “Queue Monitor” 데스크 버튼이 추가되었습니다. 이 버튼들은 Chalk의 “UI Views” 버튼 카테고리에서 찾을 수 있습니다 \[버그 62566].
+
+      • Photon이 버전 4.9.1로 업데이트되었습니다. 이를 통해 렌더링된 IMF 패키지에서 추가적인 문제를 감지할 수 있습니다 \[버그 63774].
+
+      • Codex HDE SDK 4.0.3으로 업데이트되었습니다. 이를 통해 모노크롬 .arx 미디어를 지원합니다 \[버그 63858].
+
+      • ARRI Image SDK 7.1.1로 업데이트되었습니다. 이를 통해 ALEXA 65, ALEXA LF 및 Mini LF와 모든 이전 ALEXA 모델, 포함하여 ALEXA Mini 및 AMIRA를 위한 ARRI LogC4(따라서 ARRI의 REVEAL 컬러 과학)로 디코딩을 지원합니다. 또한 모노크롬 미디어 지원이 향상되었습니다 \[버그 62918].
+
+      • Scene Differences 대화 상자는 이제 보충 IMF 패키지 제공을 위해 마스터 장면과 현재 장면을 비교할 때 제거된 오디오 트랙 및 추가적인 오디오 트랙 정보를 표시합니다 \[버그 64122].
+
+      • Dolby Vision 장면에서 커서의 마스크 및 가이드를 “Dolby Vision L5”로 설정하여 Dolby Vision 분석의 이미지 종횡비를 반영할 수 있습니다 \[버그 59905].
+
+      • Export EDL 대화 상자의 “Tape Name에 특수 문자 포함” 옵션이 “Yes”로 설정된 경우 이제 공백 문자를 “\_“로 암시적으로 대체하지 않습니다 \[버그 29347].
+
+      • OFX 플러그인 대화 상자에 필터 버튼이 추가되었습니다 \[버그 64267].
+
+      • OFX 플러그인이 FilmLight 시스템 아키텍처를 더 잘 이해할 수 있도록 새로운 FilmLight Suite가 제공됩니다. 자세한 내용은 문서 폴더의 OFX\_in\_Baselight.txt를 참조하세요 \[버그 63659].
+
+      • TTC 폰트에 대한 지원이 개선되어 폰트 파일에 포함된 모든 대체 스타일을 선택할 수 있습니다 \[버그 62291].
+
+      • Blackmagic Decklink 8k Pro를 사용할 때 120Hz에서 쿼드 링크 UHD를 지원하는 옵션이 추가되었습니다 \[버그 61738].
+
+      • Sony MXF 제공물에서 폐쇄 GOP XDCAM을 작성하는 옵션이 추가되었습니다. 이 동작은 Render View의 Codec Params를 사용하여 활성화할 수 있습니다 \[버그 64402].
+
+
+
+
 
 ## Bug Fixes Since Baselight 5.3.17711
 
