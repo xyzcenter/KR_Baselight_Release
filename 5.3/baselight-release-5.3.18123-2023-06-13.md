@@ -56,9 +56,9 @@
 * When uploading to Frame.io, dialogs now restore, when possible, last selections for account, team, project, folder, and render deliverable. Install the latest integration package to use this feature \[bug 63575]
 * Frame.io app and server scripts now log errors when attempting to connect to the API server or FilmLight authentication server. This should make it easier to troubleshoot configuration issues. Install the latest integration package to use this feature \[bug 63723]
 
-### <mark style="background-color:green;">Frame.io</mark> 통합
+### Frame.io 통합
 
-* 새로운 버전의 Frame.io 통합이 제공됩니다.\
+* <mark style="background-color:green;">새로운 버전의 Frame.io 통합이 제공</mark>됩니다.\
   업데이트를 설치하려면 Scripts View를 열고 ‘Packages’ 탭을 선택한 다음 ‘filmlight-frameio’ 패키지를 선택하고 Upgrade Package를 클릭하세요.\
   주의: 현재 활성 Frame.io 자산이 있는 장면이 있는 경우 업그레이드하지 마세요 \[버그 63660].
 * Frame.io에 업로드할 때 계정, 팀, 프로젝트, 폴더 및 렌더 제공물에 대한 마지막 선택 항목을 가능한 경우 복원하는 대화상자가 추가되었습니다. 이 기능을 사용하려면 최신 통합 패키지를 설치하세요 \[버그 63575].
@@ -156,59 +156,28 @@
   * “Client Frame Marks/Notes”는 선택된 스트립에서 모든 클라이언트 추가 프레임 마크/노트를 제거합니다.
   * “Client Shot Notes”는 선택된 스트립에서 모든 샷 별 클라이언트 노트를 제거합니다.\
     주의: 마지막 두 옵션은 실행 취소할 수 없습니다 \[버그 61927].
-  *
-  *
-    *
-  *
-  *
-  * \
-    \
-
-  *   ARRI MXF SDK 버전 4.1.1로 업데이트되었습니다. 이를 통해 일부 최신 ARRIRAW 미디어 트리밍 문제를 해결할 수 있습니다 \[버그 63603].
-
-      • Conform View의 이미지 검색 디렉토리 선택 대화 상자에 현재 장면의 컨테이너로 이동하기 위한 “%C” 버튼이 추가되었습니다 \[버그 62677].
-
-      • Blackboard 2를 사용할 때 도움말 메뉴에 “Blackboard 2 버튼 참조”가 포함됩니다 \[버그 63781].
-
-      • 컬러 공간 여정 보기에서 텍스트 버전의 컬러 공간 여정을 클립보드에 복사할 수 있는 버튼이 추가되었습니다 \[버그 28851].
-
-      • FilmLight 웹사이트에 “ARRI REVEAL DRT” 패밀리가 추가되었습니다 \[버그 62698].
-
-      • FLUX Manage View에서 시퀀스를 드래그할 때, 이제 Timeline View가 FLUX Manage View와 동일한 종류의 드롭 영역을 표시합니다 \[버그 62310].
-
-      • Dolby Metafier를 사용하여 Dolby Vision을 사용한 IMF 패키지의 렌더링을 검증할 수 있습니다. Render View에서 ‘IMF’ 선택기에서 ‘Metafier Validation’ 항목을 선택하여 이 기능을 활성화할 수 있습니다. Metafier의 오류나 경고는 작업 로그에 경고를 생성합니다. Dolby Vision Professional Tools의 일부인 Dolby Metafier가 설치되어 있어야 하며, Metafier 검증을 작동하려면 Preferences->Advanced->IMF Validation에서 위치를 설정해야 합니다 \[버그 54964].
-
-      • Baselight CONFORM은 이제 Render View에서 제출 목록의 맨 위에 FLUX Store 및 Baselight RENDER 시스템을 나열합니다 \[버그 62837].
-
-      • Netflix 모범 사례 폴더 구조를 사용하여 저장된 보충 IMF 패키지를 읽을 수 있습니다 \[버그 63231].
-
-      • 레이어의 매트 선택 제어에 ‘OFX 필터’ 옵션이 추가되었습니다 \[버그 63528].
-
-      • 새로운 “Marks and Client Events” 및 “Queue Monitor” 데스크 버튼이 추가되었습니다. 이 버튼들은 Chalk의 “UI Views” 버튼 카테고리에서 찾을 수 있습니다 \[버그 62566].
-
-      • Photon이 버전 4.9.1로 업데이트되었습니다. 이를 통해 렌더링된 IMF 패키지에서 추가적인 문제를 감지할 수 있습니다 \[버그 63774].
-
-      • Codex HDE SDK 4.0.3으로 업데이트되었습니다. 이를 통해 모노크롬 .arx 미디어를 지원합니다 \[버그 63858].
-
-      • ARRI Image SDK 7.1.1로 업데이트되었습니다. 이를 통해 ALEXA 65, ALEXA LF 및 Mini LF와 모든 이전 ALEXA 모델, 포함하여 ALEXA Mini 및 AMIRA를 위한 ARRI LogC4(따라서 ARRI의 REVEAL 컬러 과학)로 디코딩을 지원합니다. 또한 모노크롬 미디어 지원이 향상되었습니다 \[버그 62918].
-
-      • Scene Differences 대화 상자는 이제 보충 IMF 패키지 제공을 위해 마스터 장면과 현재 장면을 비교할 때 제거된 오디오 트랙 및 추가적인 오디오 트랙 정보를 표시합니다 \[버그 64122].
-
-      • Dolby Vision 장면에서 커서의 마스크 및 가이드를 “Dolby Vision L5”로 설정하여 Dolby Vision 분석의 이미지 종횡비를 반영할 수 있습니다 \[버그 59905].
-
-      • Export EDL 대화 상자의 “Tape Name에 특수 문자 포함” 옵션이 “Yes”로 설정된 경우 이제 공백 문자를 “\_“로 암시적으로 대체하지 않습니다 \[버그 29347].
-
-      • OFX 플러그인 대화 상자에 필터 버튼이 추가되었습니다 \[버그 64267].
-
-      • OFX 플러그인이 FilmLight 시스템 아키텍처를 더 잘 이해할 수 있도록 새로운 FilmLight Suite가 제공됩니다. 자세한 내용은 문서 폴더의 OFX\_in\_Baselight.txt를 참조하세요 \[버그 63659].
-
-      • TTC 폰트에 대한 지원이 개선되어 폰트 파일에 포함된 모든 대체 스타일을 선택할 수 있습니다 \[버그 62291].
-
-      • Blackmagic Decklink 8k Pro를 사용할 때 120Hz에서 쿼드 링크 UHD를 지원하는 옵션이 추가되었습니다 \[버그 61738].
-
-      • Sony MXF 제공물에서 폐쇄 GOP XDCAM을 작성하는 옵션이 추가되었습니다. 이 동작은 Render View의 Codec Params를 사용하여 활성화할 수 있습니다 \[버그 64402].
-
-
+* <mark style="background-color:green;">ARRI MXF SDK 버전 4.1.1로 업데이트</mark>되었습니다. 이를 통해 일부 최신 <mark style="background-color:green;">ARRIRAW 미디어 트리밍 문제를 해결</mark>할 수 있습니다 \[버그 63603].
+* Conform View의 이미지 검색 디렉토리 선택 대화 상자에 현재 장면의 컨테이너로 이동하기 위한 “%C” 버튼이 추가되었습니다 \[버그 62677].
+* Blackboard 2를 사용할 때 도움말 메뉴에 “Blackboard 2 버튼 참조”가 포함됩니다 \[버그 63781].
+* 컬러 공간 여정 보기에서 텍스트 버전의 컬러 공간 여정을 클립보드에 복사할 수 있는 버튼이 추가되었습니다 \[버그 28851].
+* <mark style="background-color:green;">FilmLight 웹사이트에 “ARRI REVEAL DRT” 패밀리가 추가</mark>되었습니다 \[버그 62698].
+* FLUX Manage View에서 시퀀스를 드래그할 때, 이제 Timeline View가 FLUX Manage View와 동일한 종류의 드롭 영역을 표시합니다 \[버그 62310].
+* Dolby Metafier를 사용하여 Dolby Vision을 사용한 IMF 패키지의 렌더링을 검증할 수 있습니다. Render View에서 ‘IMF’ 선택기에서 ‘Metafier Validation’ 항목을 선택하여 이 기능을 활성화할 수 있습니다. Metafier의 오류나 경고는 작업 로그에 경고를 생성합니다. Dolby Vision Professional Tools의 일부인 Dolby Metafier가 설치되어 있어야 하며, Metafier 검증을 작동하려면 Preferences->Advanced->IMF Validation에서 위치를 설정해야 합니다 \[버그 54964].
+* Baselight CONFORM은 이제 Render View에서 제출 목록의 맨 위에 FLUX Store 및 Baselight RENDER 시스템을 나열합니다 \[버그 62837].
+* Netflix 모범 사례 폴더 구조를 사용하여 저장된 보충 IMF 패키지를 읽을 수 있습니다 \[버그 63231].
+* 레이어의 매트 선택 제어에 ‘OFX 필터’ 옵션이 추가되었습니다 \[버그 63528].
+* 새로운 “Marks and Client Events” 및 “Queue Monitor” 데스크 버튼이 추가되었습니다. 이 버튼들은 Chalk의 “UI Views” 버튼 카테고리에서 찾을 수 있습니다 \[버그 62566].
+* <mark style="background-color:green;">Photon이 버전 4.9.1로 업데이트</mark>되었습니다. 이를 통해 렌더링된 IMF 패키지에서 추가적인 문제를 감지할 수 있습니다 \[버그 63774].
+* <mark style="background-color:green;">Codex HDE SDK 4.0.3으로 업데이트</mark>되었습니다. 이를 통해 모노크롬 .arx 미디어를 지원합니다 \[버그 63858].
+* <mark style="background-color:green;">ARRI Image SDK 7.1.1로 업데이트</mark>되었습니다. 이를 통해 <mark style="background-color:green;">ALEXA 65, ALEXA LF 및 Mini LF와 모든 이전 ALEXA 모델, 포함하여 ALEXA Mini 및 AMIRA를 위한 ARRI LogC4(따라서 ARRI의 REVEAL 컬러 과학)로 디코딩을 지원</mark>합니다. 또한 <mark style="background-color:green;">모노크롬 미디어 지원이 향상</mark>되었습니다 \[버그 62918].
+* Scene Differences 대화 상자는 이제 보충 IMF 패키지 제공을 위해 마스터 장면과 현재 장면을 비교할 때 제거된 오디오 트랙 및 추가적인 오디오 트랙 정보를 표시합니다 \[버그 64122].
+* Dolby Vision 장면에서 커서의 마스크 및 가이드를 “Dolby Vision L5”로 설정하여 Dolby Vision 분석의 이미지 종횡비를 반영할 수 있습니다 \[버그 59905].
+* Export EDL 대화 상자의 “Tape Name에 특수 문자 포함” 옵션이 “Yes”로 설정된 경우 이제 공백 문자를 “\_“로 암시적으로 대체하지 않습니다 \[버그 29347].
+* OFX 플러그인 대화 상자에 필터 버튼이 추가되었습니다 \[버그 64267].
+* OFX 플러그인이 FilmLight 시스템 아키텍처를 더 잘 이해할 수 있도록 새로운 FilmLight Suite가 제공됩니다. 자세한 내용은 문서 폴더의 OFX\_in\_Baselight.txt를 참조하세요 \[버그 63659].
+* TTC 폰트에 대한 지원이 개선되어 폰트 파일에 포함된 모든 대체 스타일을 선택할 수 있습니다 \[버그 62291].
+* Blackmagic Decklink 8k Pro를 사용할 때 120Hz에서 쿼드 링크 UHD를 지원하는 옵션이 추가되었습니다 \[버그 61738].
+* Sony MXF 제공물에서 폐쇄 GOP XDCAM을 작성하는 옵션이 추가되었습니다. 이 동작은 Render View의 Codec Params를 사용하여 활성화할 수 있습니다 \[버그 64402].
 
 
 
