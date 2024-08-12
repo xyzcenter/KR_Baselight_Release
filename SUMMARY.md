@@ -1,6 +1,7 @@
 # Table of contents
 
 * [베이스라이트 릴리스 노트](README.md)
+* [Baselight Release 6.0.20910 (2024-08-08)](baselight-release-6.0.20910-2024-08-08.md)
 * [😀 Baselight 릴리스 6.0.20612 (2024-06-25)](baselight-6.0.20612-2024-06-25.md)
 * [😀 Baselight 릴리스 6.0.20515 (2024-06-06)](baselight-6.0.20515-2024-06-06.md)
 * [😀 Baselight 릴리스 6.0.20380 (2024-05-09)](baselight-6.0.20380-2024-05-09.md)
