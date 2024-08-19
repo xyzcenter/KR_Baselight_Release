@@ -12,7 +12,7 @@
 
     The scope can be panned and zoomed just as with an image.
 
-### **X Grade 연산자**
+### <mark style="color:red;">**X Grade 연산자**</mark>
 
 * X Grade는 부동 소수점 선형 광원에서 작동하는 새로운 기본 색상 그레이딩 도구입니다. 모든 새로 개발된 도구와 마찬가지로 색상 공간을 인식하며 스택 색상 공간에서 내부 선형 광원 색상 공간으로 변환하고, 자연스러운 색상 그레이딩을 위해 새로 개발된 상보 색상 공간에서 색상 변경을 처리합니다. \
   X Grade는 마우스와 패널을 모두 사용하여 상호작용할 수 있습니다. 주요 사용자 인터페이스는 현재 이미지를 캔버스에 포인트 클라우드로 표시하는 스코프와 같은 캔버스이며, 이미지 디스플레이에서 직접 색상을 빠르고 쉽게 수정할 수 있습니다.\
@@ -135,7 +135,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
   To build a look, **stages** are stacked on top of each other. There are ten different types of stage a user can choose from. Each stage type is a simple tool providing look development functionality. Complex looks are produced by adding many simple stages together. All stages are performed at once on the GPU in floating-point precision. This ensures the highest image quality and best performance. Looks created with Chromogen can be exported as LUTs for preview purposes (for On Set visualisation), but it is recommended to apply the look via the Chromogen operator for the final grade to ensure the highest image quality and flexibility.\
 
 
-### 크로모젠(Chromogen)
+### <mark style="color:red;">크로모젠(Chromogen)</mark>
 
 * 크로모젠은 인간의 인식을 기반으로 한 획기적인 룩 개발 프레임워크입니다. 룩 개발은 일반적으로 본 촬영 전에 수행됩니다. 촬영 감독과 함께 컬러리스트는 크로모젠을 사용하여 특정 프로젝트에 고유한 룩을 만들 수 있습니다. 크로모젠은 씬 참조 색상 관리 워크플로우에서 작동하도록 설계되었습니다. 이는 작업 색상 공간 및 DRT에 구애받지 않습니다. 그러나 DRT가 이미 두드러진 룩 구성 요소를 포함하고 있다면, 새로운 룩을 생성하거나 DRT의 룩에서 벗어나는 것이 어려워집니다. 크로모젠은 색상 공간을 인식하고, **Eab**라는 자체 인지 색상 공간에서 작동합니다. E는 노출을, **a/b**는 색상 반대 축을 나타내며, **a**는 녹색/빨간색 축을, **b**는 파란색/노란색 축을 인코딩합니다.\
   \
@@ -313,7 +313,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
     * Splitter bars are now thicker and the splitters used to separate views now have rounded connectors.
     * Tile group boxes and buttons have had their borders removed and made slighly brighter.
 
-### 사용자 인터페이스(User Interface)
+### <mark style="color:red;">사용자 인터페이스(User Interface)</mark>
 
 * 새로워진 외관(Refreshed Appearance)\
   Baselight 6.0은 덜 눈에 띄고 더 평평한 외관으로 새로워진 사용자 인터페이스를 제공합니다:
@@ -376,7 +376,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
     The Face Tracker can be used in two different contexts, Face Warp and Face Perspective.
 
-### 얼굴 추적기(Face Tracker)
+### <mark style="color:red;">얼굴 추적기(Face Tracker)</mark>
 
 *   새로운 3D 머신 러닝 추적기가 추가되어 얼굴을 감지하고 추적하는 데 특화되었습니다. 이 추적기는 Tracker 스트립 내의 새로운 Face 탭에서 찾을 수 있습니다.
 
@@ -475,7 +475,7 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
   * **Context-aware strip roundness**: Strip roundness is now used to make it clear which strips contribute to a layer, by only the top-most and bottom-most strips of a layer being rounded.
   * **Node Graph**: To assist users in visualising the actual graph structure represented by a grading stack, a node graph is now superimposed over the shot, when space allows. In this node graph, blue nodes and lines represent RGBA image data flowing down through the graph, whilst white nodes and lines represent nodes that contribute to a single-channel matte input to a layer. Dotted lines represent references to image data further up the stack, outside of the normal implicit tree structure. When a layer/shot is folded, the layer's folded nodes are arranged horizontally beside the layer's node, their colouring allowing the user to see a layer's internal structure, even when folded.
 
-### 타임라인(Timeline)
+### <mark style="color:red;">타임라인(Timeline)</mark>
 
 * **새로운 외관(New Appearance)**
   * **모던 룩(Modern Look)**: 새 타임라인은 더 깨끗하고 밝은 외관을 제공하여 스트립과 그 색상을 더 명확하고 쉽게 해석할 수 있도록 설계되었습니다.
@@ -1066,13 +1066,35 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
     In Dolby Vision Analysis operators which have been analysed in a Baselight release supporting this functionality, the **Analysis Usage Mode** control can be set to **Long Play** to allow the image analysis values to vary across the duration of the operator. This can give better results when a single shot has a large change in lighting, or when using a single Dolby Vision Analysis strip under multiple shots. Bug 64588
 * Colour space menus now show Dolby's names for Dolby Vision mastering and target displays, rather than the names of the corresponding colour spaces. Bug 65979
 
-#### Contrast-aware Image Transform Settings
+### **돌비비젼 Dolby Vision**
+
+Dolby Vision Content Mapping v5.2의 기능이 이제 "Internal CMU (v4)" 콘텐츠 매핑을 사용하는 장면에서 지원됩니다.
+
+**분석 튜닝 Analysis Tuning**
+
+Scene Settings View의 Dolby Vision 섹션에서는 Analysis Tuning 컨트롤을 통해 Dolby Vision 분석에 사용되는 공간 필터링을 조정할 수 있습니다. 이를 통해 반사 하이라이트, 노이즈, 압축 및 디지털 아티팩트의 영향을 줄일 수 있습니다. 이 컨트롤은 이미 수행된 분석에는 영향을 미치지 않으며, 이후 분석 작업에만 적용됩니다.
+
+**긴 재생 분석 용법 Long Play Analysis Usage**
+
+Dolby Vision Analysis 오퍼레이터에서, 기능이 지원되는 Baselight 릴리스에서 분석된 경우 Analysis Usage Mode를 Long Play로 설정할 수 있습니다. 이 모드는 단일 샷에서 조명 변화가 큰 경우나 여러 샷에서 동일한 Dolby Vision Analysis 스트립을 사용하는 경우, 이미지 분석 값을 운영자 기간 동안 다양하게 조정하여 더 나은 결과를 제공합니다. (Bug 64588)
+
+이제 색 공간 메뉴에는 해당 색 공간의 이름 대신, Dolby Vision 마스터링 및 타겟 디스플레이를 위한 Dolby의 이름이 표시됩니다. (Bug 65979)
+
+### Contrast-aware Image Transform Settings
 
 * When HDR images with sharp features are resized in a linear colour space, artefacts can result in several of the image transform modes. A new **Linearised (contrast-aware)** Colour Treatment option reveals a **Local Contrast Damping** slider that reduces or removes these artefacts. This option is shown on Scene Settings View, the Image Transform Settings operator and the Setups editor. Bug 43838
 
-#### 'Explicit Strip' Reference Strip Mode
+### **콘트라스트 인식 이미지 변환 설정**
+
+HDR 이미지에서 날카로운 특징을 가진 이미지를 선형 색 공간에서 크기 조정할 때, 여러 이미지 변환 모드에서 아티팩트가 발생할 수 있습니다. 새로운 Linearised (contrast-aware) Colour Treatment 옵션에서는 Local Contrast Damping 슬라이더가 표시되어 이러한 아티팩트를 줄이거나 제거할 수 있습니다. 이 옵션은 Scene Settings View, Image Transform Settings 오퍼레이터 및 Setups 에디터에 표시됩니다. (Bug 43838)
+
+### 'Explicit Strip' Reference Strip Mode
 
 * Added a new mode for selecting an explicit, upstream strip in the stack to reference. Once enabled, the 'Pick Strip' button allows picking of a strip to use/reference directly from the timeline (strips unavailable to reference from the Reference strip will be greyed out). Bug 51119
+
+### **'명시적 스트립' 참조 스크립 모드**
+
+스택에서 명시적인 업스트림 스트립을 참조하기 위한 새로운 모드가 추가되었습니다. 이 모드를 활성화하면 'Pick Strip' 버튼을 통해 타임라인에서 직접 사용할/참조할 스트립을 선택할 수 있습니다. 참조할 수 없는 스트립은 회색으로 표시됩니다. (Bug 51119)
 
 ### Loupe Tool
 
@@ -1081,6 +1103,18 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * The level of zoom can be adjusted with the mouse scroll wheel.
 * Loupe settings are accessible from the Display menu. **Centred** means that the loupe will be centred over your mouse, whereas **Offset** means the loupe will be offset so that it doesn't overlap with the mouse position.
 * The Loupe is currently only available with the 1x1 Layout; this limitation will be removed in a future release.
+
+### **루페 도구 (Loupe Tool)**
+
+루페 도구는 정밀한 작업을 할 때, 예를 들어 도형을 편집할 때, 확대하여 세밀하게 조정할 수 있는 편리한 도구입니다. 루페 도구를 사용하여 드래그할 때, 기어링이 되어 있어 정밀한 조정을 쉽게 할 수 있습니다. (Bug 51930)
+
+이 루페 도구는 이미지 창에 마우스가 있는 동안 키보드 단축키 `Win+Esc` (Mac에서는 `Control+Esc`)로 활성화/비활성화할 수 있습니다. 일부 도구에는 "Auto Loupe" 버튼이 있어 해당 도구를 사용할 때 자동으로 루페가 켜지도록 설정할 수 있습니다.
+
+확대 수준은 마우스 스크롤 휠로 조정할 수 있습니다.
+
+루페 설정은 Display 메뉴에서 접근할 수 있으며, "Centred" 설정은 루페가 마우스 위에 중심이 잡히도록 하고, "Offset" 설정은 루페가 마우스 위치와 겹치지 않도록 오프셋되게 합니다.
+
+루페 도구는 현재 1x1 레이아웃에서만 사용할 수 있으며, 이 제한은 향후 릴리스에서 제거될 예정입니다.
 
 ### SDK Updates
 
@@ -1095,6 +1129,20 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * Updated the Comprimato SDK used for GPU JPEG 2000 acceleration to version 2.8.1. This adds support for NVIDIA Ada GPUs. Bug 65980
 * The old v5 ARRIRAW decoding SDK is no longer available except for very old media and media inserted in older builds. Note that the v5 SDK remains unavailable on Apple Silicon systems. Bug 66334
 * Updated to DNx SDK 2.7.5. This fixes some internal behaviours. Bug 66465
+
+### **SDK 업데이트**
+
+* **Nikon RAW (.NEV) 미디어 지원 추가**: Nikon RAW (.NEV) 파일을 읽을 수 있는 기능이 추가되었습니다. (Bug 60943)
+* **Sony SMDK Toolkit 업데이트**: Sony SMDK Toolkit이 버전 4.23으로 업데이트되었습니다. (Bug 64622)
+* **Canon RAW SDK 2.8 업데이트**: Canon RAW SDK가 2.8 버전으로 업데이트되었으며, 새로운 카메라 지원이 추가되었고, 성능 향상을 위해 Linux에서는 CUDA, macOS에서는 Metal을 사용하게 되었습니다. (Bug 61196)
+* **Blackmagic RAW SDK 3.5 업데이트**: Blackmagic RAW SDK가 3.5 버전으로 업데이트되었으며, 다음과 같은 카메라의 미디어를 지원합니다:
+  * Blackmagic Cinema Camera 6K, URSA Mini Pro 12K OLPF, Micro Studio Camera 4K G2
+  * Fujifilm X-H2, X-T5, X-S20, GFX100 II
+  * Panasonic LUMIX S5II, S5IIX, GH6
+  * ZCam E2, E2-M4, E2-S6, E2-F6 (Bug 63775)
+* **Comprimato SDK 업데이트**: GPU JPEG 2000 가속을 위한 Comprimato SDK가 버전 2.8.1로 업데이트되었으며, NVIDIA Ada GPU를 지원합니다. (Bug 65980)
+* **v5 ARRIRAW 디코딩 SDK 지원 제한**: 구버전 미디어 및 이전 빌드에서 삽입된 미디어를 제외하고, v5 ARRIRAW 디코딩 SDK는 더 이상 사용되지 않습니다. v5 SDK는 Apple Silicon 시스템에서는 여전히 사용할 수 없습니다. (Bug 66334)
+* **DNx SDK 2.7.5 업데이트**: DNx SDK가 버전 2.7.5로 업데이트되었으며, 내부 동작이 일부 수정되었습니다. (Bug 66465)
 
 ### Volume Indexing
 
@@ -1175,6 +1223,55 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
     > sudo fl-service restart index
     ```
 
+### **볼륨 인덱싱**
+
+Baselight 6.0 및 이후 버전에서는 볼륨 인덱싱이 베타 상태를 벗어나 Linux Baselight 시스템에서 자동으로 활성화됩니다.
+
+"인덱싱"이란 볼륨의 메타데이터를 읽고 저장하는 작업을 의미합니다. 인덱스 서비스는 로컬 '/vol/images' 볼륨의 영화 및 시퀀스에서 메타데이터를 자동으로 추출하여 PostgreSQL 데이터베이스에 저장합니다. 데이터베이스는 볼륨의 내용에 맞게 최신 상태로 유지됩니다.
+
+이 기능은 기존 작업의 속도를 개선할 뿐만 아니라, 특정 인코딩, 감독별, 또는 일정 길이 이상의 미디어를 찾는 것과 같은 이전에는 실행하기 어려웠던 작업을 가능하게 합니다. 설치 후 처음 인덱스 서비스가 시작될 때, 백그라운드에서 실행되어 볼륨 콘텐츠의 메타데이터로 인덱스 데이터베이스를 완전히 채우는 데 시간이 걸릴 수 있습니다.
+
+볼륨 인덱스가 사용 가능하면 FLUX Manage에서 볼륨 선택기 옆에 하얀 별로 표시됩니다. 하얀 별은 인덱스가 사용 가능하고 사용 중임을 나타내며, 주황색 윤곽선은 인덱스가 사용 가능하지만 사용되지 않거나 인덱싱이 완료되지 않아 완전히 사용되지 않는 경우를 나타냅니다.
+
+FLUX Manage 및 Conform View에서는 인터페이스에서 경로 옆의 별 아이콘을 클릭하여 인덱스의 선택적 사용을 설정할 수 있습니다. 인덱스를 비활성화하면 사용자가 원시 미디어에서 직접 메타데이터를 읽을 수 있습니다.
+
+**커맨드 라인을 사용한 볼륨 인덱스 검사**
+
+볼륨 인덱스의 상태를 확인하려면 `fl-lsvol` 명령을 사용하십시오. 이 명령은 사용 가능한 모든 볼륨을 표시하고, 볼륨에 인덱스가 있는지 여부와 인덱스의 상태를 나타냅니다.
+
+예를 들어:
+
+```
+> fl-lsvol
+/vol/bl1234-images
+/vol/bl1119-images    [Indexed]
+```
+
+`fsdb-ls` 명령을 사용하면 인덱스가 구성된 경우 자동으로 인덱스를 사용하여 디렉토리의 내용을 나열할 수 있습니다. 인덱스를 무시하고 파일 시스템을 직접 스캔하려면 'server' 옵션을 사용하여 이 동작을 무시할 수 있습니다:
+
+```
+> fsdb-ls --server <indexed|regular>
+```
+
+**인덱스 서비스 비활성화**
+
+Baselight 6.0 및 이후 버전에서는 볼륨에 대해 인덱스 서비스가 자동으로 활성화되지만, 필요시 명시적으로 비활성화할 수 있습니다. 이를 위해서는 'volume.conf' 구성 파일에 추가 'limit' 라인이 필요하며, 서비스는 변경 사항을 적용하기 위해 다시 시작되어야 합니다.
+
+예를 들어:
+
+```
+limit images index=0
+```
+
+시스템이 Baselight TWO인 경우 마스터 노드에 로그인하여 인덱스 서비스를 다시 시작할 수 있습니다:
+
+```
+> ssh filmlight@n0
+> sudo fl-service restart index
+```
+
+이러한 모든 설정과 명령은 볼륨 인덱싱을 보다 효율적으로 관리하고 사용할 수 있도록 돕습니다.
+
 ### Miscellaneous
 
 * Added support for macOS 14 Sonoma; the minimum supported version is now macOS 12 Monterey. Bug 65665
@@ -1228,6 +1325,64 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * Added `%u` or `%{ShotStartTimelineTimecode}` as a render filename template substitution which is the timeline (rec) timecode of the start of the current shot, as a number. Bug 65762
 * The Working Format is now shown at the top of the list when creating a new format mapping. Bug 65896
 * DRTs which are implemented using CLFs are now supported. Please contact `baselight-support@filmlight.ltd.uk` for more information. Bug 65098
+
+&#x20;
+
+### <mark style="color:red;">**기타 사항**</mark>
+
+* **macOS 지원 추가**: macOS 14 Sonoma가 추가로 지원되며, 이제 최소 지원 버전은 macOS 12 Monterey입니다. (Bug 65665)
+* **오퍼레이터 이미지 오버레이**: 타임라인을 스크럽할 때 오퍼레이터 이미지 오버레이가 이미지 자체와 동기화되어 업데이트 및 그려집니다. (Bug 61376)
+* **ACES Reference Gamut Compression**: Compress Gamut 오퍼레이터에 ACES Reference Gamut Compression이 추가되었습니다. 이제 Compress Gamut에는 FilmLight, ACES Reference, ACES Variable의 세 가지 작업 유형이 있습니다. (Bug 58234)
+* **새로운 'ab' 색도 모드 지원**: 스코프 - 벡터스코프/색도 보기에서 새로운 'ab' 색도 모드가 추가되었습니다. 이 방법은 FilmLight에서 개발한 새로운 상반 색 공간인 Eab의 색도 평면에 이미지 포인트 클라우드와 모든 위치를 플로팅합니다. Eab는 색 공간의 모든 영역에서 지각적으로 균일한 방식으로 색상 거리를 표시합니다. 이 지각적 균일성으로 인해 RGB 색역은 더 이상 삼각형 모양이 아닙니다. (Bug 58292)
+* **Legacy DNxHD 코덱 숨김**: 이제 Render View Codec 메뉴에서 Legacy DNxHD 코덱은 Shift 키를 누르지 않는 한 숨겨집니다. (Bug 60557)
+* **Blur 오퍼레이터 슬라이더 변경**: Blur 오퍼레이터와 Matte Tool 오퍼레이터의 Blur 및 In/Out Blur 단계에서 Radius 슬라이더가 비선형으로 변경되었습니다. 이로 인해 슬라이더를 사용하여 더 작은 반경을 쉽게 설정할 수 있습니다. (Bug 35919)
+* **오디오 음소거 키보드 단축키 변경**: 오디오 음소거 키보드 단축키가 Control+Shift+M에서 Alt+M으로 변경되어 편집 모드가 활성화된 상태에서 Mark 삽입 키바인딩과 중복되지 않도록 했습니다. (Bug 64008)
+* **Blank 색상 설정 옵션 추가**: 오퍼레이터의 색 공간 설정에 따라 검정색, 18% 회색, 흰색으로 Blank 색상을 설정하는 옵션이 추가되었습니다. (Bug 63951)
+* **CLF 파일 색 공간 설정 수정**: "ACES2065-1" 색 공간을 사용하는 CLF 파일이 이제 LUT 오퍼레이터에 ACES: Linear / AP0 색 공간을 올바르게 설정합니다. (Bug 64412)
+* **RGBA 필터 추가**: 4채널이 있는 미디어를 선택할 수 있는 "Is RGBA" 필터 타일이 FLUX Manage에 추가되었습니다. (Bug 64526)
+* **Blank 오퍼레이터의 기본 색상**: 빈 오퍼레이터가 삽입될 때 이제 작업 색 공간에서 검정색을 생성합니다. (Bug 64080)
+* **OFX 플러그인 오버레이 그리기 변경**: OFX 플러그인은 이제 새로운 Draw Suite를 사용하여 오버레이를 그려야 합니다. (Bug 62260)
+* **갤러리 썸네일**: 갤러리에서 썸네일을 보기 또는 스크럽할 때 항상 현재 커서의 보기 색 공간을 사용합니다. (Bug 62759)
+* **아이콘 추가**: 클라이언트 노트를 포함하는 쇼트 스트립에 아이콘이 추가되었고, 프레임 클라이언트 노트 마커도 동일한 아이콘을 사용하도록 변경되었습니다. (Bug 62278)
+* **Cuts View 수평 커서 라인 추가**: Cuts View의 썸네일 하단에 수평 커서 라인이 표시됩니다. (Bug 53689)
+* **프록시 해상도 키보드 단축키 변경**: 프록시 해상도 증가/감소를 위한 키보드 단축키가 Shift+Ctrl/Cmd+Minus/Equals로 변경되어, 단순한 Ctrl/Cmd+Minus/Equals가 타임라인 줌 인/아웃에 사용될 수 있도록 했습니다. (Bug 65149)
+* **장면 설정**: 장면 설정에 이미지를 \[0,1]로 클램핑한 후 역 DRT를 적용하는 옵션이 추가되었습니다. 이 옵션은 예를 들어, 비프리멀티플라이 또는 Legal to Full 스케일링으로 인해 발생하는 표시 참조 미디어 문제를 해결할 수 있습니다. Sequence 오퍼레이터의 새 옵션은 DRT 오버라이드를 선택할 때 클램핑을 별도로 제어할 수 있습니다. (Bug 63701, Bug 66259)
+* **메모 및 카테고리 대화상자**: Mark를 추가할 때 '메모 및 카테고리 프롬프트' 대화상자에 카테고리 선택 옵션이 추가되었습니다. (Bug 59360)
+* **Marks 및 클라이언트 이벤트 보기 단축키**: Marks 및 클라이언트 이벤트 보기를 표시/숨기는 Win+Shift+M (Mac에서는 Control+Shift+M) 단축키가 추가되었습니다. (Bug 59360)
+* **"Zones" 진단**: 이제 클라우드의 모든 시스템이 전역 환경설정 데이터베이스에 동일한 설정을 가지고 있는지, 그리고 'filmlight' 사용자가 동일한 UID를 가지고 있는지 확인합니다. (Bug 65471)
+* **Render View의 도구 설명**: Render View의 도움말 버튼에 도구 설명이 추가되었습니다. (Bug 65589)
+* **블렌드 및 레이어 스트립 모드**: 컴포지트 모드의 블렌드 스트립과 레이어 스트립에 이제 스트립 이름에 블렌드 모드가 표시됩니다. (Bug 64457)
+* **180도 라트-롱 지원 추가**: Panorama 오퍼레이터에 180도 라트-롱 지원이 추가되었습니다. (Bug 65552)
+* **카메라 제어 모드**: Panorama 오퍼레이터의 "카메라 제어" 모드에서 Alt+왼쪽 마우스 버튼으로 이미지를 팬할 수 있으며, Ctrl+Alt+왼쪽 마우스 (Mac에서는 Cmd+Alt+왼쪽 마우스) 버튼으로 시야각을 변경할 수 있습니다. (Bug 65552)
+* **macOS 유틸리티 애플리케이션 위치 변경**: macOS에서는 여러 유틸리티 애플리케이션이 이제 Baselight 애플리케이션과 함께 위치하는 대신 Utilities/Tools 폴더에 위치합니다. (Bug 61795)
+* **스트립 캐싱 변경**: 업스케일링으로 인한 이미지 품질 저하를 방지하기 위해, 작업 형식에서 Viewing Format 또는 Rendering Format으로의 매핑이 업스케일을 유발할 경우 스트립 캐싱이 무시됩니다. 이 경우 스트립 캐싱이 무시되며, Parameter View 상단의 캐시 버튼과 타임라인 보기의 캐시 아이콘이 주황색으로 표시됩니다. 필요시 장면 설정 보기에서 이 동작을 비활성화할 수 있습니다. (Bug 53184)
+* **ARRIRAW 미디어 메타데이터 표시**: 이제 ARRIRAW 미디어에 "Texture Filename" 메타데이터가 표시됩니다. (Bug 66628)
+* **NVMe 레이드 지원 추가**: Xinnor xiRAID 기반의 NVMe 레이드가 이제 지원됩니다. (Bug 66049)
+* <mark style="color:orange;">**DNG 미디어 시퀀스 개선**</mark><mark style="color:orange;">: DNG 미디어 시퀀스의 하이라이트에서 컬러 아티팩트가 감소되었습니다. DNG Params 오퍼레이터의 새로운 Highlight Filtering 컨트롤을 사용하여 이 필터링을 조정할 수 있습니다. (Bug 66149)</mark>
+* **EGamut 2 색 공간 추가**: "FilmLight: Linear / EGamut 2" 및 "FilmLight: TLog / EGamut 2" 색 공간이 추가되었습니다. EGamut 2는 약간 변경되어 현대 카메라 색 공간을 포함하지만, 색상 그레이딩 관점에서 눈에 띄는 차이는 없습니다. (Bug 66101)
+* **자막 형식 지원 추가**: Subrip (.srt) 및 Avid subcap (.txt) 자막 형식이 추가로 지원됩니다. (Bug 62374)
+* **자막 타임코드 변환 개선**: 자막 타임코드에서 해당 프레임 번호로의 변환이 개선되었습니다. (Bug 66729)
+* **갤러리 장면 이름 버전 번호 추가**: 이제 갤러리 장면 이름에는 항상 해당 버전 번호를 나타내는 접미사(e.g., "\_v6")가 추가됩니다. Baselight의 이전 버전에서 자동으로 복사된 갤러리 장면을 사용해 버전 6.0 갤러리 장면이 생성된 경우, 원본 갤러리는 그대로 유지되어 Baselight 버전 간 쉽게 전환할 수 있습니다. (Bug 66767)
+* **RED 미디어의 OpenEXR 렌더링**: 이제 OpenEXR로 렌더링할 때 `lens_cooke_i_dynamic` 및 `lens_cooke_i_static` 메타데이터가 포함됩니다. (Bug 66773)
+* **CMX EDL에서 클립 이름을 사용한 컨폼 지원 추가**: CMX EDL에서 클립 이름을 사용하여 컨폼할 수 있는 기능이 추가되었습니다. 이를 위해 EDL에는 이벤트 활성화를 위한 \*FROM CLIP NAME: 항목이 포함되어야 합니다. (Bug 64579)
+* **장면 작업 프레임 속도 표시**: 이제 장면 이름 드롭다운 메뉴에 장면의 작업 프레임 속도가 표시됩니다. (Bug 57284)
+* **Apple ProRes 및 기타 동영상 파일의 속도 향상**: Apple ProRes 및 여러 다른 동영상 파일의 읽기 속도가 이전 빌드보다 크게 향상되었습니다. 이를 통해 캐싱 없이 추가 미디어를 재생할 수 있습니다. (Bug 64439)
+* **타임라인에서의 컨폼**: 타임라인에서 컨폼할 때, 클립 이름이 있는 경우 'Clip Name In Path Or Filename'이 Match Events By 목록에 추가됩니다. `bl-conform --Filter` 옵션에 ClipName이 포함되었습니다. (Bug 57729)
+* **PNG 이미지 파일 메타데이터 추가**: 이제 PNG 이미지 파일에서 추가적인 메타데이터를 읽어옵니다. (Bug 65131)
+* **자동 화이트 포인트 조정 표시**: 입력 색 공간과 스택 색 공간 간 변환 시 Sequence 오퍼레이터가 자동으로 조정하는 화이트 포인트가 이제 Colour Space Journey View에 표시됩니다. (Bug 64683)
+* **FCP/XML 컨폼 시 입력 형식 매핑 적용 옵션 추가**: 이미지 변환이 포함된 FCP/XML을 컨폼할 때 'Apply Input Format Mapping' 옵션이 추가되었습니다. 이 옵션을 '예'로 설정하면 작업 형식과 입력 형식의 해상도 및 픽셀 종횡비가 일치하지 않는 경우 변환이 차이를 보완하도록 조정됩니다. (Bug 64760)
+* **Photon 업데이트**: Photon이 버전 4.9.4로 업데이트되어 렌더링된 IMF 패키지에서 추가적인 문제를 감지할 수 있습니다. (Bug 65555)
+* **QuickTime 및 MP4 파일에서 IPCM 오디오 읽기 지원 추가**: 이제 QuickTime 및 MP4 파일에서 IPCM 오디오를 읽는 기능이 추가되었습니다. (Bug 65581)
+* **Blackboard Classic Wacom 태블릿 매핑을 위한 명령줄 도구 추가**: Blackboard Classic Wacom 태블릿 매핑을 위한 명령줄 도구가 추가되었습니다. (Bug 57119)
+* **Avid AAF 업데이트 시 경고 메시지 추가**: Baselight 그레이드를 포함하여 Avid AAF를 업데이트할 때 그레이드가 내보내지 않으면 경고 메시지가 표시됩니다. (Bug 65686)
+* **v5 Dolby Vision 메타데이터 내보내기 옵션 추가**: HDR IMF 패키지 및 Dolby Vision Mezzanine MXF 파일을 렌더링할 때 v5 Dolby Vision 메타데이터를 내보내는 옵션이 추가되었습니다. (Bug 60060)
+* **렌더링 파일 이름 템플릿 대체**: `ShotStartTimelineTimecode`의 타임라인(rec) 타임코드를 숫자로 표시하는 렌더링 파일 이름 템플릿 대체로 `%u` 또는 `%{ShotStartTimelineTimecode}`가 추가되었습니다. (Bug 65762)
+* **작업 형식 표시**: 새 형식 매핑을 만들 때 작업 형식이 목록 상단에 표시됩니다. (Bug 65896)
+* **CLF를 사용하여 구현된 DRT 지원**: CLF를 사용하여 구현된 DRT가 이제 지원됩니다. 자세한 내용은 baselight-support@filmlight.ltd.uk로 문의하세요. (Bug 65098)
+
+
+
+
 
 ## Bug Fixes Since Version 5
 
@@ -1684,3 +1839,12 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 • 자동 선택을 끈 상태에서 Apply를 사용할 때 발생하는 충돌을 수정했습니다. \[버그 58653]
 
 • UI 호스트가 부팅되지 못하게 할 수 있는 긴급 수정 문제를 해결했습니다. \[버그 66785]
+
+
+
+
+
+
+
+
+
