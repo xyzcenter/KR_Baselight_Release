@@ -730,6 +730,103 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * The Grid Warp operator now has a **Transparent Outside** option. Bug 63026
 * The Lens Correction operator now has a **Transparent Outside** option. Bug 62014
 
+
+
+### <mark style="color:red;">알파(투명도) 지원 Alpha (Opacity) Support</mark>
+
+Baselight 6.0에서는 RGBA 이미지의 알파 채널에 저장된 투명도 정보를 활용한 합성과 이미지 작업에 대한 광범위한 지원이 추가되었습니다. (Bug 54001)
+
+Sequence 오퍼레이터의 Input RGBA 설정은 입력 미디어에 알파 채널이 포함된 경우 활성화됩니다. 이 설정을 통해 RGB 채널을 알파에 의해 프리멀티플라이드(곱셈)로 처리할지 여부를 제어할 수 있으며, 프리멀티플라이드로 처리된 경우 곱셈이 선형 색상 공간에서 이루어졌는지 아니면 네이티브 색상 공간에서 이루어졌는지를 선택할 수 있습니다. (Bug 62993)
+
+Sequence 오퍼레이터의 Stack RGBA 설정은 그레이딩 스택에 들어오는 이미지의 처리를 제어합니다. 이는 특히 RGBA 미디어의 처리에 적용됩니다.
+
+*   | Stack RGBA    | 동작                                  |
+    | ------------- | ----------------------------------- |
+    | RGBA          | RGBA 데이터를 변경 없이 스택으로 전달합니다.         |
+    | RGB (알파 무시)   | 알파 채널을 버리고 이미지를 불투명하게 만듭니다.         |
+    | RGB (검은색에 합성) | RGB를 알파 채널로 스케일링하여 이미지를 불투명하게 만듭니다. |
+
+    RGB 미디어는 항상 불투명하게 처리되며, Stack RGBA 설정은 이미지 가장자리의 투명도와 Blur와 같은 오퍼레이터의 동작을 제어합니다:
+
+    | Stack RGBA | 동작                                                                    |
+    | ---------- | --------------------------------------------------------------------- |
+    | RGB        | Baselight 5와 동일하게, 이미지 외부 영역은 불투명한 검은색으로 처리되며, 블러 처리 시에도 불투명하게 유지됩니다. |
+    | RGBA       | 이미지 외부 영역은 투명하게 처리되며, 블러 처리 시 가장자리가 투명하게 됩니다.                         |
+*   Cursors View에는 새로운 View RGBA 컨트롤이 추가되어, Display View와 Cuts View에 영향을 미칩니다:
+
+    | View RGBA      | 동작                                                                                                            |
+    | -------------- | ------------------------------------------------------------------------------------------------------------- |
+    | RGB (검은색에 합성)  | 이미지의 알파 채널을 불투명도로 처리하고, 이미지를 검은색 배경에 합성합니다. 이는 프리멀티플라이드된 이미지를 렌더링하는 것과 동일합니다.                                 |
+    | RGB (체커보드에 합성) | 이미지의 알파 채널을 불투명도로 처리하고, 이미지를 체커보드 배경에 합성합니다.                                                                  |
+    | RGB (알파 무시)    | 알파 채널을 무시하고 이미지를 처리하며, 이 설정은 Baselight 5와 동일합니다. 하지만 이 경우, 알파가 0이거나 음수인 투명한 영역에서 색상이 표시되어 잘못된 결과를 초래할 수 있습니다. |
+
+    기본 **View RGBA** 동작은 **Preferences**의 **Display/Appearance**에서 설정할 수 있습니다. (Bug 62992)
+
+    또한, **View Channel** 컨트롤에 알파 채널이 추가되었으며, 이에 따라 **View Channel**의 키보드 및 데스크 단축키도 업데이트되었습니다. (Bug 63337)
+*   단일 채널 미디어를 처리하기 위한 새로운 옵션이 추가되었으며, 이를 위해 Treat Single Channel As 설정이 도입되었습니다. 이 설정은 Sequence에서 단일 채널 미디어를 사용할 때 또는 단일 채널이 선택된 경우 Stack RGBA 설정을 대체합니다.
+
+    | Treat Single Channel As | 동작                                                                                                                                    |
+    | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+    | Matte                   | 미디어를 단일 채널로 유지하며, 이를 선형 매트로 처리합니다.                                                                                                    |
+    | Monochrome RGB          | 단일 채널을 R, G, B 채널로 복사하여 입력 색상 공간에서 모노크롬 이미지를 만듭니다. 이 경우 **Transform** 및 **Blur**와 같은 공간 오퍼레이터는 이미지가 경계선이 뚜렷하고, 외부에 투명도가 없는 것으로 처리합니다. |
+    | Monochrome RGBA         | 단일 채널을 R, G, B 채널로 복사하여 입력 색상 공간에서 모노크롬 이미지를 만듭니다. 이 경우 **Transform** 및 **Blur**와 같은 공간 오퍼레이터는 이미지의 가장자리 외부를 투명하게 처리합니다.              |
+    | Alpha                   | 단일 채널을 100니트 흰색 이미지의 A(알파) 채널로 복사하여 입력 색상 공간에서 처리합니다.                                                                                 |
+
+
+
+    두 가지 모노크롬 옵션의 경우, 입력 색상 공간에서 1.0이 100니트보다 밝으면 결과로 생성된 RGB/RGBA 이미지가 과도하게 밝아질 수 있으므로 경고가 표시됩니다. (Bug 63002)
+
+
+*   **Render View**에서는 이제 4채널 출력(RGBA 또는 Y'CbCrA)을 지원하는 파일 형식 또는 코덱으로 렌더링할 때 **채널 및 알파 옵션**을 표시합니다. 단일 RGB(프리멀티플라이드되지 않은)만 지원하는 파일 형식은 프리멀티플라이드된 RGB로 렌더링할 수 없으며, 그 반대도 마찬가지입니다. (Bug 62992)
+
+
+*   **Scene Settings View**에 **Display 및 Timeline Cache**에서 RGBA 옵션이 추가되었습니다. 이 옵션은 Display View에서 이미지를 클릭할 때 알파 채널 값을 볼 수 있게 해주지만, 캐시 파일에 필요한 디스크 공간이 증가하고 성능에 영향을 미칠 수 있습니다. (Bug 54001)
+
+
+*   **Scene Settings View**에는 이제 **Strip Caching** 옵션도 추가되어 RGBA와 RGB 중에서 선택할 수 있습니다. RGBA로 캐싱하면 알파 정보가 유지되지만, 캐시 파일에 필요한 디스크 공간이 증가하고 성능에 영향을 미칠 수 있습니다. RGB로 캐싱하면 각 캐시된 스트립의 출력이 불투명하게 되어 알파 정보가 삭제됩니다. (Bug 60717)
+
+
+*   **Layer UI의 "Layer Mode" 메뉴**는 간소화되었습니다. 이제 합성 모드를 선택하면 전경 이미지가 알파 채널을 사용하여 배경 위에 단순히 합성됩니다.
+
+
+*   전경에 유효한 알파가 없는 경우, 매트 오퍼레이터(Shape, DKey 등)를 컴포지트 레이어에 추가하여 전경 이미지의 특정 영역을 분리할 수 있습니다. (Bug 63014)
+
+
+*   매트를 가진 레이어는 이제 **Combine Matte With Alpha**로 설정할 수 있으며, 매트를 사용하여 입력 이미지의 알파 채널을 수정할 수 있습니다(레이어 내의 오퍼레이터를 통과하기 전에). (Bug 60900)
+
+
+* 레이어의 **Customise** 메뉴(및 일반 **Insert** 메뉴)에 **"Initialise Composite Foregrounds To RGBA"** 옵션이 추가되었습니다. 이 옵션을 활성화하면, 레이어가 컴포지트 모드로 전환될 때 전경 시퀀스의 "Stack RGBA" 모드가 자동으로 "RGBA"로 전환됩니다(예: 픽처 인 픽처 효과를 만들 때 수동으로 전환할 필요가 없음). (Bug 63987)
+*   Blend 오퍼레이터에는 알파 데이터를 사용하여 전경(FG)과 배경(BG) 이미지를 결합하는 다섯 가지 새로운 모드가 추가되었습니다:
+
+    <table><thead><tr><th width="151">Blend Mode</th><th>Output</th></tr></thead><tbody><tr><td>Over</td><td>표준 합성 모드로, FG가 불투명한 경우 FG를 표시하고, FG 알파가 감소함에 따라 더 많은 BG가 드러납니다.</td></tr><tr><td>In</td><td>FG와 BG의 알파가 모두 불투명한 영역에서 FG 색상을 표시합니다.</td></tr><tr><td>Out</td><td>FG가 불투명하고 BG가 투명한 영역에서 FG 색상을 표시합니다.</td></tr><tr><td>Atop</td><td>Over와 유사하지만, BG 이미지의 불투명도를 유지합니다.</td></tr><tr><td>Xor</td><td>FG 또는 BG가 불투명한 경우 투명하게 처리하며, FG가 투명한 곳에서는 BG를, BG가 투명한 곳에서는 FG를 표시합니다.</td></tr></tbody></table>
+
+    이 모드들은 또한 레이어의 Result Blending 및 Composite Settings에서 사용할 수 있습니다. (Bug 60776)
+*   **Alpha From Matte 오퍼레이터**는 이미지의 알파 채널을 매트(예: Shape 또는 키)로 수정할 수 있는 기능을 제공합니다. (Bug 61393)
+
+
+*   **Edge Crop 오퍼레이터**의 **Crop Colour** 옵션에 **Transparent**가 추가되어, 보이는 이미지 외부 영역을 투명하게 만들 수 있습니다. (Bug 62885)
+
+
+*   **Blank 오퍼레이터**에는 이제 알파 파라미터가 추가되었습니다. (Bug 53221)
+
+
+*   **Shuffle 오퍼레이터**는 이제 출력 알파 채널에 무엇이 셔플될지를 지정할 수 있습니다. (Bug 53220)
+
+
+*   Baselight 6.0에서는 많은 오퍼레이터들이 투명 이미지를 처리할 수 있도록 업데이트되었습니다. 이로 인해 Baselight 5에서 삽입된 오퍼레이터는 이전 버전과 다르게 동작할 수 있습니다. (Bug 62013)
+
+
+*   BLG 파일의 미리보기 이미지에는 이제 알파 채널이 포함됩니다. (Bug 63675)
+
+
+*   **FLUX Manage View**의 썸네일에 대한 오른쪽 클릭 메뉴에서 RGBA 이미지를 검은색 배경 또는 체커보드에 합성하여 볼 수 있습니다. (Bug 60569)
+
+
+*   **Grid Warp 오퍼레이터**에는 이제 **Transparent Outside** 옵션이 추가되었습니다. (Bug 63026)
+
+
+* **Lens Correction 오퍼레이터**에도 **Transparent Outside** 옵션이 추가되었습니다. (Bug 62014)
+
 ### RIFE ML Retime
 
 *   An improved Retime sampling mode **RIFE ML Retime** is now available.
@@ -742,7 +839,13 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
     RIFE ML Retime does not currently run on Intel macOS systems. Bug 57701
 
-#### Operator Presets
+### **라이플 머신러닝 리타임 기능 (RIFE ML Retime)**
+
+**RIFE ML Retime**은 향상된 리타임 샘플링 모드로, 이제 사용할 수 있습니다. 이 모드는 비디오 프레임 인터폴레이션을 위한 **Real-Time Intermediate Flow Estimation (RIFE)** 기법을 활용하며, 머신 러닝 알고리즘을 실행하기 위해 **Flexi 효과**를 사용합니다. 이 효과를 사용하려면 FilmLight 웹사이트의 지원 섹션에서 제공되는 **filmlight-flexi-effects** 설치 프로그램을 통해 시스템에 설치해야 합니다.
+
+**RIFE ML Retime**은 **Optical Flow** 샘플링 모드와 유사하게 '중간', '높음', '최고'의 품질 설정을 제공합니다. 이 모드는 항상 작업 형식(Working Format)에서 처리되며, 현재 **Intel macOS 시스템**에서는 실행되지 않습니다. (Bug 57701)
+
+### Operator Presets
 
 *   Operator presets provide a quick and easy way of storing operators as presets. The Presets View is accessed using the **P** icon in the Parameters View (just to the left of the **3D** icon). In this view, you see thumbnails for the presets defined for the current operator; double clicking on a preset or pressing **Apply** will replace the current operator with the selected preset.
 
@@ -779,6 +882,38 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 *   **Old Operator Presets**
 
     We are now deprecating the old operator preset mechanism. You will only be able to use the old mechanism to access existing legacy presets and we recommend you save them using the new mechanism and then remove the old presets.
+
+### **오퍼레이터 프리셋(Operator Presets)**
+
+오퍼레이터 프리셋은 오퍼레이터를 프리셋으로 저장할 수 있는 빠르고 간편한 방법을 제공합니다. \*\*프리셋 보기(Presets View)\*\*는 **Parameters View**에서 **P 아이콘**을 클릭하여 접근할 수 있으며(3D 아이콘 왼쪽에 위치), 이 보기에서는 현재 오퍼레이터에 대해 정의된 프리셋의 썸네일을 볼 수 있습니다. 프리셋을 더블 클릭하거나 **Apply** 버튼을 누르면 현재 오퍼레이터가 선택한 프리셋으로 교체됩니다.
+
+프리셋은 키프레임을 포함한 전체 오퍼레이터를 저장하지만, 트래커는 제외됩니다. 프리셋을 적용하면 현재 오퍼레이터의 키프레임이 제거되고, 프리셋에 저장된 키프레임으로 대체됩니다.
+
+**프리셋 보기를 나가는 방법**:
+
+* **P 아이콘**을 다시 클릭하거나, 프리셋 툴바 왼쪽에 있는 **뒤로 가기 삼각형 버튼**을 눌러 나갈 수 있습니다.
+* 단축키 **Win+P** (Mac에서는 **Ctrl+P**)로도 프리셋 보기를 전환할 수 있으며, **Blackboard/Slate**에도 기본적으로 설정된 단축키가 있습니다.
+
+**프리셋 생성**:
+
+* **Create** 버튼을 사용해 현재 오퍼레이터의 복사본을 프리셋으로 저장할 수 있습니다(이름과 선택적 코멘트를 입력 후). 프리셋은 키프레임과 함께 저장되지만, 트래커는 제거됩니다.
+
+**프리셋 저장 계층 및 위치**: \
+프리셋 저장은 다음과 같은 계층적 구조를 가지고 있습니다:
+
+1. **공장 프리셋**: 제품과 함께 제공되며 수정할 수 없습니다.
+2. **사이트 레벨 프리셋**: 사이트 내 모든 사용자가 접근 가능.
+3. **작업 레벨 프리셋**: 특정 작업에 참여하는 모든 사용자가 접근 가능.
+4. **장면 레벨 프리셋**: 현재 장면에만 로컬로 저장.
+5. **사용자 레벨 프리셋**: 특정 사용자에게만 적용.
+
+**프리셋 보기**에서는 드롭다운 메뉴를 통해 현재 저장 수준(기본값은 사용자)을 확인할 수 있으며, 새로 생성된 프리셋이 저장될 위치를 결정합니다. 기본적으로 현재 수준보다 '높은' 저장 수준의 프리셋도 표시되지만, **Include Presets Above** 토글을 사용해 이를 제어할 수 있습니다. 또한, 동일한 이름의 프리셋이 두 개 이상 있을 경우, '하위' 항목이 '상위' 항목을 숨길지, 아니면 둘 다 표시할지를 **Hide Overridden Presets** 토글로 선택할 수 있습니다.
+
+**프리셋 보기**의 오른쪽에는 또 다른 드롭다운 메뉴가 있어(기본값은 **View Selected**), 썸네일이 전체 스택의 결과를 표시할지, 현재 오퍼레이터의 출력만 표시할지를 제어할 수 있습니다.
+
+오른쪽 끝에 있는 **톱니바퀴 메뉴**를 사용하면 프리셋을 저장 수준 간에 이동 및 복사할 수 있으며, 프리셋을 적용할 때 **Close on Apply**를 활성화하여 자동으로 프리셋 보기를 닫을지 여부를 제어할 수 있습니다.
+
+**구형 오퍼레이터 프리셋**: 이제 구형 오퍼레이터 프리셋 메커니즘은 더 이상 권장되지 않으며, 기존 레거시 프리셋에 접근할 수 있는 방법으로만 사용할 수 있습니다. 구형 프리셋을 새 메커니즘으로 저장한 후, 구형 프리셋을 제거하는 것이 권장됩니다.
 
 ### Flare
 
@@ -1008,10 +1143,58 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 * Grabbing multiple shots to the Gallery can now be cancelled.
 * Grabbing multiple shots to the Gallery can now be undone in one go. Bug 62925
 
-#### Multi-Paste
+### **갤러리 보기 업데이트**
+
+Baselight의 갤러리 보기가 업데이트되어 일부 Shots View 기능이 통합되었습니다. 이를 통해 갤러리에서 정렬, 검색, 필터링 기능을 사용할 수 있게 되었습니다.
+
+**추가된 메타데이터**
+
+* 캡처(그랩) 시점에 새로운 메타데이터가 기록됩니다:
+  * Shots View 메타데이터
+  * 캡처 날짜 및 시간
+  * 캡처 사용자
+  * 캡처 소스
+  * 캡처된 기록 타임코드
+
+**정렬 기능**
+
+* 갤러리 보기 내 Sort 메뉴에서 정렬 옵션을 사용할 수 있습니다:
+  * Storyboard: 이전 Baselight 버전의 동작을 반영하여 갤러리 캡처를 드래그 앤 드롭으로 재정렬할 수 있습니다.
+  * Tape + Source TC (C Mode) 정렬
+  * 사용 가능한 메타데이터로 정렬
+  * 정렬 순서 변경
+  * 2차 정렬 적용
+
+**검색 기능**
+
+* 갤러리 보기 내 새로운 Search 버튼을 사용하여 현재 갤러리를 검색할 수 있으며, 기본적으로 코멘트 내에서 검색이 이루어집니다. 검색 기준을 테이프나 클립 이름으로 변경할 수 있습니다.
+
+**필터 기능**
+
+* 사용자 정의 필터를 생성하고 저장할 수 있으며, 필터는 갤러리 간에 지속적으로 유지됩니다. 필터를 정의하는 대화상자에서는 Shots View와 동일한 방식으로 필터를 설정할 수 있습니다.
+
+**목록 보기**
+
+* 갤러리는 Shots View와 유사하게 목록으로 표시될 수 있으며, 이 목록은 모든 사용 가능한 메타데이터 열을 포함합니다.
+
+**기타 업데이트**
+
+* 갤러리에서 BLGs 또는 CDLs을 직접 내보내는 기능이 추가되었습니다. (Bug 51442)
+* 갤러리 썸네일을 Control-클릭하면 현재 장면에서 캡처된 기록 타임코드로 이동합니다.
+* Blackboard 또는 Slate에 기본 키패드 모드로 'View', 'Gallery', 'Recall'이 추가되었습니다.
+* 갤러리에 여러 샷을 캡처하는 작업을 취소하거나, 한 번에 되돌릴 수 있습니다. (Bug 62925)
+
+
+
+### Multi-Paste
 
 * Multi-Paste supports shots which span multiple timeline tracks. When multi-pasting, the new **Maintain Tracks** option determines whether the tracks of source shot strips are maintained in the destination or whether they are pasted into the destination top strip's track. Bug 53121
 * When multi-pasting from multiple scenes, Multi-Paste will now stop with a more informative error message if any of the source scenes can't be opened (previously it would simply skip over unopenable scenes). Bug 66110
+
+### **Multi-Paste 기능**
+
+* Multi-Paste는 여러 타임라인 트랙에 걸쳐 있는 샷을 지원합니다. 새로운 "Maintain Tracks" 옵션을 통해 소스 샷 스트립의 트랙이 목적지에서 유지될지, 아니면 상위 스트립의 트랙에 붙여 넣을지 결정할 수 있습니다. (Bug 53121)
+* 여러 장면에서 Multi-Paste를 수행할 때, 소스 장면을 열 수 없는 경우 더 자세한 오류 메시지가 표시됩니다. (Bug 66110)
 
 ### Colour Science
 
@@ -1052,6 +1235,37 @@ When not using the Master zone, the effect of a stroke will be attenuated for pi
 
     Added "FilmLight: Linear / EGamut 2" and "FilmLight: TLog / EGamut 2" colour spaces. EGamut 2 is changed slightly to include modern camera colour spaces. There is no noticeable difference from a colour grading perspective. Bug 66101
 * Added "Apple: Apple Log / Rec.2020" colour space. Bug 65637
+
+### **컬러 사이언스 업데이트**
+
+**Truelight CAM v3**
+
+* Truelight CAM DRT의 새로운 버전인 "<mark style="color:orange;">Truelight CAM v3"</mark>가 추가되었습니다. 이 버전은 이전의 Truelight CAM v1 및 v2를 대체하게 됩니다.
+* **Truelight CAM v2 이후의 주요 변경 사항**:
+  * <mark style="color:orange;">향상된 그림자 디테일</mark>
+  * <mark style="color:orange;">덜 강렬한 하이라이트 블리치 효과</mark>
+  * <mark style="color:orange;">SDR과 HDR 간의 하이라이트 표현이 더 유사하게 보이도록 개선</mark>
+  * <mark style="color:orange;">향상된 역변환 기능</mark>
+* **ARRI, Academy, RED 씬 룩**: Truelight CAM v3에 맞게 수정되었습니다. 새로운 씬 룩의 매칭 타겟은 200니트에서 SDR과 HDR 사이의 균형을 맞추도록 설정되었습니다. (Bug 59379)
+* **ARRI-2022 씬 룩 추가**: ARRI REVEAL DRT를 기반으로 한 Truelight CAM v3용 ARRI-2022 씬 룩이 추가되었습니다. 이 씬 룩의 매칭 타겟 역시 200니트에서 SDR과 HDR 간의 균형을 맞추도록 설계되었습니다. (Bug 63398)
+
+**색상 적응 변환 (Chromatic Adaptation Transforms, CAT)**
+
+* 색상 공간 간 이미지를 변환할 때 사용되는 CAT가 도입되었습니다. 예를 들어, D65에서 D60으로 색 공간의 화이트 포인트를 변환합니다.
+* **Baselight 5.3**: 고정된 CAT(XYZ Scaling)를 사용했지만, ACES 워크플로우와 같은 작업에서는 다른 CAT가 요구되며, 이는 약간의 색상 차이를 초래할 수 있습니다.
+* **Baselight 6.0**: 새로운 CAT 옵션이 도입되어 장면의 모든 색상 공간 변환에 적용할 수 있습니다. 선택 가능한 CAT 옵션은 다음과 같습니다:
+  * **ACES Workflow (Dynamic)**
+  * **Bradford**
+  * **CIECAT02**
+  * **von Kries**
+  * **XYZ (Legacy)**
+* ACES 워크플로우 설정은 변환 중인 색상 공간에 따라 Bradford와 CIECAT02 간에 동적으로 전환됩니다.
+* **마스터링 화이트 포인트** 변환의 경우, 다른 CAT가 사용되어 마스터링 색역에서 색상이 화이트 포인트 변환에 의해 벗어나지 않도록 합니다. (Bug 56121)
+
+**새로운 색상 공간 추가**
+
+* "FilmLight: Linear / EGamut 2" 및 "FilmLight: TLog / EGamut 2" 색상 공간이 추가되었습니다. 이 색상 공간은 현대 카메라 색상 공간을 포함하도록 약간 변경되었지만, 색상 그레이딩 관점에서 눈에 띄는 차이는 없습니다. (Bug 66101)
+* "Apple: Apple Log / Rec.2020" 색상 공간이 추가되었습니다. (Bug 65637)
 
 ### Dolby Vision
 
