@@ -1,4 +1,8 @@
-# Baselight Release 6.0.20910 (2024-08-08)
+---
+icon: square-x
+---
+
+# Baselight 릴리스 6.0.20910 (2024-08-08)
 
 ## Baselight Release 6.0.20910 (2024-08-08)
 
