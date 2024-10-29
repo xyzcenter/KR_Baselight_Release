@@ -64,8 +64,9 @@ If the reporting system is offline, complete the web form, and create the report
 
 Please note, no personal or private data is collected at any time.\
 \
-\
-자동 이슈 보고
+
+
+### 자동 이슈 보고
 
 Baselight와 Daylight에 새로운 ‘이슈 보고’ 기능이 추가되었습니다. 사용자는 간단한 웹 인터페이스를 통해 소프트웨어 또는 시스템 문제를 보고할 수 있습니다.
 
