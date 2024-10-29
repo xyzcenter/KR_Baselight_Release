@@ -3,19 +3,9 @@
 ## Important Notes&#x20;
 
 Baselight 6.0 no longer supports FilmLightOS 6. Please contact FilmLight Support to discuss upgrading to FilmLightOS 8. Bug 60176\
-
-
-```
-•	Baselight 6.0에서는 더 이상 FilmLightOS 6을 지원하지 않습니다. FilmLightOS 8로 업그레이드하려면 FilmLight 지원팀에 문의하십시오. 버그 60176
-```
-
+\
 Baselight now supports macOS 15 Sequoia; the minimum supported version is now macOS 13 Ventura. Bug 69501\
-
-
-```
-•	Baselight는 이제 macOS 15 Sequoia를 지원하며, 최소 지원 버전은 macOS 13 Ventura입니다. 버그 69501
-```
-
+\
 RED Rocket hardware is no longer supported. Bug 65725
 
 Using a Grade Result Colour Space is deprecated and this functionality may be removed in a future release. Please watch this video for information about recommended workflows for telecine-style grading. Bug 64729
@@ -25,6 +15,22 @@ Dolby Vision external CMU devices are no longer supported. Bug 62581
 The vtre application is no longer included. Bug 66448
 
 Many colour spaces have been updated with higher precision matrices. Scenes upgraded from Baselight 5.3 will use the older colour spaces and warn about that in the console. Visual output is consistent between original and new colour spaces. Bug 67302
+
+## 중요 참고 사항&#x20;
+
+Baselight 6.0은 더 이상 FilmLightOS 6을 지원하지 않습니다. FilmLight 지원 팀에 연락하여 FilmLightOS 8로 업그레이드에 대해 논의하시기 바랍니다. 버그 60176
+
+Baselight는 이제 macOS 15 <mark style="color:red;">Sequoia</mark>를 지원하며, 최소 지원 버전은 macOS 13 <mark style="color:red;">Ventura</mark>입니다. 버그 69501\
+\
+RED Rocket 하드웨어는 더 이상 지원되지 않습니다. 버그 65725
+
+Grade Result Colour Space 사용은 더 이상 권장되지 않으며, 이 기능은 향후 릴리스에서 제거될 수 있습니다. 텔레시네 스타일 그레이딩에 대한 권장 워크플로에 대한 정보는 이 비디오를 참조하십시오. 버그 64729
+
+Dolby Vision 외부 CMU 장치는 더 이상 지원되지 않습니다. 버그 62581
+
+vtre 애플리케이션이 더 이상 포함되지 않습니다. 버그 66448
+
+많은 컬러 스페이스가 더 높은 정밀도의 매트릭스로 업데이트되었습니다. Baselight 5.3에서 업그레이드된 장면은 이전 컬러 스페이스를 사용하며 콘솔에 경고 메시지가 표시됩니다. 시각적 출력은 원본과 새로운 컬러 스페이스 간에 일관성을 유지합니다. 버그 67302
 
 
 
