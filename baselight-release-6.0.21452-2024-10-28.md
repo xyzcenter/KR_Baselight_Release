@@ -62,7 +62,37 @@ If the system is online, once you submit the report, all information and attache
 
 If the reporting system is offline, complete the web form, and create the report. The application will create a metadata file that can be emailed to FilmLight support. This will contain the basic information to create a support ticket. Upon receipt, the support system will create a ticket and will provide the location of the supporting files so they can be retrieved by the support team.
 
-Please note, no personal or private data is collected at any time.
+Please note, no personal or private data is collected at any time.\
+\
+\
+자동 이슈 보고
+
+Baselight와 Daylight에 새로운 ‘이슈 보고’ 기능이 추가되었습니다. 사용자는 간단한 웹 인터페이스를 통해 소프트웨어 또는 시스템 문제를 보고할 수 있습니다.
+
+이 기능을 통해 지원팀은 문제 해결에 도움이 될 수 있는 중요한 시스템 및 애플리케이션 정보를 자동으로 수신하게 됩니다.
+
+보고서를 생성하면 시스템 진단, 환경 설정, 콘솔 로그, 라이선스, 운영 체제 및 하드웨어 정보가 자동으로 수집됩니다. (사용자는 언제든지 파일을 확인하고 삭제할 수 있습니다.)
+
+사용자는 여러 장면, 스크린샷 및 기타 지원 파일을 첨부하거나 파일 공유 사이트에서 자료 다운로드 위치를 나열할 수 있습니다.
+
+사용 전 패키지 설치 필요:
+
+```
+1.	메뉴 바에서 ‘Views’를 선택한 후 ‘Scripts View’를 선택합니다.
+2.	Packages 탭에서 ‘fl-automated-issue-reporting’ 패키지를 선택하고 ‘Install package’를 클릭합니다.
+3.	설치가 완료되면 Baselight/Daylight 메뉴에 ‘Report Issue’ 항목이 표시됩니다.
+```
+
+문제 보고 절차:
+
+```
+•	‘Report Issue’를 선택하여 웹 기반 보고 애플리케이션을 시작합니다. 문제 보고 중에는 Baselight/Daylight가 열려 있어야 합니다.
+•	시스템이 온라인 상태일 경우, 보고서를 제출하면 모든 정보와 첨부 데이터가 서버에 업로드되고 지원 티켓이 생성됩니다.
+•	보고 시스템이 오프라인일 경우, 웹 양식을 작성하고 보고서를 생성합니다. 이 애플리케이션은 FilmLight 지원팀에 이메일로 보낼 수 있는 메타데이터 파일을 생성합니다. 이를 통해 지원 시스템은 티켓을 생성하고, 지원팀이 첨부 파일의 위치에 접근할 수 있게 됩니다.
+```
+
+개인 정보 보호: 개인 정보나 사적 데이터는 전혀 수집되지 않으니 안심하셔도 됩니다.\
+
 
 ### Layer Matte Improvements&#x20;
 
