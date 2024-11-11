@@ -117,6 +117,26 @@ The default for the key can be returned to the generic type by pressing and hold
 
 Once a specific Flexi/OFX operator type has been assigned to a desk key, the picker can still be used to select a different type by holding the "Ctrl" modifier while pressing the key.
 
+
+
+### 레이어 매트 개선
+
+이제 “매트 연산자(Matte Operators)” 그리드와 데스크의 스택 매니저(Stack Manager) 섹션에서 최대 4개의 매트 입력/채널에 직접 액세스하고 구성할 수 있습니다. 그리드에서는 “매트 연산자” 제목의 양쪽에 왼쪽 및 오른쪽 화살표 버튼이 추가되었습니다. 각 그리드 열(새 매트 입력 추가를 위해 예약된 마지막 열 제외)은 해당하는 매트 입력/채널 번호가 표시됩니다. 2개 이상의 매트 입력이 있는 경우 화살표 버튼을 사용해 2개의 열을 레이어의 매트 채널로 “스크롤”할 수 있습니다.
+
+데스크에서 스택 매니저의 매트 병합 키를 누르고 있으면 레이어 상하 키가 깜빡입니다. 그런 다음, 이 키들을 사용하여 데스크의 2개 행(슬레이트에서는 1개 행) 매트 키를 레이어의 매트 채널로 “스크롤”할 수 있습니다. 버그 67417
+
+사용되지 않는 매트 연산자는 그리드에서 연산자를 마우스 오른쪽 버튼으로 클릭하고 “그리드에서 XXX 연산자 제거” 메뉴 옵션을 선택해 “매트 연산자” 그리드에서 제거할 수 있습니다. 연산자는 커스터마이즈 메뉴에서 그리드에 다시 추가할 수 있습니다.
+
+특정 OFX 필터 및 Flexi 이펙트 매트 연산자를 그리드의 기본 옵션으로 저장할 수 있습니다. 이를 통해 이펙트 선택 대화상자를 열지 않고도 레이어의 매트에 직접 삽입할 수 있습니다. 이를 위해 먼저 일반 연산자(OFX 필터 또는 Flexi 이펙트)를 선택한 후, 선택기를 사용해 필요한 특정 연산자를 삽입합니다. 그 후 그리드에서 일반 유형 위에 나타나는 연산자를 기본 옵션으로 저장하려면 커스터마이즈 메뉴의 “그리드에 매트 연산자 추가” 하위 메뉴를 사용하면 됩니다.
+
+데스크 키에서 사용할 수 있는 매트(필터) 연산자는 이제 사용자 정의할 수 있습니다. 이는 매트 연산자 그리드의 커스터마이즈 메뉴에서 제공되는 “데스크 매트 연산자 구성” 대화상자를 통해 가능합니다. 이 대화상자에는 첫 번째 2개 매트(필터 연산자) 데스크 키를 나타내는 드롭다운이 있으며, 이를 통해 해당 키에 할당된 연산자를 선택할 수 있습니다.
+
+선택된 연산자가 2개의 일반 유형(OFX 필터 또는 Flexi 이펙트) 중 하나인 경우, 해당 키를 특정 연산자 유형을 호출하도록 추가 구성할 수 있습니다(이펙트 선택 대화상자를 먼저 호출할 필요 없이). 이를 위해 먼저 선택 대화상자를 통해 원하는 특정 연산자 유형을 삽입합니다. 그런 다음, 데스크 키를 누르고 있으면(삽입된 연산자 유형이 표시됨), 또는 “데스크 매트 연산자 구성” 대화상자로 돌아가 “기본 OFX 필터” 또는 “기본 Flexi 이펙트” 드롭다운을 사용할 수 있습니다.
+
+키의 기본 설정을 일반 유형으로 되돌리려면 키를 다시 누르고 있거나(또는 대화상자에서) 기본 설정으로 되돌릴 수 있습니다. 특정 Flexi/OFX 연산자 유형이 데스크 키에 할당된 경우, “Ctrl” 키를 누른 상태에서 키를 눌러 선택기를 통해 다른 유형을 선택할 수도 있습니다.
+
+
+
 ### Scope Enhancements&#x20;
 
 Zoned Vectorscope/Chromaticity is a new scope view which shows three plots split based on luminance zones.
@@ -128,6 +148,18 @@ The zone thresholds can be set for each plot type from the right-click menu. For
 Chromaticity plots can now be rotated in the same way as the CbCr vectorscope. Bug 68050
 
 The adjustment sliders in the Scope View right-click menus now have reset buttons. Bug 68846
+
+
+
+### 스코프 향상
+
+영역별 벡터스코프/색도(Zoned Vectorscope/Chromaticity)는 밝기 영역에 따라 세 개의 플롯을 나누어 보여주는 새로운 스코프 뷰입니다. 이미지를 클릭하면 해당 플롯에만 노란 십자가가 표시됩니다. 각 플롯 유형의 영역 임계값은 오른쪽 클릭 메뉴에서 설정할 수 있습니다. CbCr 벡터스코프의 기본 영역 임계값은 Y’=0.25 및 Y’=0.75이며, 색도 스코프의 기본 영역 임계값은 18% 회색을 기준으로 -2 및 +2 스톱입니다. 버그 65176
+
+색도 플롯은 이제 CbCr 벡터스코프와 동일한 방식으로 회전할 수 있습니다. 버그 68050
+
+스코프 뷰의 오른쪽 클릭 메뉴에 있는 조정 슬라이더에 이제 리셋 버튼이 추가되었습니다. 버그 68846
+
+
 
 ### Miscellaneous&#x20;
 
@@ -176,6 +208,87 @@ The new 'Has AAF/XML Shot ID Metadata' column in Shots View can be used to check
 Added 'get\_channels' to the FLAPI 'SequenceDescriptor' class. When called on OpenEXR media, it will return an array of all channel names. Bug 69723
 
 Added 'update\_matte\_references' to the FLAPI 'Shot' class. This method updates matte channel names in any Reference operators within the Shot. Bug 69735
+
+
+
+### 기타 사항
+
+
+
+MXF 및 QuickTime 전달 형식에서 DNxHR 코덱이 이제 RGBA/YCCA 채널을 지원하여 렌더링에 불투명도(알파) 데이터를 포함할 수 있습니다. 버그 68400
+
+
+
+IMF 및 방송 기여 프로필(Broadcast Contribution Profile) JPEG 2000은 이제 사용자 정의 비트레이트 및 일정 비트레이트(CBR)로 렌더링할 수 있습니다. 버그 68286
+
+IMF 및 방송 기여 프로필 JPEG 2000 전달 형식의 유효하지 않은 설정은 렌더 뷰 및 렌더 검증 중 경고로 표시됩니다. 버그 55911
+
+
+
+레이어에서 상위 레이어의 원본 이미지를 등급 조정할 수 있도록 설정하는 간단한 (아이콘) 버튼이 추가되었습니다. 이는 일반적으로 원본 이미지의 특정 영역을 나타내기 위한 매트와 결합됩니다. 이렇게 구성된 레이어는 다른 시스템의 “레이어 믹서” 모드와 유사한 기능을 제공합니다.
+
+이 모드를 활성화할 때 Ctrl(맥에서는 Cmd) 수정 키를 누르고 있으면, 레이어 상단에 명시적인 “Blend Source”(원본 이미지에 대한 참조)가 추가됩니다. 이를 통해 Blend Source 아래에 추가 등급 레이어를 삽입하여 원본 이미지에 더 복잡한 등급 조정을 적용할 수 있습니다. 이 버튼은 레이어의 “Result Blending” 섹션에서 혼합 유형 드롭다운 오른쪽에 있습니다. 버그 68771
+
+
+
+LUT 생성을 위한 65x65x65 옵션이 추가되었습니다. 버그 63113
+
+
+
+MXF 및 QuickTime 원본 메타데이터에 DNx 코덱에 대한 추가 정보가 포함됩니다. 버그 68764
+
+
+
+JPEG 파일의 “사용자 코멘트” 메타데이터 읽기 지원이 추가되었습니다. 버그 69156
+
+
+
+“테이프 이름 덮어쓰기” 옵션에 “테이프 이름이 없으면 파일 이름 사용” 기능이 추가되어 테이프 이름이 비어 있을 때만 업데이트할 수 있도록 지원합니다. 버그 63867
+
+
+
+PNG 미디어에서 추가 메타데이터를 읽을 수 있습니다. 메타데이터에서 sRGB로 식별된 PNG 파일은 기본적으로 sRGB 색상 공간으로 할당됩니다. 버그 69254
+
+
+
+열린 장면의 색상 공간이 애플리케이션에서 알고 있는 색상 공간과 다를 경우, 해당 색상 공간이 .flspace 파일로 저장되지 않습니다(/vol/.support/etc/colourspaces). 이는 색상 공간 메뉴에 불필요한 항목이 추가되는 것을 방지하기 위함이며, 대신 해당 공간이 메뉴에서 장면 아이콘으로 표시되어 다른 열린 장면에서 애플리케이션을 종료할 때까지 사용할 수 있습니다. 버그 68763
+
+\
+
+
+R3D 파라미터 연산자는 이제 Extended Highlights를 지원하는 RED 카메라(예: V-RAPTOR \[X]) 미디어에 대해 Extended Highlights를 지원합니다. Extended Highlights로 디코딩하려면 많은 GPU 메모리가 필요하므로 메모리가 작은 GPU에서는 실패할 수 있습니다. 버그 69169
+
+\
+
+
+이전 카메라(Pre-ALEXA 35)에서 생성된 HDE 압축 ARRIRAW MXF 파일 읽기 지원이 추가되었습니다. 버그 69213
+
+\
+
+
+AAF에서 변환의 동작이 업데이트되어 AAF에서 읽어들인 보간 모드를 설정할 수 있도록 했습니다. 버그 61149
+
+
+
+REMOTE 모드 실행 시 Blackboard Classic, Slate 또는 Tangent 제어 패널을 호스팅하는 머신의 IP 주소가 NICE DCV 또는 HP Anyware/PCoIP를 사용하는 시스템에서 자동으로 감지될 수 있습니다. REMOTE 모드는 Baselight Preferences의 “System” 페이지에서 “REMOTE” 섹션에 있는 “Auto-detect REMOTE Mode” 설정을 통해 활성화할 수 있습니다.
+
+
+
+Baselight를 원격 데스크톱에서 실행할 때 Tangent Element 및 Wave 패널도 지원됩니다. Tangent 제어 패널을 호스팅하는 머신의 IP 주소는 Preferences의 “Remote USB server IP Address” 설정을 통해 지정하거나, NICE DCV 또는 HP Anyware/PCoIP를 사용할 때 REMOTE 모드가 활성화된 경우 자동으로 감지할 수 있습니다. 버그 69648
+
+
+
+AAF/XML 샷 ID 메타데이터를 복사 및 붙여넣는 기능이 추가되었습니다. AAF 또는 XML에서 컨포밍된 장면의 미디어를 교체할 때, Baselight가 샷을 AAF/XML 파일의 해당 이벤트와 연관시키는 메타데이터가 손실될 수 있습니다. “Edit” 메뉴의 “Copy AAF/XML Shot ID Metadata” 및 “Paste AAF/XML Shot ID Metadata” 항목을 통해 선택한 스트립에서 교체할 스트립으로 메타데이터를 복사하여 장면의 미디어를 교체하면서도 AAF/XML 워크플로우를 유지할 수 있습니다. Shots View에 새로 추가된 ‘Has AAF/XML Shot ID Metadata’ 열을 사용해 샷에 메타데이터가 포함되어 있는지 확인할 수 있습니다. 버그 63830
+
+
+
+OpenEXR 미디어에서 모든 채널 이름 배열을 반환하는 FLAPI의 ‘SequenceDescriptor’ 클래스에 ‘get\_channels’가 추가되었습니다. 버그 69723
+
+
+
+FLAPI의 ‘Shot’ 클래스에 ‘update\_matte\_references’가 추가되어 Shot 내의 Reference 연산자에 있는 매트 채널 이름을 업데이트할 수 있습니다. 버그 69735
+
+
 
 ## Bug Fixes Since Baselight 6.0.21211&#x20;
 
@@ -271,6 +384,104 @@ Fixed Colour Crosstalk operator not being included in LUT Export. Bug 69214
 
 Fixed an issue where shots before or after the DBS in the Gallery could no longer be selected by holding the 'Select' button and a directional arrow on a Blackboard or Slate. Bug 69415
 
+
+
+## 버그 수정 (Baselight 6.0.21211 이후)
+
+• 큰 스케일로 Boost Contrast 사용 시 속도가 빨라졌습니다. 버그 62973
+
+• 고해상도 전달물의 GPU JPEG 2000 가속 압축 속도가 개선되었습니다. 이미지 시퀀스를 원격 볼륨으로 렌더링할 때 가속이 적용되지 않는 문제도 해결되었습니다. 버그 67783
+
+• 단일 채널 OpenEXR 전달물로 렌더링할 때 채널 이름 지정이 수정되었습니다. 버그 68364
+
+• fl-diag의 hostname 테스트가 cloud.cfg의 zoneless-hostnames 옵션과 호환되도록 업데이트되었습니다. 버그 68657
+
+• fl-diag의 클라우드 테스트에서 cloud.cfg의 ws 호스트에 대해 ‘nara’ 플래그를 허용합니다. 버그 68862
+
+• fl-fsr이 확장 속성이 있는 시퀀스를 무시하지 않도록 수정되었습니다. 버그 68698
+
+• 현재 스트립이 스택 내 다른 스트립보다 짧을 때 Presets View에서 발생하는 충돌이 수정되었습니다. 버그 68659
+
+• 빈 이름으로 작업을 생성하거나 이름을 변경할 수 없도록 수정되었습니다. 버그 68776
+
+• Sony MXF에서 XAVC 또는 XDCAM 코덱을 렌더링할 때 발생하는 충돌이 수정되었습니다. 버그 23576
+
+• Cuts View의 메타데이터 관련 문제(예: 텍스트 연산자) 수정. 버그 68966
+
+• 특정 상황에서 LUT 내보내기 시 발생하는 충돌이 수정되었습니다. 버그 68723
+
+• Gallery 및 Shots View의 성능이 개선되었습니다(관련 변경 사항이 없을 때). 버그 68498
+
+• Stereo 및 Dual Output 디스플레이 레이아웃에서 Image Viewer/Clean Output 관련 다양한 버그가 수정되었습니다. 버그 67929
+
+• Dual Colour Space 디스플레이 레이아웃에서 Image Viewer/Clean Output 관련 다양한 버그가 수정되었습니다. 버그 67877
+
+• bl-config-xorg의 -v 옵션이 연결된 제어 표면을 결정하는 명령줄을 출력하도록 수정되었습니다. 버그 69091
+
+• Paint에서 클론 브러시 오프셋을 설정할 때 사용자 지정 마우스 포인터 업데이트 및 이전 스트로크 표시/숨기기 관련 문제가 수정되었습니다. 버그 67932
+
+• Render View 및 Reports View에서 %{SceneNameOnly} 토큰의 동작이 수정되었습니다(여러 폴더에 중첩된 장면에 대해). 버그 69130
+
+• Transform 연산자 UI에서 오버레이를 비활성화해도 연산자를 선택 해제할 때 이미지에 오버레이가 나타나는 문제가 수정되었습니다. 버그 69131
+
+• Matchbox/ShaderToy GLSL 파일을 열 수 없을 때 발생하는 충돌이 수정되었습니다. 버그 69100
+
+• 애플리케이션 종료 시 ProRes RAW Params 연산자를 선택할 때 발생하는 충돌이 수정되었습니다. 버그 66276
+
+• Edge Crop에서 “Current Aspect Ratio”의 정확도가 향상되었습니다. 버그 69188
+
+• 클라이언트 세션에 사용되는 아이콘이 업데이트되었습니다. 버그 69284
+
+• bl-benchmark에 8k 포맷이 추가되었습니다. 버그 59634
+
+• 라이선스를 획득할 수 없을 때의 오류 메시지가 개선되었습니다. 버그 69334
+
+• SSD 미디어에 액세스할 때 저장소 단편화 경고가 억제되었습니다. 버그 69322
+
+• 그레이딩 스택의 하단에서 변경이 발생했을 때 캐시된 스트립이 불필요하게 다시 캐시되는 문제가 수정되었습니다. 버그 69381
+
+• Matte Tool을 시작할 때 기본 설정이 손상된 경우 발생하는 충돌이 수정되었습니다. 버그 69455
+
+• 레이어 매트 보기 모드와 명시적 스트립 캐싱을 함께 사용할 때 캐시가 사용되지 않는 문제가 수정되었습니다. 버그 69416
+
+• macOS에서 Kona 5 펌웨어 전환 문제가 수정되었습니다. 버그 69485
+
+• GPU JPEG 2000 가속 기능이 About 대화상자에서 라이선스 미보유로 잘못 표시되는 문제가 수정되었습니다. 버그 69422
+
+• UHD 이상의 해상도에서 GPU JPEG 2000 가속 기능을 사용하는 렌더링 문제 수정. 버그 68914
+
+• 사용되지 않는 프래그먼트를 포함하는 QuickTime 무비 읽기 문제 수정. 버그 69570
+
+• ARRI Image SDK의 “Fma”와 관련된 콘솔 경고가 더 이상 표시되지 않도록 수정되었습니다. 버그 69019
+
+• 매우 긴 샷에서 얼굴 오버레이를 그리는 시간이 오래 걸리는 문제 수정. 버그 69523
+
+• Dolby Vision 장면에서 내보낸 BLGs 관련 문제 수정. 버그 59952
+
+• 이전 버전에서 저장된 일부 장면을 로드할 때 발생하는 “Too many connection values” 오류 수정. 버그 68517
+
+• macOS에서 Display View의 확대가 매우 큰 경우 발생하는 충돌 수정. 버그 67806
+
+• 입력 스트립의 캐시 상태가 대상에 복사되지 않도록 방지. 버그 69488
+
+• 렌더 서비스(FLUX Store 및 Baselight RENDER 시스템)가 오류 후 자동으로 재시작되지 않는 문제 수정. 버그 60823
+
+• Scratchpad Original Version에 Pane Description이 고정되는 문제 수정. 버그 69266
+
+• Shader 연산자에서 “Output Alpha: From Shader” 옵션 사용 시 발생하는 동작 오류 수정. 버그 69662
+
+• 손상된 TIFF 파일을 만나면 발생하는 충돌 수정. 버그 57949
+
+• Image Viewer의 오류 교차 표시가 Setup의 Error Cross Colour를 변경하지 않으면 임의의 색상을 가지는 문제 수정. 버그 69797
+
+• 일부 썸네일(특히 Apple ProRes 4444)에서 약간의 녹색 색조가 나타나는 문제 수정. 버그 68589
+
+• LUT 내보내기에 Colour Crosstalk 연산자가 포함되지 않는 문제 수정. 버그 69214
+
+• Gallery에서 DBS 전후의 샷을 Blackboard 또는 Slate에서 ‘Select’ 버튼과 방향 화살표를 눌러 선택할 수 없게 되는 문제 수정. 버그 69415
+
+
+
 ## Known Issues&#x20;
 
 Internal Image Viewer on MacOS is now tagged as sRGB Display. To get accurate colour reproduction on MacOS, the cursor colour space must be set to sRGB Display: 2.2 Gamma / Rec.709 in all cases. Previously, the viewing colour space needed to match the physical calibration of the attached monitor. Bug 69661
@@ -288,3 +499,42 @@ Blackboard Classic control surfaces exhibit occasional flickering when switching
 Shots using RIFE ML Retime (either in a Sequence or a Retime operator) behave as if Process in Working Format is selected. This can result in lower-quality output if the Render Format is larger than the Working Format. These shots also crop the image to the Working Format. Bug 66016
 
 Using "Network Stream" as the Primary Video Output on Intel Mac Pro systems with AMD GPUs is currently unsupported. This will be addressed in a future release of Baselight 6.0. Bug 68727
+
+
+
+
+
+## 알려진 문제
+
+• macOS의 내부 이미지 뷰어가 이제 sRGB 디스플레이로 태그되었습니다. macOS에서 정확한 색상 재현을 위해, 커서 색상 공간을 항상 sRGB 디스플레이: 2.2 감마 / Rec.709로 설정해야 합니다. 이전에는 연결된 모니터의 물리적 캘리브레이션과 일치하는 보기 색상 공간이 필요했습니다. 버그 69661
+
+• macOS 13 Ventura를 실행하는 Intel macOS 시스템에서 특히 RED 및 ARRIRAW 미디어를 사용할 때 심각한 이미지 손상이 발생합니다. 이는 macOS 14 Sonoma에서 해결된 것으로 보입니다. 버그 62237
+
+• macOS 시스템에서 공유된 볼륨이 원격 시스템에서 접근할 때 macOS의 버그로 인해 실패할 수 있습니다. 이 문제를 해결하려면:
+
+1\. Dock 또는 Apple 메뉴에서 시스템 환경설정을 엽니다.
+
+2\. “보안 및 개인정보”를 선택합니다.
+
+3\. 자물쇠 아이콘을 클릭하고 암호 또는 Touch ID를 사용해 변경을 허용합니다.
+
+4\. 왼쪽 목록에서 “전체 디스크 접근”을 선택합니다.
+
+5\. 오른쪽의 + 버튼을 클릭하여 파일 브라우저를 엽니다.
+
+6\. 키보드에서 /를 눌러 “폴더로 이동” 대화 상자를 엽니다.
+
+7\. /sbin을 입력하고 이동을 클릭합니다.
+
+8\. nfsd 파일을 선택하고 열기를 클릭합니다.
+
+9\. Mac을 재시작한 후, 볼륨이 올바르게 작동해야 합니다. 버그 62601
+
+• Relight 연산자는 현재 글로벌 스케일을 설정할 때 드래그 시 예상치 못한 동작을 보입니다. 버그 63798
+
+• Blackboard Classic 제어 표면은 연산자 간 전환 시 간헐적으로 깜빡임 현상이 발생합니다. 이는 향후 베타 릴리스에서 수정될 예정입니다. 버그 62406
+
+• RIFE ML Retime(시퀀스 또는 Retime 연산자에서 사용) 샷은 “작업 형식으로 처리”가 선택된 것처럼 동작합니다. 이로 인해 렌더링 형식이 작업 형식보다 큰 경우 낮은 품질의 출력이 발생할 수 있으며, 이러한 샷은 이미지를 작업 형식으로 자릅니다. 버그 66016
+
+• AMD GPU가 장착된 Intel Mac Pro 시스템에서 “네트워크 스트림”을 주 비디오 출력으로 사용하는 것은 현재 지원되지 않습니다. 이는 향후 Baselight 6.0 릴리스에서 해결될 예정입니다. 버그 68727
+
